@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <EditText
+        android:id="@+id/account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/len_24"
+        android:layout_marginTop="@dimen/len_156"
+        android:layout_marginEnd="@dimen/len_24"
+        android:background="@null"
+        android:hint="@string/account"
+        android:inputType="phone"
+        android:paddingBottom="@dimen/len_12"
+        android:textColor="@color/black_alpha_192"
+        android:textColorHint="@color/grey_600"
+        android:textCursorDrawable="@drawable/cursor_sty" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/account"
+        android:layout_marginStart="@dimen/len_24"
+        android:layout_marginEnd="@dimen/len_24"
+        android:background="@color/black_alpha_32" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account"
+        android:layout_marginStart="@dimen/len_24"
+        android:layout_marginTop="@dimen/len_16"
+        android:layout_marginEnd="@dimen/len_24"
+        android:background="@null"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingBottom="@dimen/len_12"
+        android:textColor="@color/black_alpha_192"
+        android:textColorHint="@color/grey_600"
+        android:textCursorDrawable="@drawable/cursor_sty" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/password"
+        android:layout_marginStart="@dimen/len_24"
+        android:layout_marginEnd="@dimen/len_24"
+        android:background="@color/black_alpha_32" />
+
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_marginTop="@dimen/len_36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="336dp"
+            android:layout_height="@dimen/len_48"
+            android:background="@drawable/login_btn"
+            android:text="@string/text_login"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <net.qiujuer.genius.ui.widget.Loading
+            android:id="@+id/loading"
+            android:layout_width="@dimen/len_36"
+            android:layout_height="@dimen/len_36"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FrameLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/len_12"
+        android:layout_marginEnd="@dimen/len_24"
+        android:text="@string/text_register"
+        android:textColor="@color/blue_600"
+        android:textSize="@dimen/font_18" />
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/statusBarSize"
+            android:paddingLeft="@dimen/len_4"
+            android:paddingRight="@dimen/len_4">
+
+            <com.qingge.yangsong.common.widget.PortraitView
+                android:id="@+id/im_portrait"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_margin="@dimen/len_4"
+                android:padding="@dimen/len_4"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ad" />
+
+            <TextView
+                android:id="@+id/tv_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/len_52"
+                android:text="@string/my_university" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/title_message"
+                android:textAppearance="@style/TextAppearance.Title" />
+
+            <ImageView
+                android:id="@+id/im_search"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/len_48"
+                android:contentDescription="@string/title_search"
+                android:padding="@dimen/len_10"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_search" />
+            <!--android:tint="?attr/toolbarMenuIconColor"  这个是用于设置icon图标颜色的,默认白色,也可在src的矢量图文件调-->
+
+
+            <ImageView
+                android:id="@+id/im_menu"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_gravity="end|center_vertical"
+                android:layout_margin="@dimen/len_4"
+                android:contentDescription="@string/title_more"
+                android:padding="@dimen/len_10"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_menu" />
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/len_76">
+
+    </android.support.v7.widget.RecyclerView>
+</FrameLayout>

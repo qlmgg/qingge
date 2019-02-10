@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.main.CateringFragment">
+
+    <android.support.design.widget.AppBarLayout
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionBarWithStatusBarSize">
+
+    <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/len_4"
+    android:paddingRight="@dimen/len_4"
+    android:layout_marginTop="@dimen/statusBarSize">
+
+    <com.qingge.yangsong.common.widget.PortraitView
+    android:id="@+id/im_portrait"
+    android:layout_width="@dimen/len_40"
+    android:layout_height="@dimen/len_40"
+    android:layout_margin="@dimen/len_4"
+    android:padding="@dimen/len_4"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ad" />
+
+    <TextView
+    android:id="@+id/tv_range"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/my_university"
+    android:layout_gravity="center_vertical"
+    android:layout_marginStart="@dimen/len_52"
+    />
+
+    <TextView
+    android:id="@+id/tv_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:text="@string/tab_daily"
+    android:textAppearance="@style/TextAppearance.Title" />
+
+    </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+</FrameLayout>
