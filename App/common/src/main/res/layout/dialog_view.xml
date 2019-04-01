@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_01"
+        android:layout_marginStart="@dimen/len_4"
+        android:layout_marginEnd="@dimen/len_4"
+        android:textSize="@dimen/font_16"
+        android:text="@string/dialog_tv_my"
+        android:textColor="@color/grey_700"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_02"
+        android:layout_marginStart="@dimen/len_4"
+        android:layout_marginEnd="@dimen/len_4"
+        android:textSize="@dimen/font_16"
+        android:text="@string/dialog_tv_city"
+        android:textColor="@color/grey_700"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_03"
+        android:textSize="@dimen/font_16"
+        android:layout_marginStart="@dimen/len_4"
+        android:layout_marginEnd="@dimen/len_4"
+        android:text="@string/dialog_tv_province"
+        android:textColor="@color/grey_700"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

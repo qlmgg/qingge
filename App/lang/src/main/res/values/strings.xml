@@ -1,0 +1,16 @@
+<resources>
+    <string name="my_university">我的大学</string>
+    <string name="title_message">社区</string>
+    <string name="title_search">搜索</string>
+    <string name="title_more">更多</string>
+    <string name="text_order">订单</string>
+    <string name="text_collection">收藏</string>
+    <string name="text_shop">店铺</string>
+    <string name="text_dynamic">动态</string>
+
+    <string name="text_hint_shop">请输入商家</string>
+
+    <string name="dialog_tv_my">我的大学</string>
+    <string name="dialog_tv_city">市内大学</string>
+    <string name="dialog_tv_province">省内大学</string>
+</resources>
