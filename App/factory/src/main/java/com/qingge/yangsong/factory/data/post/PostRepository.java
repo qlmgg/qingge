@@ -11,6 +11,7 @@ import com.qingge.yangsong.factory.presenter.Account;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 学校里的帖子仓库
@@ -18,7 +19,12 @@ import java.util.List;
  */
 public class PostRepository extends BaseDbRepository<Post> implements PostDataSource {
 
-    public PostRepository() {
+
+    public  PostRepository() {
+    }
+
+    public void clearDatas(){
+        getDataList().clear();
     }
 
     @Override
@@ -42,5 +48,8 @@ public class PostRepository extends BaseDbRepository<Post> implements PostDataSo
     protected boolean isRequired(Post post) {
         return true;
     }
+
+
+
 
 }

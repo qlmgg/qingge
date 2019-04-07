@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.qingge.yangsong.factory.data.helper.DbHelper;
 import com.qingge.yangsong.factory.model.db.BaseDbModel;
+import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.utils.CollectionUtil;
 import com.raizlabs.android.dbflow.structure.database.transaction.QueryTransaction;
 
@@ -12,6 +13,7 @@ import net.qiujuer.genius.kit.reflect.Reflector;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 基础的数据库仓库
@@ -23,6 +25,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
         QueryTransaction.QueryResultListCallback<Data> {
     // 和Presenter交互的回调
     private SucceedCallback<List<Data>> callback;
+
     private final List<Data> dataList = new LinkedList<>(); // 当前缓存的数据
     private Class<Data> dataClass; // 当前范型对应的真实的Class信息
 
@@ -52,6 +55,9 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     @Override
     public void onDataSave(Data[] list) {
         boolean isChanged = false;
+        //这儿直接清空,也就没有缓存了,也就是说下面其实insertOrUpdate(data)始终是insert
+
+//        dataList.clear();
         // 当数据库数据变更的操作
         for (Data data : list) {
             // 是关注的人，同时不是我自己
@@ -139,6 +145,10 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
      * @return True是我关注的数据
      */
     protected abstract boolean isRequired(Data data);
+
+    protected List<Data> getDataList(){
+        return dataList;
+    }
 
     /**
      * 添加数据库的监听操作

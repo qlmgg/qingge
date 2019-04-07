@@ -15,8 +15,8 @@
        <com.qingge.yangsong.common.widget.PortraitView
            android:id="@+id/portrait_view"
            android:src="@drawable/default_portrait"
-           android:layout_width="@dimen/len_44"
-           android:layout_height="@dimen/len_44" />
+           android:layout_width="@dimen/len_36"
+           android:layout_height="@dimen/len_36" />
 
        <TextView
            android:id="@+id/tv_name"
@@ -72,30 +72,30 @@
 
         <ImageView
             android:id="@+id/comment"
-            android:layout_width="18dp"
+            android:layout_width="@dimen/len_14"
             android:src="@drawable/ic_comment"
-            android:layout_height="18dp"
+            android:layout_height="@dimen/len_14"
             android:contentDescription="@string/name" />
         <TextView
             android:id="@+id/comment_num"
             android:text="9000w+"
-            android:textSize="@dimen/len_12"
+            android:textSize="@dimen/font_10"
             android:layout_marginStart="@dimen/len_4"
             android:textColor="#8a8a8a"
             android:layout_width="@dimen/len_52"
             android:layout_height="wrap_content" />
         <ImageView
             android:id="@+id/zan"
-            android:layout_width="18dp"
+            android:layout_width="@dimen/len_14"
             android:src="@drawable/ic_zan"
             android:layout_marginStart="@dimen/len_32"
             android:layout_gravity="center_vertical"
-            android:layout_height="18dp"
+            android:layout_height="@dimen/len_14"
             android:contentDescription="@string/name"/>
         <TextView
             android:id="@+id/zan_num"
             android:text="9000w+"
-            android:textSize="@dimen/len_12"
+            android:textSize="@dimen/font_10"
             android:layout_marginStart="@dimen/len_4"
             android:textColor="#8a8a8a"
             android:layout_width="@dimen/len_52"

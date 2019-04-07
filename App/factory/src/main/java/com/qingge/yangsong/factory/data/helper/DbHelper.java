@@ -1,5 +1,6 @@
 package com.qingge.yangsong.factory.data.helper;
 
+import com.qingge.yangsong.factory.data.post.PostRepository;
 import com.qingge.yangsong.factory.model.db.AppDatabase;
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.config.FlowManager;
@@ -133,6 +134,7 @@ public class DbHelper {
         if (listeners != null && listeners.size() > 0) {
             // 通用的通知
             for (ChangedListener<Model> listener : listeners) {
+
                 listener.onDataSave(models);
             }
         }

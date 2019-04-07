@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,14 +15,15 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:elevation="1dp"
             android:paddingBottom="@dimen/len_12"
+            android:clipToPadding="false"
+
             android:visibility="gone"
-            tools:targetApi="lollipop" />
+            tools:targetApi="lollipop"
+             />
+        <!--android:elevation="1dp"-->
 
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     <com.qingge.yangsong.common.widget.EmptyView
         android:id="@+id/empty"

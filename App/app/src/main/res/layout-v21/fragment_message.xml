@@ -127,6 +127,8 @@
         android:elevation="0dp"
         android:padding="@dimen/len_14"
         android:src="@drawable/ic_add"
+        app:shadowColor="@color/white"
+        app:gInterceptEvent="none"
         />
 
 

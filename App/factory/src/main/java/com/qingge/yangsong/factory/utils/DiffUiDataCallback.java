@@ -28,11 +28,8 @@ public class DiffUiDataCallback<T extends DiffUiDataCallback.UiDataDiffer<T>> ex
     // 两个类是否就是同一个东西，比如Id相等的User
     @Override
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-        Log.e("TAB","测试位置旧:" + oldItemPosition);
-        Log.e("TAB","测试位置新:" + newItemPosition);
         T beanOld = mOldList.get(oldItemPosition);
         T beanNew = mNewList.get(newItemPosition);
-        Log.e("TAB","id对比为:" + beanNew.isSame(beanOld));
         return beanNew.isSame(beanOld);
     }
 
@@ -40,11 +37,8 @@ public class DiffUiDataCallback<T extends DiffUiDataCallback.UiDataDiffer<T>> ex
     // 比如，同一个用户的两个不同实例，其中的name字段不同
     @Override
     public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-        Log.e("TAB","详细对比的位置信息旧:" + oldItemPosition);
-        Log.e("TAB","详细对比的位置信息新:" + newItemPosition);
         T beanOld = mOldList.get(oldItemPosition);
         T beanNew = mNewList.get(newItemPosition);
-        Log.e("TAB","详细对比为:" + beanNew.isSame(beanOld));
         return beanNew.isUiContentSame(beanOld);
     }
 

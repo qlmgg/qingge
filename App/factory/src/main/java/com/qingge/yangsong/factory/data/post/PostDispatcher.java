@@ -62,8 +62,10 @@ public class PostDispatcher implements PostCenter {
                 // 添加操作
                 posts.add(card.build());
             }
+
             // 进行数据库存储，并分发通知, 异步的操作
             DbHelper.save(Post.class, posts.toArray(new Post[0]));
+
         }
     }
 }

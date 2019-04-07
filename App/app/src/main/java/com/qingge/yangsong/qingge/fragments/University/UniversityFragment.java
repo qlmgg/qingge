@@ -24,6 +24,7 @@ import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
 import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;
 import com.qingge.yangsong.factory.data.helper.UserHelper;
+import com.qingge.yangsong.factory.data.post.PostRepository;
 import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.model.db.User;
@@ -33,17 +34,23 @@ import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.qingge.yangsong.factory.presenter.school.SchoolPresenter;
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.fragments.main.MessageFragment;
+import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class UniversityFragment extends PresenterFragment<SchoolContract.Presenter>
-        implements SchoolContract.View , RecyclerAdapter.AdapterListener<Post> ,SwipeRefreshLayout.OnRefreshListener{
+        implements SchoolContract.View, RecyclerAdapter.AdapterListener<Post> {
 
     @BindView(R.id.empty)
     EmptyView mEmptyView;
@@ -51,57 +58,15 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
     @BindView(R.id.recycler)
     RecyclerView mRecycler;
 
-    @BindView(R.id.swipe_refresh)
-    SwipeRefreshLayout mSwipeRefresh;
+    @BindView(R.id.smart_refresh)
+    RefreshLayout mRefreshLayout;
 
     private String mSchoolId = MessageFragment.getSchoolId();
     private RecyclerAdapter<Post> mAdapter;
-
-//    private boolean mIsPrepare = false;        //视图还没准备好
-//    private boolean mIsVisible = false;        //不可见
-//    private boolean mIsFirstLoad = true;    //第一次加载
+    public int pageCount = 2;// 总页数 每次请求返回后的会得到
 
     public UniversityFragment() {
     }
-
-//    @SuppressLint("ValidFragment")
-//    public UniversityFragment(String schoolId) {
-//        mSchoolId = schoolId;
-//    }
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        mIsPrepare = true;
-//        lazyLoad();
-//    }
-
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        //isVisibleToUser这个boolean值表示:该Fragment的UI 用户是否可见
-//        if (isVisibleToUser) {
-//            mIsVisible = true;
-//            lazyLoad();
-//        } else {
-//            mIsVisible = false;
-//        }
-//    }
-
-//    private void lazyLoad() {
-//        //这里进行三个条件的判断，如果有一个不满足，都将不进行加载
-//        if (!mIsPrepare || !mIsVisible||!mIsFirstLoad) {
-//            return;
-//        }
-//        loadData();
-//        //数据加载完毕,恢复标记,防止重复加载
-//        mIsFirstLoad = false;
-//    }
-
-//    private void loadData() {
-//        //这里进行网络请求和数据装载
-//        mPresenter.loading(mSchoolId);
-//    }
 
     @Override
     protected void initData() {
@@ -118,10 +83,30 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
     protected void initWidget(View root) {
         super.initWidget(root);
 
-        mSwipeRefresh.setOnRefreshListener(this);
+        //设置头部为官方样式
+        mRefreshLayout.setRefreshHeader(new MaterialHeader(Objects.requireNonNull(getContext())));
+        //设置底部样式
+        mRefreshLayout.setRefreshFooter(new ClassicsFooter(getContext()));
+        //底部高度
+        mRefreshLayout.setFooterHeight(30);
+        //底部拉取拉升长度(高度的几倍)
+        mRefreshLayout.setFooterMaxDragRate(1);
+        //下拉监听
+        mRefreshLayout.setOnRefreshListener(refreshLayout -> {
+            mPresenter.loadingNoStart(mSchoolId,true);
+            //下拉刷新完成
+            mRefreshLayout.finishRefresh();
+        });
+
+        mRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            //上拉加载
+            mPresenter.loadingNoStart(mSchoolId, false);
+            mRefreshLayout.finishLoadMore();
+        });
+
 
         mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecycler.setAdapter(mAdapter = new RecyclerAdapter<Post>(this){
+        mRecycler.setAdapter(mAdapter = new RecyclerAdapter<Post>(this) {
             @Override
             protected int getItemViewType(int position, Post post) {
                 return R.layout.item_school_post;
@@ -144,11 +129,18 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
     }
 
     @Override
-    public void loadingResult(List<Post> posts) {
+    public void loadingResult(int pageCount) {
+        this.pageCount = pageCount;
+
         // 数据成功的情况下返回数据
 //        mAdapter.replace(posts);
 //         如果有数据，则是OK，没有数据就显示空布局
 //        mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount() > 0);
+    }
+
+    @Override
+    public int getPageCount() {
+        return pageCount;
     }
 
     @Override
@@ -158,7 +150,7 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
 
     @Override
     public void onAdapterDataChanged() {
-        mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount()>0);
+        mPlaceHolderView.triggerOkOrEmpty(mAdapter.getItemCount() > 0);
     }
 
 
@@ -172,14 +164,6 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
     public void onItemLongClick(RecyclerAdapter.ViewHolder holder, Post post) {
         //TODO 点击帖子后的处理
         Application.showToast("长按:待完成");
-    }
-
-    //下拉刷新
-    @Override
-    public void onRefresh() {
-        //TODO 后面细写
-        SchoolHelper.loadingPost(mSchoolId);
-        mSwipeRefresh.setRefreshing(false);
     }
 
 
@@ -216,5 +200,6 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
 //            PersonalActivity.show(getContext(), mData.getId());
         }
     }
+
 
 }

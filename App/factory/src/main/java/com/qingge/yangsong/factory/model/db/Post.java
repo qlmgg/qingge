@@ -132,14 +132,14 @@ public class Post extends BaseDbModel<Post> {
 
     @Override
     public boolean isUiContentSame(Post old) {
-        return old == this
-                ||Objects.equals(this.senderPortrait, old.senderPortrait)
-                || Objects.equals(this.attach, old.attach)
-                || Objects.equals(this.content, old.content)
-                || Objects.equals(this.senderId, old.senderId)
-                || Objects.equals(this.senderName, old.senderName)
-                || Objects.equals(this.senderPortrait, old.senderPortrait)
-                || Objects.equals(this.commentNumber, old.commentNumber)
-                || Objects.equals(this.fabulousNumber, old.fabulousNumber);
+
+        return Objects.equals(this.senderPortrait, old.senderPortrait)
+                && Objects.equals(this.attach, old.attach)
+                && Objects.equals(this.content, old.content)
+                && Objects.equals(this.senderId, old.senderId)
+                && Objects.equals(this.senderName, old.senderName)
+                && Objects.equals(this.senderPortrait, old.senderPortrait)
+                && Objects.equals(this.commentNumber, old.commentNumber)
+                && Objects.equals(this.fabulousNumber, old.fabulousNumber);
     }
 }
