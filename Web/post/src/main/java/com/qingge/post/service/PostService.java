@@ -1,10 +1,13 @@
 package com.qingge.post.service;
 
 import com.google.common.base.Strings;
+
 import com.qingge.post.bean.api.post.PostModel;
 import com.qingge.post.bean.api.post.WriteCommentModel;
+import com.qingge.post.bean.base.PushModel;
 import com.qingge.post.bean.base.ResponseModel;
 import com.qingge.post.bean.card.CommentCard;
+import com.qingge.post.bean.card.LoadPostCard;
 import com.qingge.post.bean.card.PostCard;
 import com.qingge.post.bean.db.Comment;
 import com.qingge.post.bean.db.Post;
@@ -13,6 +16,7 @@ import com.qingge.post.bean.db.User;
 import com.qingge.post.factory.PostFactory;
 import com.qingge.post.factory.UniversityFactory;
 import com.qingge.post.factory.UserFactory;
+import com.qingge.post.utils.PushDispatcher;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,8 +28,40 @@ public class PostService extends BaseService {
     @GET
     @Path("/test")
     public String test() {
+
+        PushModel model = new PushModel();
+        model.add(new PushModel.Entity(0,"你好呀!青鸽"));
+
+        PushDispatcher dispatcher = new PushDispatcher();
+        dispatcher.add(getSelf(),model);
+        dispatcher.submit();
+
         return "测试成功";
     }
+
+
+    // 分页拿帖子拿帖子
+    @GET
+    @Path("{id}|{page}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<LoadPostCard> getPost(@PathParam("id") String id, @PathParam("page") int page) {
+        if (Strings.isNullOrEmpty(id)) {
+            // 返回参数异常
+            return ResponseModel.buildParameterError();
+        }
+        LoadPostCard loadPostCard = new LoadPostCard();
+        loadPostCard.setPageCount(4);
+
+        List<Post> posts = UniversityFactory.findByIdPage(id,page);
+        //转换
+        List<PostCard> cards = posts.stream()
+                .map(PostCard::new)
+                .collect(Collectors.toList());
+        loadPostCard.setCards(cards);
+        return ResponseModel.buildOk(loadPostCard);
+    }
+
 
     // 拿帖子
     @GET
@@ -38,13 +74,13 @@ public class PostService extends BaseService {
             return ResponseModel.buildParameterError();
         }
 
-        University university = UniversityFactory.findById(id);
-        if (university == null) {
-            // 没找到，返回没找到学校
-            return ResponseModel.buildNotFoundUserError(null);
-        }
+//        University university = UniversityFactory.findById(id);
+//        if (university == null) {
+//            // 没找到，返回没找到学校
+//            return ResponseModel.buildNotFoundUserError(null);
+//        }
 
-        List<Post> posts = UniversityFactory.posts(university);
+        List<Post> posts = UniversityFactory.postsById(id);
         //转换
         List<PostCard> cards = posts.stream()
                 .map(PostCard::new)

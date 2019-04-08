@@ -12,8 +12,9 @@
         <property name="connection.username">root</property>
         <property name="connection.password">Ys584520..</property>
 
-        <!--<property name="connection.url">jdbc:mysql://qiujuer.net:6968/DB_I_T_PUSH?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</property>-->
-
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/qingge?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</property>-->
+        <!--<property name="connection.username">root</property>-->
+        <!--<property name="connection.password">584520</property>-->
 
         <!-- JDBC 链接池大小 -->
         <property name="connection.pool_size">5</property>

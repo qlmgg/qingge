@@ -44,17 +44,29 @@ public class UniversityFactory {
                 .list());
     }
 
-    //查询大学里的帖子
-    public static List<Post> posts(University university) {
-        List<Post> msg = new ArrayList<>();
-        return Hib.query(session -> {
-            session.load(university, university.getId());//因为要用到懒加载的数据  所以这儿需要进行加载一次
-            Set<Post> posts = university.getMessages();
-            msg.addAll(posts);
 
-            return msg;
-        });
+
+    //根据查询大学id查帖子
+    @SuppressWarnings("unchecked")
+    public static List<Post> postsById(String universityId) {
+        return Hib.query(session -> (List<Post>)session.createQuery("from Post where UniversityId=:universityId order by updateAt desc ")
+        .setParameter("universityId",universityId).setMaxResults(5)
+        .list());
     }
+
+
+
+//    根据查询大学id查帖子分页查询
+    @SuppressWarnings("unchecked")
+    public static List<Post> findByIdPage(String universityId,int page) {
+        return Hib.query(session -> (List<Post>)session.createQuery("from Post where UniversityId=:universityId order by updateAt desc")
+                .setParameter("universityId",universityId)
+                .setFirstResult(page*8)
+                .setMaxResults(8)
+                .list());
+    }
+
+
 
     //创建大学
     public static University create(User owner, UniversityModel model) {
