@@ -6,26 +6,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 
-import android.support.v4.view.ViewCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.qingge.yangsong.common.app.Activity;
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.fragments.main.CateringFragment;
 import com.qingge.yangsong.qingge.fragments.main.DailyFragment;
-import com.qingge.yangsong.qingge.fragments.main.MessageFragment;
+import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.qingge.yangsong.qingge.fragments.main.MyFragment;
 import com.qingge.yangsong.qingge.helper.NavHelper;
 
@@ -91,7 +84,7 @@ public class MainActivity extends Activity
                 getSupportFragmentManager(), this);
         //添加fragment进去
         mNavHelper.add(R.id.tab_catering, new NavHelper.Tab<>(CateringFragment.class, R.string.tab_catering))
-                .add(R.id.tab_message, new NavHelper.Tab<>(MessageFragment.class, R.string.tab_message))
+                .add(R.id.tab_message, new NavHelper.Tab<>(CommunityFragment.class, R.string.tab_message))
                 .add(R.id.tab_daily,new NavHelper.Tab<>(DailyFragment.class,R.string.tab_daily))
                 .add(R.id.tab_my, new NavHelper.Tab<>(MyFragment.class, R.string.tab_my));
         mNavigationView.setOnNavigationItemSelectedListener(this);

@@ -1,55 +1,33 @@
-package com.qingge.yangsong.qingge.fragments.University;
+package com.qingge.yangsong.qingge.fragments.School;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.qingge.yangsong.common.app.Application;
-import com.qingge.yangsong.common.app.Fragment;
 import com.qingge.yangsong.common.app.PresenterFragment;
 import com.qingge.yangsong.common.widget.EmptyView;
 import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
-import com.qingge.yangsong.factory.Factory;
-import com.qingge.yangsong.factory.data.helper.SchoolHelper;
-import com.qingge.yangsong.factory.data.helper.UserHelper;
-import com.qingge.yangsong.factory.data.post.PostRepository;
-import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.db.Post;
-import com.qingge.yangsong.factory.model.db.User;
-import com.qingge.yangsong.factory.presenter.Account;
-import com.qingge.yangsong.factory.presenter.BasePresenter;
 import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.qingge.yangsong.factory.presenter.school.SchoolPresenter;
 import com.qingge.yangsong.qingge.R;
-import com.qingge.yangsong.qingge.fragments.main.MessageFragment;
+import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import net.qiujuer.genius.kit.handler.Run;
-import net.qiujuer.genius.kit.handler.runable.Action;
 
-import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UniversityFragment extends PresenterFragment<SchoolContract.Presenter>
+public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
         implements SchoolContract.View, RecyclerAdapter.AdapterListener<Post> {
 
     @BindView(R.id.empty)
@@ -61,11 +39,11 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
     @BindView(R.id.smart_refresh)
     RefreshLayout mRefreshLayout;
 
-    private String mSchoolId = MessageFragment.getSchoolId();
+    private String mSchoolId = CommunityFragment.getSchoolId();
     private RecyclerAdapter<Post> mAdapter;
     public int pageCount = 2;// 总页数 每次请求返回后的会得到
 
-    public UniversityFragment() {
+    public SchoolFragment() {
     }
 
     @Override
@@ -114,7 +92,7 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
 
             @Override
             protected ViewHolder<Post> onCreateViewHolder(View view, int viewType) {
-                return new UniversityFragment.ViewHolder(view);
+                return new SchoolFragment.ViewHolder(view);
             }
         });
 
@@ -185,7 +163,7 @@ public class UniversityFragment extends PresenterFragment<SchoolContract.Present
         @Override
         protected void onBind(Post post) {
             Run.onUiAsync(() -> {
-                mPortraitView.setup(Glide.with(UniversityFragment.this), post.getSenderPortrait());
+                mPortraitView.setup(Glide.with(SchoolFragment.this), post.getSenderPortrait());
                 mName.setText(post.getSenderName());
                 mContent.setText(post.getContent());
             });

@@ -1,20 +1,13 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.qingge.yangsong.common.app.Application;
-import com.qingge.yangsong.common.app.Fragment;
 import com.qingge.yangsong.common.app.PresenterFragment;
-import com.qingge.yangsong.common.widget.CustomOperateDialog;
-import com.qingge.yangsong.common.widget.MyViewPagerAdapter;
 import com.qingge.yangsong.common.widget.PortraitView;
-import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;
 import com.qingge.yangsong.factory.model.SchoolInfoModel;
 import com.qingge.yangsong.factory.model.db.University;
@@ -23,21 +16,18 @@ import com.qingge.yangsong.factory.presenter.community.CommunityContract;
 import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.activity.SendPostActivity;
-import com.qingge.yangsong.qingge.fragments.University.UniversityFragment;
-import com.xujiaji.happybubble.BubbleDialog;
-import com.xujiaji.happybubble.BubbleLayout;
+import com.qingge.yangsong.qingge.fragments.School.SchoolFragment;
 
 
 import net.qiujuer.genius.ui.widget.FloatActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MessageFragment extends PresenterFragment<CommunityContract.Presenter>
+public class CommunityFragment extends PresenterFragment<CommunityContract.Presenter>
         implements CommunityContract.View {
     @BindView(R.id.tv_range)
     TextView mRange;
@@ -83,13 +73,13 @@ public class MessageFragment extends PresenterFragment<CommunityContract.Present
             University university = SchoolHelper.findUniversity(mSchoolId);
             assert university != null;
             //设置学校头像
-            mPortrait.setup(Glide.with(MessageFragment.this), university.getPicture());
+            mPortrait.setup(Glide.with(CommunityFragment.this), university.getPicture());
             //设置学校名字
             mRange.setText(university.getName());
 
             assert getFragmentManager() != null;
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new UniversityFragment())
+                    .add(R.id.container, new SchoolFragment())
                     .commit();
 
 //            mPresenter.rangeSwitching("我的大学");
@@ -143,11 +133,11 @@ public class MessageFragment extends PresenterFragment<CommunityContract.Present
 //        mSchoolId = models.get(0).getSchoolId();
 //        assert getFragmentManager() != null;
 //        getFragmentManager().beginTransaction()
-//                .add(R.id.container, new UniversityFragment())
+//                .add(R.id.container, new SchoolFragment())
 //                .commit();
 //        mRange.setText(models.get(0).getSchoolName());
 //        //TODO  后面把这个SchoolInfoModel改一下  把头像也返回来  这儿就先用自己头像
-//        mPortrait.setup(Glide.with(MessageFragment.this), Account.getUser());
+//        mPortrait.setup(Glide.with(CommunityFragment.this), Account.getUser());
 
 //        mFragments.removeAll(mFragments);
 //        schoolName.removeAll(schoolName);
@@ -156,7 +146,7 @@ public class MessageFragment extends PresenterFragment<CommunityContract.Present
 //            schoolName.add(model.getSchoolName());
 //            mTabLayout.addTab(mTabLayout.newTab().setText(model.getSchoolName()));
 //            //TODO 实例化的时候传参这儿看以后需不需要改一下
-//            mFragments.add(new UniversityFragment(model.getSchoolId()));
+//            mFragments.add(new SchoolFragment(model.getSchoolId()));
 //        }
 //
 //        MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),

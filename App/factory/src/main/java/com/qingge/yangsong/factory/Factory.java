@@ -205,6 +205,7 @@ public class Factory {
      */
     public static void dispatchPush(String str) {
         // 首先检查登录状态
+        Log.e("TAB","测试 : " +str);
         if (!Account.isLogin())
             return;
 
@@ -223,6 +224,7 @@ public class Factory {
 
                 case PushModel.ENTITY_TYPE_MESSAGE: {
                     // 普通消息
+
 //                    MessageCard card = getGson().fromJson(entity.content, MessageCard.class);
 //                    getMessageCenter().dispatch(card);
                     break;

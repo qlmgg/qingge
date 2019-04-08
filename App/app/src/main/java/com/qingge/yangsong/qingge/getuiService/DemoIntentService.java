@@ -1,6 +1,7 @@
 package com.qingge.yangsong.qingge.getuiService;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.igexin.sdk.GTIntentService;
 import com.igexin.sdk.message.GTCmdMessage;
@@ -30,6 +31,7 @@ public class DemoIntentService extends GTIntentService {
 
     @Override
     public void onReceiveMessageData(Context context, GTTransmitMessage msg) {
+
         byte[] payload = msg.getPayload();
         if (payload != null) {
             String message = new String(payload);
