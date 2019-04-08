@@ -1,7 +1,7 @@
 package com.qingge.post.service;
 
 import com.qingge.post.bean.api.university.SchoolInfoModel;
-import com.qingge.post.bean.api.university.UniversityModel;
+import com.qingge.post.bean.api.university.SchoolModel;
 import com.qingge.post.bean.base.ResponseModel;
 import com.qingge.post.bean.card.UniversityCard;
 import com.qingge.post.bean.db.University;
@@ -26,9 +26,9 @@ public class UniversityService extends BaseService {
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseModel createUniversity(UniversityModel model) {
+    public ResponseModel createUniversity(SchoolModel model) {
         //检查
-        if (!UniversityModel.check(model)) {
+        if (!SchoolModel.check(model)) {
             return ResponseModel.buildParameterError();//返回参数异常
         }
         //拿到用户

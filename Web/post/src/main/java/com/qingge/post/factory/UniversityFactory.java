@@ -1,15 +1,12 @@
 package com.qingge.post.factory;
 
-import com.qingge.post.bean.api.university.UniversityModel;
-import com.qingge.post.bean.db.Comment;
+import com.qingge.post.bean.api.university.SchoolModel;
 import com.qingge.post.bean.db.Post;
 import com.qingge.post.bean.db.University;
 import com.qingge.post.bean.db.User;
 import com.qingge.post.utils.Hib;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class UniversityFactory {
     //通过id找到大学
@@ -69,7 +66,7 @@ public class UniversityFactory {
 
 
     //创建大学
-    public static University create(User owner, UniversityModel model) {
+    public static University create(User owner, SchoolModel model) {
 
         University university = new University(model, owner);
         return Hib.query(session -> {

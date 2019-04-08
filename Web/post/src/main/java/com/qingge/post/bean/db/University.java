@@ -1,7 +1,7 @@
 package com.qingge.post.bean.db;
 
 
-import com.qingge.post.bean.api.university.UniversityModel;
+import com.qingge.post.bean.api.university.SchoolModel;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -76,7 +76,7 @@ public class University {
     private Set<Post> posts = new HashSet<>();
 
 
-    public University(UniversityModel model, User owner) {
+    public University(SchoolModel model, User owner) {
         this.name = model.getName();
         this.description = model.getDescription();
         this.picture = model.getPicture();
