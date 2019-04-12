@@ -20,15 +20,14 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         // 在界面onAttach之后就触发初始化Presenter
         initPresenter();
-}
+    }
 
     /**
      * 初始化Presenter
      */
-    protected abstract void initPresenter();
+    protected abstract Presenter initPresenter();
 
     @Override
     public void showError(int str) {

@@ -135,7 +135,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
     public static abstract class ViewHolder<Data> extends RecyclerView.ViewHolder {
 
         private Unbinder unbinder;
-        private Data mData;
+        protected Data mData;
         private AdapterCallback<Data> callback;
 
         public ViewHolder(@NonNull View itemView) {
@@ -148,7 +148,6 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
          * @param data 绑定的数据
          */
         void bind(Data data) {
-            Log.e("NHK","测试顺序 :  bind");
             this.mData = data;
             onBind(data);
         }

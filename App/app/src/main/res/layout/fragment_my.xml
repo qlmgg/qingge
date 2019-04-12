@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -14,17 +15,17 @@
 
         <!--去掉 app:expandedTitleTextAppearance="xx"  中的snap   这样可以使CollapsingToolbarLayout折叠时不自动回弹-->
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/CollapsingToolbarLayout"
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/colorAccent"
+            app:contentScrim="@color/white"
             app:expandedTitleTextAppearance="@style/TextAppearance.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="false">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/len_256"
+                android:layout_height="@dimen/len_224"
                 android:contentDescription="@string/app_name"
                 android:foreground="@color/black_alpha_48"
                 android:scaleType="centerCrop"
@@ -59,7 +60,7 @@
                 android:textSize="@dimen/font_14" />
 
             <com.qingge.yangsong.common.widget.PortraitView
-                android:id="@+id/PortraitView"
+                android:id="@+id/portrait"
                 android:layout_width="@dimen/len_72"
                 android:layout_height="@dimen/len_72"
                 android:layout_marginStart="@dimen/len_24"
@@ -69,60 +70,72 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="109dp"
+                app:layout_collapseMode="pin"
+                android:layout_height="@dimen/actionBarWithStatusBarSize"
                 android:paddingTop="@dimen/statusBarSize">
-
+                <ImageView
+                    android:id="@+id/iv_set"
+                    android:src="@drawable/ic_set"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp" />
+                <TextView
+                    android:id="@+id/tv_title_name"
+                    android:textAppearance="@style/TextAppearance.Title"
+                    android:text="@string/tab_my"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </android.support.v7.widget.Toolbar>
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/len_36"
-                android:layout_gravity="bottom"
-                android:background="@drawable/layout__border"
-                app:tabIndicatorColor="@color/light_green_400"
-                app:tabSelectedTextColor="@color/light_green_400"
-                app:tabTextColor="@color/grey_500">
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_36"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_order" />
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_36"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_collection" />
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_36"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_shop" />
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_36"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_dynamic" />
-
-            </android.support.design.widget.TabLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/FrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <!--android:background="@drawable/layout__border"-->
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/len_36"
+            app:tabIndicatorFullWidth="false"
+            android:background="@drawable/layout_border"
+            app:tabIndicatorColor="@color/grey_700"
+            app:tabSelectedTextColor="@color/grey_700"
+            app:tabBackground="@color/white"
+            app:tabTextColor="@color/grey_500">
+
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_36"
+                android:layout_height="wrap_content"
+                android:text="@string/text_order" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_36"
+                android:layout_height="wrap_content"
+                android:text="@string/text_collection" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_36"
+                android:layout_height="wrap_content"
+                android:text="@string/text_shop" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_36"
+                android:layout_height="wrap_content"
+                android:text="@string/text_dynamic" />
+
+        </android.support.design.widget.TabLayout>
         <android.support.v4.view.ViewPager
-            android:id="@+id/ViewPager"
+            android:id="@+id/view_pager"
+            android:layout_marginTop="@dimen/len_36"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </android.support.v4.view.ViewPager>
 
     </FrameLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>

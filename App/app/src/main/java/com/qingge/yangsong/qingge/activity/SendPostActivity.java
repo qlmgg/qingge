@@ -17,8 +17,8 @@ import butterknife.OnClick;
 
 public class SendPostActivity extends Activity {
 
-    @BindView(R.id.tv_back)
-    ImageView mBack;
+//    @BindView(R.id.tv_back)
+//    ImageView mBack;
 
     public static void show(Context context){
         Intent intent = new Intent(context,SendPostActivity.class);
@@ -33,7 +33,6 @@ public class SendPostActivity extends Activity {
     @Override
     protected void initWindows() {
         super.initWindows();
-        setTitle("123456");
 
         //设置状态栏全透明
         if (Build.VERSION.SDK_INT >=  Build.VERSION_CODES.LOLLIPOP) {
@@ -56,8 +55,8 @@ public class SendPostActivity extends Activity {
         }
     }
 
-    @OnClick(R.id.tv_back)
-    public void back(){
-        finish();
-    }
+//    @OnClick(R.id.tv_back)
+//    public void back(){
+//        finish();
+//    }
 }

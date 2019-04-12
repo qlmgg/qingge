@@ -9,6 +9,10 @@ import com.google.gson.GsonBuilder;
 import com.qingge.yangsong.common.app.Application;
 import com.google.gson.reflect.TypeToken;
 import com.qingge.yangsong.factory.data.DataSource;
+import com.qingge.yangsong.factory.data.group.GroupCenter;
+import com.qingge.yangsong.factory.data.group.GroupDispatcher;
+import com.qingge.yangsong.factory.data.message.MessageCenter;
+import com.qingge.yangsong.factory.data.message.MessageDispatcher;
 import com.qingge.yangsong.factory.data.post.PostCenter;
 import com.qingge.yangsong.factory.data.post.PostDispatcher;
 import com.qingge.yangsong.factory.data.school.SchoolCenter;
@@ -17,27 +21,16 @@ import com.qingge.yangsong.factory.data.user.UserCenter;
 import com.qingge.yangsong.factory.data.user.UserDispatcher;
 import com.qingge.yangsong.factory.model.PushModel;
 import com.qingge.yangsong.factory.model.RspModel;
+import com.qingge.yangsong.factory.model.card.MessageCard;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.utils.DBFlowExclusionStrategy;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
-//import com.raizlabs.android.dbflow.config.FlowConfig;
-//import com.raizlabs.android.dbflow.config.FlowManager;
-//
-//import net.qiujuer.italker.common.app.Application;
-//import net.qiujuer.italker.factory.data.DataSource;
-//import net.qiujuer.italker.factory.data.group.GroupCenter;
-//import net.qiujuer.italker.factory.data.group.GroupDispatcher;
-//import net.qiujuer.italker.factory.data.message.MessageCenter;
-//import net.qiujuer.italker.factory.data.message.MessageDispatcher;
-//import net.qiujuer.italker.factory.data.user.UserCenter;
-//import net.qiujuer.italker.factory.data.user.UserDispatcher;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
-//import net.qiujuer.italker.factory.model.card.GroupCard;
-//import net.qiujuer.italker.factory.model.card.GroupMemberCard;
-//import net.qiujuer.italker.factory.model.card.MessageCard;
-//import net.qiujuer.italker.factory.model.card.UserCard;
+
 //import net.qiujuer.italker.factory.utils.DBFlowExclusionStrategy;
 
 import java.lang.reflect.Type;
@@ -225,8 +218,8 @@ public class Factory {
                 case PushModel.ENTITY_TYPE_MESSAGE: {
                     // 普通消息
 
-//                    MessageCard card = getGson().fromJson(entity.content, MessageCard.class);
-//                    getMessageCenter().dispatch(card);
+                    MessageCard card = getGson().fromJson(entity.content, MessageCard.class);
+                    getMessageCenter().dispatch(card);
                     break;
                 }
 
@@ -296,16 +289,16 @@ public class Factory {
      *
      * @return 用户中心的规范接口
      */
-//    public static GroupCenter getGroupCenter() {
-//        return GroupDispatcher.instance();
-//    }
+    public static GroupCenter getGroupCenter() {
+        return GroupDispatcher.instance();
+    }
 
     /**
      * 获取一个用户中心的实现类
      *
      * @return 用户中心的规范接口
      */
-//    public static MessageCenter getMessageCenter() {
-//        return MessageDispatcher.instance();
-//    }
+    public static MessageCenter getMessageCenter() {
+        return MessageDispatcher.instance();
+    }
 }

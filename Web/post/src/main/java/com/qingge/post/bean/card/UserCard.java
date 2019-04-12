@@ -48,6 +48,7 @@ public class UserCard {
         this(user, universityId,false);
     }
 
+
     public UserCard(final User user,String universityId,boolean isFollow) {
         this.isFollow = isFollow;
         this.schoolName = user.getSchoolName();

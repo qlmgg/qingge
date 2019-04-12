@@ -67,6 +67,16 @@
         <mapping package="com.qingge.post.bean.db"
                  class="com.qingge.post.bean.db.Reply"/>
 
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.Group"/>
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.GroupMember"/>
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.Message"/>
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.PushHistory"/>
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.UserFollow"/>
         <!--<mapping package="net.qiujuer.web.italker.push.bean.db"-->
                  <!--class="net.qiujuer.web.italker.push.bean.db.UserFollow"/>-->
 

@@ -57,7 +57,18 @@
             android:name=".activity.SendPostActivity"
             android:theme="@style/AppTheme.TransStatusBar"
             />
-
+        <activity
+            android:name=".activity.PersonalActivity"
+            android:theme="@style/AppTheme.TransStatusBar"
+            />
+        <activity
+            android:name=".activity.MessageActivity"
+            android:theme="@style/AppTheme.TransStatusBar"
+            />
+        <activity
+            android:name=".activity.ChatUserActivity"
+            android:theme="@style/AppTheme.TransStatusBar"
+            />
         <service android:name=".getuiService.DemoIntentService" />
         <service
             android:name=".getuiService.DemoPushService"

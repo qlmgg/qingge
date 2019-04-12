@@ -4,50 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.main.CateringFragment">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize"
-        app:elevation="0dp">
+        android:background="@color/white"
+        android:paddingTop="@dimen/statusBarSize">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/statusBarSize"
-            android:paddingLeft="@dimen/len_4"
-            android:paddingRight="@dimen/len_4">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/len_156"
+            android:layout_height="@dimen/len_36"
+            android:background="@drawable/layout_border"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorColor="@color/grey_700"
+            app:tabSelectedTextColor="@color/grey_700"
+            app:tabBackground="@color/white"
+            app:tabTextColor="@color/grey_500">
 
-            <com.qingge.yangsong.common.widget.PortraitView
-                android:id="@+id/im_portrait"
-                android:layout_width="@dimen/len_40"
-                android:layout_height="@dimen/len_40"
-                android:layout_margin="@dimen/len_4"
-                android:padding="@dimen/len_4"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ad" />
-
-            <TextView
-                android:id="@+id/tv_range"
-                android:layout_width="wrap_content"
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_10"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/grey_500"
-                android:layout_marginStart="@dimen/len_52"
-                android:text="@string/my_university" />
+                android:text="@string/text_news" />
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
+            <android.support.design.widget.TabItem
+                android:layout_width="@dimen/len_10"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/tab_daily"
-                android:textAppearance="@style/TextAppearance.Title" />
+                android:text="@string/tab_daily" />
+        </android.support.design.widget.TabLayout>
 
-        </FrameLayout>
+    </android.support.v7.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_marginTop="@dimen/actionBarWithStatusBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

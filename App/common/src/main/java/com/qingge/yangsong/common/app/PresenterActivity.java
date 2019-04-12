@@ -16,10 +16,15 @@ implements BaseContract.View<Presenter> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void initBefore() {
+        super.initBefore();
         initPresenter();
     }
 
-    protected abstract void initPresenter();
+    protected abstract Presenter initPresenter();
 
     @Override
     public void showError(int str) {

@@ -17,7 +17,6 @@
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/len_12"
             android:clipToPadding="false"
-
             android:visibility="gone"
             tools:targetApi="lollipop"
              />

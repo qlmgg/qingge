@@ -2,6 +2,7 @@ package com.qingge.yangsong.qingge.fragments.School;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.qingge.yangsong.factory.presenter.school.SchoolPresenter;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.activity.ChatUserActivity;
+import com.qingge.yangsong.qingge.activity.PersonalActivity;
 import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -102,8 +105,9 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
     }
 
     @Override
-    protected void initPresenter() {
+    protected SchoolContract.Presenter initPresenter() {
         new SchoolPresenter(this);
+        return null;
     }
 
     @Override
@@ -172,10 +176,8 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
 
         @OnClick(R.id.portrait_view)
         void onPortraitClick() {
-            //TODO 跳转到个人界面
-            Application.showToast("跳转到个人页面");
             // 显示信息
-//            PersonalActivity.show(getContext(), mData.getId());
+            PersonalActivity.show(getContext(), mData.getSenderId());
         }
     }
 

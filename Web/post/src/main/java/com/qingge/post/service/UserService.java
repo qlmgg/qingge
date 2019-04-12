@@ -13,16 +13,15 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * 用户信息处理的Service
- *
  */
 // 127.0.0.1/api/user/...
 @Path("/user")
 public class UserService extends BaseService {
-@GET
-@Path("/test")
-public String test(){
-    return "测试成功";
-}
+    @GET
+    @Path("/test")
+    public String test() {
+        return "测试成功";
+    }
     // 用户信息修改接口
     // 返回自己的个人信息
 //    @PUT
@@ -71,40 +70,78 @@ public String test(){
 
     // 关注人，
     // 简化：关注人的操作其实是双方同时关注
-//    @PUT // 修改类使用Put
-//    @Path("/follow/{followId}")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public ResponseModel<UserCard> follow(@PathParam("followId") String followId) {
-//        User self = getSelf();
-//
-//        // 不能关注我自己
-//        if (self.getId().equalsIgnoreCase(followId)
-//                || Strings.isNullOrEmpty(followId)) {
-//            // 返回参数异常
-//            return ResponseModel.buildParameterError();
-//        }
-//
-//
-//        // 找到我也关注的人
-//        User followUser = UserFactory.findById(followId);
-//        if (followUser == null) {
-//            // 未找到人
-//            return ResponseModel.buildNotFoundUserError(null);
-//        }
-//
-//        // 备注默认没有，后面可以扩展
-//        followUser = UserFactory.follow(self, followUser, null);
-//        if (followUser == null) {
-//            // 关注失败，返回服务器异常
-//            return ResponseModel.buildServiceError();
-//        }
-//
-//        // TODO 通知我关注的人我关注他
-//
-//        // 返回关注的人的信息
-//        return ResponseModel.buildOk(new UserCard(followUser, true));
-//    }
+    @PUT // 修改类使用Put
+    @Path("/follow/{followId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<UserCard> follow(@PathParam("followId") String followId) {
+        User self = getSelf();
+
+        // 不能关注我自己
+        if (self.getId().equalsIgnoreCase(followId)
+                || Strings.isNullOrEmpty(followId)) {
+            // 返回参数异常
+            return ResponseModel.buildParameterError();
+        }
+
+
+        // 找到我也关注的人
+        User followUser = UserFactory.findById(followId);
+        if (followUser == null) {
+            // 未找到人
+            return ResponseModel.buildNotFoundUserError(null);
+        }
+
+        // 备注默认没有，后面可以扩展
+        followUser = UserFactory.follow(self, followUser, null);
+        if (followUser == null) {
+            // 关注失败，返回服务器异常
+            return ResponseModel.buildServiceError();
+        }
+
+        // TODO 通知我关注的人我关注他
+
+        // 返回关注的人的信息
+        return ResponseModel.buildOk(new UserCard(followUser, followUser.getUniversityId(), true));
+    }
+
+
+
+    // 取消关注人
+
+    @PUT // 修改类使用Put
+    @Path("/un_follow/{followId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<UserCard> unFollow(@PathParam("followId") String followId) {
+        User self = getSelf();
+
+        // 不能关注我自己
+        if (self.getId().equalsIgnoreCase(followId)
+                || Strings.isNullOrEmpty(followId)) {
+            // 返回参数异常
+            return ResponseModel.buildParameterError();
+        }
+
+
+        // 找到我要取消关注的人
+        User unFollowUser = UserFactory.findById(followId);
+        if (unFollowUser == null) {
+            // 未找到人
+            return ResponseModel.buildNotFoundUserError(null);
+        }
+        //进行取消关注,其实就是删除这条数据
+        unFollowUser = UserFactory.unFollow(self, unFollowUser);
+        if (unFollowUser == null) {
+            // 删除失败，返回服务器异常
+            return ResponseModel.buildServiceError();
+        }
+
+        // 返回取消关注的人的信息
+        return ResponseModel.buildOk(new UserCard(unFollowUser, unFollowUser.getUniversityId(), false));
+    }
+
+
 
 
     // 获取某人的详细信息
@@ -120,13 +157,10 @@ public String test(){
 
         User self = getSelf();
         //  返回用户的学校id
-        String universityId = UniversityFactory.findByName(self.getSchoolName()).getId();
         if (self.getId().equalsIgnoreCase(id)) {
             // 返回自己，不必查询数据库
-            //TODO
-            return ResponseModel.buildOk(new UserCard(self,universityId, true));
+            return ResponseModel.buildOk(new UserCard(self, self.getUniversityId(), true));
         }
-
 
         User user = UserFactory.findById(id);
         if (user == null) {
@@ -134,13 +168,10 @@ public String test(){
             return ResponseModel.buildNotFoundUserError(null);
         }
 
-        universityId = UniversityFactory.findByName(user.getSchoolName()).getId();
-
         // 如果我们直接有关注的记录，则我已关注需要查询信息的用户
-//        boolean isFollow = UserFactory.getUserFollow(self, user) != null;
-        return ResponseModel.buildOk(new UserCard(user,universityId));
+        boolean isFollow = UserFactory.getUserFollow(self, user) != null;
+        return ResponseModel.buildOk(new UserCard(user, user.getUniversityId(), isFollow));
     }
-
 
 
     // 搜索人的接口实现

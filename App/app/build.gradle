@@ -49,7 +49,7 @@ dependencies {
     compile 'com.github.xujiaji:happy-bubble:1.0.1'
     // 个推
     compile 'com.getui:sdk:2.12.5.0'
-    //刷新框架
+
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
 

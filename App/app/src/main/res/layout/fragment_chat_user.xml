@@ -1,0 +1,90 @@
+<com.qingge.yangsong.common.widget.MessageLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:background="@drawable/default_portrait"
+        android:paddingTop="@dimen/statusBarSize" >
+        <TextView
+            android:id="@+id/tv_title_name"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="@dimen/len_8"
+        android:paddingBottom="@dimen/len_8" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_alpha_224"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop">
+
+        <ImageView
+            android:id="@+id/btn_face"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:contentDescription="@string/app_name"
+            android:enabled="true"
+            android:foreground="@drawable/ic_touch_fg"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_emoji"
+            android:tint="@color/textPrimary" />
+
+        <ImageView
+            android:id="@+id/btn_record"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:contentDescription="@string/app_name"
+            android:enabled="true"
+            android:foreground="@drawable/ic_touch_fg"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_record"
+            android:tint="@color/textPrimary" />
+
+        <EditText
+            android:id="@+id/edit_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:lineSpacingExtra="0dp"
+            android:lineSpacingMultiplier="1"
+            android:maxHeight="@dimen/len_68"
+            android:minHeight="@dimen/len_44"
+            android:padding="@dimen/len_4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecond"
+            android:textCursorDrawable="@drawable/ic_cursor" />
+
+        <ImageView
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:contentDescription="@string/app_name"
+            android:enabled="true"
+            android:foreground="@drawable/ic_touch_fg"
+            android:padding="@dimen/len_8"
+            android:src="@drawable/ic_submit"
+            android:tint="@color/textPrimary" />
+    </LinearLayout>
+</com.qingge.yangsong.common.widget.MessageLayout>

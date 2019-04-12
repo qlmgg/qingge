@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -43,26 +44,28 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
-    @BindView(R.id.CollapsingToolbarLayout)
+    @BindView(R.id.layout)
     CollapsingToolbarLayout collapsingToolbarLayout;
 
     @BindView(R.id.appbar)
     AppBarLayout mAppBar;
 
-    @BindView(R.id.FrameLayout)
-    FrameLayout mFrameLayout;
-
     @BindView(R.id.tab_layout)
     TabLayout mTbaLayout;
 
-    @BindView(R.id.PortraitView)
+    @BindView(R.id.portrait)
     PortraitView mPortraitView;
 
-    @BindView(R.id.ViewPager)
+    @BindView(R.id.iv_set)
+    ImageView mSet;
+    @BindView(R.id.view_pager)
     ViewPager mViewPager;
 
     @BindView(R.id.tv_name)
     TextView mTextView;
+
+    @BindView(R.id.tv_title_name)
+    TextView mTitleName;
 
     @Override
     protected void initData() {
@@ -93,11 +96,6 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
         mTitles.add("店铺");
         mTitles.add("动态");
 
-        //设置标题为的账户名
-        collapsingToolbarLayout.setTitle(Account.getUser().getName());
-        //设置标题位置
-        collapsingToolbarLayout.setCollapsedTitleGravity(Gravity.TOP);
-        mToolbar.setTitleMarginTop(25);
 
         if (Account.getUser() != null)
             mTextView.setText(Account.getUser().getName());
@@ -118,15 +116,17 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
             //进度
             float progress = verticalOffset / totalScrollRange;
 
-            if (progress == 1) {
-                collapsingToolbarLayout.setTitleEnabled(true);
-            } else
-                collapsingToolbarLayout.setTitleEnabled(false);
-
+            if (progress >= 0.5) {
+                mTitleName.setText(Account.getUser().getName());
+                mSet.setVisibility(View.VISIBLE);
+            } else {
+                mTitleName.setText("");
+                mSet.setVisibility(View.GONE);
+            }
         });
     }
 
-    @OnClick(R.id.PortraitView)
+    @OnClick(R.id.portrait)
     public void startLogin() {
         if (!Account.isLogin()) {//如果没登陆才跳转到登陆
             LoginActivity.show(Objects.requireNonNull(getActivity()), this);

@@ -9,10 +9,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qingge.yangsong.common.app.Activity;
 import com.qingge.yangsong.common.app.PresenterActivity;
 import com.qingge.yangsong.factory.presenter.account.RegisterContract;
 import com.qingge.yangsong.factory.presenter.account.RegisterPresenter;
@@ -85,8 +83,9 @@ public class RegisterActivity extends PresenterActivity<RegisterContract.Present
     }
 
     @Override
-    protected void initPresenter() {
-        new RegisterPresenter(this);
+    protected RegisterContract.Presenter initPresenter() {
+
+        return new RegisterPresenter(this);
     }
 
     @Override

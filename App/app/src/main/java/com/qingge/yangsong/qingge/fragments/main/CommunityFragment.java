@@ -123,8 +123,9 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
 ////    }
 
     @Override
-    protected void initPresenter() {
-        new CommunityPresenter(this);
+    protected CommunityContract.Presenter initPresenter() {
+
+        return new CommunityPresenter(this);
     }
 
     //切换完成后返回的关于当前范围的学校的信息

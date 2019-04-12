@@ -30,6 +30,10 @@ dependencies {
     //dialog
     compile 'com.github.xujiaji:happy-bubble:1.0.1'
 
+
+
+
+
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
     compile "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"

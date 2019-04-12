@@ -12,6 +12,7 @@ import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.card.UniversityCard;
 import com.qingge.yangsong.factory.model.card.UserCard;
 import com.qingge.yangsong.factory.model.db.University;
+import com.qingge.yangsong.factory.model.message.MsgCreateModel;
 
 
 import java.util.List;
@@ -89,8 +90,11 @@ public interface RemoteService {
 //    Call<RspModel<List<UserCard>>> userSearch(@Path("name") String name);
 //
 //    //用户关注接口
-//    @PUT("user/follow/{userId}")
-//    Call<RspModel<UserCard>> userFollw(@Path("userId") String userId);
+    @PUT("user/follow/{userId}")
+    Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
+    //取消用户关注接口
+    @PUT("user/un_follow/{userId}")
+    Call<RspModel<UserCard>> userCancelFollow(@Path("userId") String userId);
 //
 //    //刷新联系人
 //    @GET("user/contact")
@@ -100,4 +104,7 @@ public interface RemoteService {
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
 
+    // 发送消息的接口
+    @POST("msg")
+    Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
 }

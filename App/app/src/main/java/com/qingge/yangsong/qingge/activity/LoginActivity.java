@@ -15,11 +15,8 @@ import com.qingge.yangsong.common.app.PresenterActivity;
 import com.qingge.yangsong.factory.presenter.account.LoginContract;
 import com.qingge.yangsong.factory.presenter.account.LoginPresenter;
 import com.qingge.yangsong.qingge.R;
-import com.qingge.yangsong.qingge.fragments.main.MyFragment;
 
 import net.qiujuer.genius.ui.widget.Loading;
-
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -102,8 +99,9 @@ public class LoginActivity extends PresenterActivity<LoginContract.Presenter>
     }
 
     @Override
-    protected void initPresenter() {
-        new LoginPresenter(this);
+    protected LoginContract.Presenter initPresenter() {
+
+        return new LoginPresenter(this);
     }
 
     @Override
