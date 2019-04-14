@@ -1,6 +1,7 @@
 package com.qingge.yangsong.factory.presenter.message;
 
 
+import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.UserHelper;
 import com.qingge.yangsong.factory.data.message.MessageRepository;
 import com.qingge.yangsong.factory.model.db.Message;
@@ -23,8 +24,15 @@ public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
     public void start() {
         super.start();
 
-        // 从本地拿这个人的信息
-        User receiver = UserHelper.search(mReceiverId);
-        getView().onInit(receiver);
+
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                User receiver = UserHelper.search(mReceiverId);
+                getView().onInit(receiver);
+            }
+        });
+
+
     }
 }

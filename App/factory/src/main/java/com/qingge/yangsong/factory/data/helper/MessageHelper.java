@@ -46,7 +46,6 @@ public class MessageHelper {
                 if (message != null && message.getStatus() != Message.STATUS_FAILED)
                     return;
 
-
                 // TODO 如果是文件类型的（语音，图片，文件），需要先上传后才发送
 
                 // 我们在发送的时候需要通知界面更新状态，Card;

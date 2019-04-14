@@ -198,7 +198,6 @@ public class Factory {
      */
     public static void dispatchPush(String str) {
         // 首先检查登录状态
-        Log.e("TAB","测试 : " +str);
         if (!Account.isLogin())
             return;
 
@@ -206,7 +205,6 @@ public class Factory {
         if (model == null)
             return;
 
-        Log.e(TAG, model.toString());
         // 对推送集合进行遍历
         for (PushModel.Entity entity : model.getEntities()) {
             switch (entity.type) {

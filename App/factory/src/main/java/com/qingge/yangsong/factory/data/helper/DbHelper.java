@@ -1,7 +1,14 @@
 package com.qingge.yangsong.factory.data.helper;
 
+import android.util.Log;
+
 import com.qingge.yangsong.factory.data.post.PostRepository;
 import com.qingge.yangsong.factory.model.db.AppDatabase;
+import com.qingge.yangsong.factory.model.db.Group;
+import com.qingge.yangsong.factory.model.db.GroupMember;
+import com.qingge.yangsong.factory.model.db.Group_Table;
+import com.qingge.yangsong.factory.model.db.Message;
+import com.qingge.yangsong.factory.model.db.Session;
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
@@ -134,19 +141,18 @@ public class DbHelper {
         if (listeners != null && listeners.size() > 0) {
             // 通用的通知
             for (ChangedListener<Model> listener : listeners) {
-
                 listener.onDataSave(models);
             }
         }
 
         // 列外情况
-//        if (GroupMember.class.equals(tClass)) {
-//            // 群成员变更，需要通知对应群信息更新
-//            updateGroup((GroupMember[]) models);
-//        } else if (Message.class.equals(tClass)) {
-//            // 消息变化，应该通知会话列表更新
-//            updateSession((Message[]) models);
-//        }
+        if (GroupMember.class.equals(tClass)) {
+            // 群成员变更，需要通知对应群信息更新
+            updateGroup((GroupMember[]) models);
+        } else if (Message.class.equals(tClass)) {
+            // 消息变化，应该通知会话列表更新
+            updateSession((Message[]) models);
+        }
     }
 
     private <Model extends BaseModel> void notifyDelete(final Class<Model> tClass,
@@ -156,18 +162,19 @@ public class DbHelper {
         if (listeners != null && listeners.size() > 0) {
             // 通用的通知
             for (ChangedListener<Model> listener : listeners) {
+
                 listener.onDataDelete(models);
             }
         }
 
         // 列外情况
-//        if (GroupMember.class.equals(tClass)) {
-//            // 群成员变更，需要通知对应群信息更新
-//            updateGroup((GroupMember[]) models);
-//        } else if (Message.class.equals(tClass)) {
-//            // 消息变化，应该通知会话列表更新
-//            updateSession((Message[]) models);
-//        }
+        if (GroupMember.class.equals(tClass)) {
+            // 群成员变更，需要通知对应群信息更新
+            updateGroup((GroupMember[]) models);
+        } else if (Message.class.equals(tClass)) {
+            // 消息变化，应该通知会话列表更新
+            updateSession((Message[]) models);
+        }
     }
 
     /**
@@ -175,76 +182,76 @@ public class DbHelper {
      *
      * @param members 群成员列表
      */
-//    private void updateGroup(GroupMember... members) {
-//        // 不重复集合
-//        final Set<String> groupIds = new HashSet<>();
-//        for (GroupMember member : members) {
-//            // 添加群Id
-//            groupIds.add(member.getGroup().getId());
-//        }
-//
-//        // 异步的数据库查询，并异步的发起二次通知
-//        DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
-//        definition.beginTransactionAsync(new ITransaction() {
-//            @Override
-//            public void execute(DatabaseWrapper databaseWrapper) {
-//                // 找到需要通知的群
-//                List<Group> groups = SQLite.select()
-//                        .from(Group.class)
-//                        .where(Group_Table.id.in(groupIds))
-//                        .queryList();
-//
-//                // 调用直接进行一次通知分发
-//                instance.notifySave(Group.class, groups.toArray(new Group[0]));
-//
-//            }
-//        }).build().execute();
-//    }
+    private void updateGroup(GroupMember... members) {
+        // 不重复集合
+        final Set<String> groupIds = new HashSet<>();
+        for (GroupMember member : members) {
+            // 添加群Id
+            groupIds.add(member.getGroup().getId());
+        }
+
+        // 异步的数据库查询，并异步的发起二次通知
+        DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
+        definition.beginTransactionAsync(new ITransaction() {
+            @Override
+            public void execute(DatabaseWrapper databaseWrapper) {
+                // 找到需要通知的群
+                List<Group> groups = SQLite.select()
+                        .from(Group.class)
+                        .where(Group_Table.id.in(groupIds))
+                        .queryList();
+
+                // 调用直接进行一次通知分发
+                instance.notifySave(Group.class, groups.toArray(new Group[0]));
+
+            }
+        }).build().execute();
+    }
 
     /**
      * 从消息列表中，筛选出对应的会话，并对会话进行更新
      *
      * @param messages Message列表
      */
-//    private void updateSession(Message... messages) {
-//        // 标示一个Session的唯一性
-//        final Set<Session.Identify> identifies = new HashSet<>();
-//        for (Message message : messages) {
-//            Session.Identify identify = Session.createSessionIdentify(message);
-//            identifies.add(identify);
-//        }
-//
-//        // 异步的数据库查询，并异步的发起二次通知
-//        DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
-//        definition.beginTransactionAsync(new ITransaction() {
-//            @Override
-//            public void execute(DatabaseWrapper databaseWrapper) {
-//                ModelAdapter<Session> adapter = FlowManager.getModelAdapter(Session.class);
-//                Session[] sessions = new Session[identifies.size()];
-//
-//                int index = 0;
-//                for (Session.Identify identify : identifies) {
-//                    Session session = SessionHelper.findFromLocal(identify.id);
-//
-//                    if (session == null) {
-//                        // 第一次聊天，创建一个你和对方的一个会话
-//                        session = new Session(identify);
-//                    }
-//
-//                    // 把会话，刷新到当前Message的最新状态
-//                    session.refreshToNow();
-//                    // 数据存储
-//                    adapter.save(session);
-//                    // 添加到集合
-//                    sessions[index++] = session;
-//                }
-//
-//                // 调用直接进行一次通知分发
-//                instance.notifySave(Session.class, sessions);
-//
-//            }
-//        }).build().execute();
-//    }
+    private void updateSession(Message... messages) {
+        // 标示一个Session的唯一性
+        final Set<Session.Identify> identifies = new HashSet<>();
+        for (Message message : messages) {
+            Session.Identify identify = Session.createSessionIdentify(message);
+            identifies.add(identify);
+        }
+
+        // 异步的数据库查询，并异步的发起二次通知
+        DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
+        definition.beginTransactionAsync(new ITransaction() {
+            @Override
+            public void execute(DatabaseWrapper databaseWrapper) {
+                ModelAdapter<Session> adapter = FlowManager.getModelAdapter(Session.class);
+                Session[] sessions = new Session[identifies.size()];
+
+                int index = 0;
+                for (Session.Identify identify : identifies) {
+                    Session session = SessionHelper.findFromLocal(identify.id);
+
+                    if (session == null) {
+                        // 第一次聊天，创建一个你和对方的一个会话
+                        session = new Session(identify);
+                    }
+
+                    // 把会话，刷新到当前Message的最新状态
+                    session.refreshToNow();
+                    // 数据存储
+                    adapter.save(session);
+                    // 添加到集合
+                    sessions[index++] = session;
+                }
+
+                // 调用直接进行一次通知分发
+                instance.notifySave(Session.class, sessions);
+
+            }
+        }).build().execute();
+    }
 
     /**
      * 通知监听器

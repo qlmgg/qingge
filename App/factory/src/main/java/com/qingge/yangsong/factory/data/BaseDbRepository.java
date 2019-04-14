@@ -1,6 +1,7 @@
 package com.qingge.yangsong.factory.data;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.qingge.yangsong.factory.data.helper.DbHelper;
 import com.qingge.yangsong.factory.model.db.BaseDbModel;
@@ -26,7 +27,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     // 和Presenter交互的回调
     private SucceedCallback<List<Data>> callback;
 
-    protected final List<Data> dataList = new LinkedList<>(); // 当前缓存的数据
+    protected final LinkedList<Data> dataList = new LinkedList<>(); // 当前缓存的数据
     private Class<Data> dataClass; // 当前范型对应的真实的Class信息
 
     @SuppressWarnings("unchecked")
@@ -56,6 +57,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     public void onDataSave(Data[] list) {
         boolean isChanged = false;
         //这儿直接清空,也就没有缓存了,也就是说下面其实insertOrUpdate(data)始终是insert
+        Log.e("haw","绘画测试"+list);
 
 //        dataList.clear();
         // 当数据库数据变更的操作

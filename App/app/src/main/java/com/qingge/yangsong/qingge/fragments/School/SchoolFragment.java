@@ -1,8 +1,7 @@
-package com.qingge.yangsong.qingge.fragments.School;
+package com.qingge.yangsong.qingge.fragments.school;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +15,6 @@ import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.qingge.yangsong.factory.presenter.school.SchoolPresenter;
 import com.qingge.yangsong.qingge.R;
-import com.qingge.yangsong.qingge.activity.ChatUserActivity;
 import com.qingge.yangsong.qingge.activity.PersonalActivity;
 import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.scwang.smartrefresh.header.MaterialHeader;

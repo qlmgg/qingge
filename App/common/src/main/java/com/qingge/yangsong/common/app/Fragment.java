@@ -16,6 +16,8 @@ import butterknife.ButterKnife;
 public abstract class Fragment extends android.support.v4.app.Fragment {
     protected View mRoot;
     protected PlaceHolderView mPlaceHolderView;
+    // 标示是否第一次初始化数据
+    protected boolean mIsFirstInitData = true;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -47,9 +49,22 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//        if (mIsFirstInitData) {
+//            // 触发一次以后就不会触发
+//            mIsFirstInitData = false;
+//            // 触发
+//            onFirstInit();
+//        }
+        // 当View创建完成后初始化数据
         initData();
     }
 
+    /**
+     * 当首次初始化数据的时候会调用的方法
+     */
+    protected void onFirstInit() {
+
+    }
     //从实现类拿到布局id
     protected abstract int getContentLayoutId();
     //初始化窗口

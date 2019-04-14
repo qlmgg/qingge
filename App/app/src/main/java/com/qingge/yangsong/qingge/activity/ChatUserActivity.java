@@ -23,12 +23,15 @@ import com.qingge.yangsong.common.widget.adapter.TextWatcherAdapter;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
 import com.qingge.yangsong.factory.model.Author;
 import com.qingge.yangsong.factory.model.db.Message;
+import com.qingge.yangsong.factory.model.db.Session;
 import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.message.ChatContract;
 import com.qingge.yangsong.factory.presenter.message.ChatUserPresenter;
 import com.qingge.yangsong.qingge.R;
 
+import net.qiujuer.genius.kit.handler.Run;
+import net.qiujuer.genius.kit.handler.runable.Action;
 import net.qiujuer.genius.ui.compat.UiCompat;
 import net.qiujuer.genius.ui.widget.Loading;
 
@@ -41,6 +44,8 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
         implements Toolbar.OnMenuItemClickListener,ChatContract.UserView {
     // 接收者Id，可以是群，也可以是人的Id
     public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
+    // 是否是群
+    private static final String KEY_RECEIVER_IS_GROUP = "KEY_RECEIVER_IS_GROUP";
     private String mReceiverId;
 
     protected Adapter mAdapter;
@@ -57,6 +62,22 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     @Override
     protected int getContentLayoutId() {
         return R.layout.fragment_chat_user;
+    }
+
+
+    /**
+     * 通过Session发起聊天
+     *
+     * @param context 上下文
+     * @param session Session
+     */
+    public static void show(Context context, Session session) {
+        if (session == null || context == null || TextUtils.isEmpty(session.getId()))
+            return;
+        Intent intent = new Intent(context, ChatUserActivity.class);
+        intent.putExtra(KEY_RECEIVER_ID, session.getId());
+        intent.putExtra(KEY_RECEIVER_IS_GROUP, session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
+        context.startActivity(intent);
     }
 
 
@@ -111,7 +132,9 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     //用户信息初始化
     @Override
     public void onInit(User user) {
-        mTitleName.setText(user.getName());
+        //TODO bug
+        Run.onUiAsync(() -> mTitleName.setText(user.getName()));
+
     }
 
 

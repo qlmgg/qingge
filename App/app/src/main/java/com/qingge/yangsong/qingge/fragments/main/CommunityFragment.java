@@ -16,7 +16,7 @@ import com.qingge.yangsong.factory.presenter.community.CommunityContract;
 import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.activity.SendPostActivity;
-import com.qingge.yangsong.qingge.fragments.School.SchoolFragment;
+import com.qingge.yangsong.qingge.fragments.school.SchoolFragment;
 
 
 import net.qiujuer.genius.ui.widget.FloatActionButton;
@@ -31,30 +31,13 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
         implements CommunityContract.View {
     @BindView(R.id.tv_range)
     TextView mRange;
-    //    @BindView(R.id.tab_layout)
-//    TabLayout mTabLayout;
-//    @BindView(R.id.iv_more)
-//    ImageView mMore;
     @BindView(R.id.iv_portrait)
     PortraitView mPortrait;
     @BindView(R.id.iv_menu)
     ImageView mSearch;
     @BindView(R.id.write_post)
     FloatActionButton mWritePost;
-//    @BindView(R.id.viewpager)
-//    ViewPager mViewPager;
 
-//    //返回的学校名字
-//    private List<String> schoolName = new ArrayList<>();
-//
-//    //返回的学校id
-//    private List<Fragment> mFragments = new ArrayList<>();
-
-    //    private static boolean isFirst = true;
-//    @OnClick(R.id.iv_more)
-//    public void removeAllTabs(){
-//        Application.showToast("点击more");
-//    }
     private static String mSchoolId;
 
     @Override
@@ -84,43 +67,11 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
 
 //            mPresenter.rangeSwitching("我的大学");
         } else {
+            //TODO 如果没登陆,就加载一个请登陆的提示页面或者...
             Application.showToast("请先登陆");
         }
 
-//        mPortrait.setOnClickListener(v -> {      考虑前期学校不多   就不整其它范围了
-//            BubbleLayout layout = new BubbleLayout(Objects.requireNonNull(getActivity()));
-//            layout.setLookLength(25);
-//            layout.setLookWidth(36);
-
-//            final CustomOperateDialog codDialog = new CustomOperateDialog(getActivity())
-//                    .setPosition(BubbleDialog.Position.BOTTOM)
-//                    .setBubbleLayout(layout)
-//                    .setClickedView(mPortrait);
-//            codDialog.setClickListener(str -> {
-//
-//                switch (str) {
-//                    case "我的大学":
-//                    case "市内大学":
-//                    case "省内大学":
-//                        mPresenter.rangeSwitching("我的大学");
-//                        break;
-
-//                }
-//                mRange.setText(str);
-//                codDialog.cancel();
-//            });
-//            codDialog.show();
-//        });
     }
-
-//    @Override
-////    protected void initData() {
-////        super.initData();
-////        //初始化数据
-////        if (isFirst)//新进入时进行第一次加载,
-////            mPresenter.rangeSwitching(mRange.getText().toString());
-////        isFirst = false;
-////    }
 
     @Override
     protected CommunityContract.Presenter initPresenter() {
@@ -131,31 +82,7 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
     //切换完成后返回的关于当前范围的学校的信息
     @Override
     public void schoolInfo(List<SchoolInfoModel> models) {
-//        mSchoolId = models.get(0).getSchoolId();
-//        assert getFragmentManager() != null;
-//        getFragmentManager().beginTransaction()
-//                .add(R.id.container, new SchoolFragment())
-//                .commit();
-//        mRange.setText(models.get(0).getSchoolName());
-//        //TODO  后面把这个SchoolInfoModel改一下  把头像也返回来  这儿就先用自己头像
-//        mPortrait.setup(Glide.with(CommunityFragment.this), Account.getUser());
-
-//        mFragments.removeAll(mFragments);
-//        schoolName.removeAll(schoolName);
-        //遍历到集合并创建tab
-//        for (SchoolInfoModel model : models) {
-//            schoolName.add(model.getSchoolName());
-//            mTabLayout.addTab(mTabLayout.newTab().setText(model.getSchoolName()));
-//            //TODO 实例化的时候传参这儿看以后需不需要改一下
-//            mFragments.add(new SchoolFragment(model.getSchoolId()));
-//        }
-//
-//        MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
-//                mFragments,
-//                schoolName);
-//        mViewPager.setAdapter(adapter);
-//        //关联
-//        mTabLayout.setupWithViewPager(mViewPager);
+        //TODO 这儿当点击左上角头像时切换范围加载所选范围的所有学校   当学校多起来的时候实现
     }
 
     public static String getSchoolId() {

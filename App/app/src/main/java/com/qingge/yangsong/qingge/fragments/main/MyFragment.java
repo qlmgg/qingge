@@ -51,7 +51,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     AppBarLayout mAppBar;
 
     @BindView(R.id.tab_layout)
-    TabLayout mTbaLayout;
+    TabLayout mTabLayout;
 
     @BindView(R.id.portrait)
     PortraitView mPortraitView;
@@ -96,16 +96,14 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
         mTitles.add("店铺");
         mTitles.add("动态");
 
-
-        if (Account.getUser() != null)
-            mTextView.setText(Account.getUser().getName());
+        mTextView.setText(Account.getUser().getName());
 
         MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
                 mFragments,
                 mTitles);
         mViewPager.setAdapter(adapter);
         //关联
-        mTbaLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setupWithViewPager(mViewPager);
         //折叠布局折叠时的监听
         mAppBar.addOnOffsetChangedListener((appBarLayout, i) -> {
 
