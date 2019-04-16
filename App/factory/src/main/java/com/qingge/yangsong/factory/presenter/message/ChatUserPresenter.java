@@ -24,7 +24,6 @@ public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
     public void start() {
         super.start();
 
-
         Factory.runOnAsync(new Runnable() {
             @Override
             public void run() {

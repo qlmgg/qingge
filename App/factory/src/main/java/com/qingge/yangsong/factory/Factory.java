@@ -218,6 +218,7 @@ public class Factory {
 
                     MessageCard card = getGson().fromJson(entity.content, MessageCard.class);
                     getMessageCenter().dispatch(card);
+
                     break;
                 }
 

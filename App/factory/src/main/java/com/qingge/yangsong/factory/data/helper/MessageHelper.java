@@ -35,6 +35,14 @@ public class MessageHelper {
                 .querySingle();
     }
 
+    public static Message findFromLocalByUserId(String id) {
+        return SQLite.select()
+                .from(Message.class)
+                .where(Message_Table.receiver_id.eq(id))
+                .querySingle();
+    }
+
+
     // 发送是异步进行的
     public static void push(final MsgCreateModel model) {
         Factory.runOnAsync(new Runnable() {

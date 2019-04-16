@@ -132,7 +132,6 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     //用户信息初始化
     @Override
     public void onInit(User user) {
-        //TODO bug
         Run.onUiAsync(() -> mTitleName.setText(user.getName()));
 
     }

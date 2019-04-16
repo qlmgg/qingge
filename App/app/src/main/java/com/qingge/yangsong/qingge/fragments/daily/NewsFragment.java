@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,6 +32,9 @@ public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
     @BindView(R.id.empty)
     EmptyView mEmptyView;
     private RecyclerAdapter<Session> mAdapter;
+    @BindView(R.id.layout)
+    SwipeRefreshLayout mLayout;
+
     @Override
     protected int getContentLayoutId() {
         return R.layout.fragment_daily_news;
@@ -54,16 +58,14 @@ public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-//        mLayout.setColorSchemeColors(getResources().getColor(R.color.black));
-//        /*
-//         * 设置下拉刷新的监听
-//         */
-//        mLayout.setOnRefreshListener(() -> {
-//            mLayout.postDelayed(() -> {
-//                Application.showToast("刷新完成");
-//                mLayout.setRefreshing(false);
-//            }, 1000);
-//        });
+        mLayout.setColorSchemeColors(getResources().getColor(R.color.black));
+        /*
+         * 设置下拉刷新的监听
+         */
+        mLayout.setOnRefreshListener(() -> {
+            //TODO 刷新
+            mLayout.setRefreshing(false);
+        });
 
 
         // 初始化Recycler
@@ -139,9 +141,9 @@ public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
 
         @Override
         protected void onBind(Session session) {
+
             mPortraitView.setup(Glide.with(NewsFragment.this), session.getPicture());
             mName.setText(session.getTitle());
-
             String str = TextUtils.isEmpty(session.getContent()) ? "" : session.getContent();
             Spannable spannable = new SpannableString(str);
             // 解析表情

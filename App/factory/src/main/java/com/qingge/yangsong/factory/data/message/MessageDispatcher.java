@@ -119,8 +119,10 @@ public class MessageDispatcher implements MessageCenter {
                 }
                 messages.add(message);
             }
-            if (messages.size() > 0)
+            if (messages.size() > 0) {
+
                 DbHelper.save(Message.class, messages.toArray(new Message[0]));
+            }
         }
     }
 }

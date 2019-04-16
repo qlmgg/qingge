@@ -1,17 +1,21 @@
 package com.qingge.yangsong.factory.model.db;
 
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.GroupHelper;
 import com.qingge.yangsong.factory.data.helper.MessageHelper;
 import com.qingge.yangsong.factory.data.helper.UserHelper;
+import com.qingge.yangsong.factory.presenter.Account;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 
 
-
+import net.qiujuer.genius.kit.handler.Run;
+import net.qiujuer.genius.kit.handler.runable.Action;
 
 import java.util.Date;
 import java.util.Objects;
@@ -231,17 +235,20 @@ public class Session extends BaseDbModel<Session> {
         } else {
             // 和人聊天的
             message = MessageHelper.findLastWithUser(id);
+
             if (message == null) {
                 // 我和他的消息已经删除完成了
                 // 如果没有基本信息
                 if (TextUtils.isEmpty(picture)
                         || TextUtils.isEmpty(this.title)) {
                     // 查询人
-                    User user = UserHelper.findFromLocal(id);
+                            User user = UserHelper.findFromLocal(id);
+//                            onLoaded(user);
                     if (user != null) {
                         this.picture = user.getPortrait();
                         this.title = user.getName();
                     }
+
                 }
 
                 this.message = null;
@@ -256,8 +263,15 @@ public class Session extends BaseDbModel<Session> {
                     // 查询人
                     User other = message.getOther();
                     other.load(); // 懒加载问题
-                    this.picture = other.getPortrait();
-                    this.title = other.getName();
+                    if (other.getPortrait()==null||other.getName()==null){
+                        //表示本地没有保存这个用户的数据,需要从网络去拉取用户信息
+                        other =  UserHelper.findFromNet(other.getId());
+                    }
+                    if (other!=null){
+                        this.picture = other.getPortrait();
+                        this.title = other.getName();
+                    }
+
                 }
 
                 this.message = message;
@@ -266,6 +280,19 @@ public class Session extends BaseDbModel<Session> {
             }
         }
     }
+
+//    private void onLoaded(final User user) {
+//        Run.onUiAsync(new net.qiujuer.genius.kit.handler.runable.Action() {
+//            @Override
+//            public void call() {
+//                if (user != null) {
+//                    setPicture(user.getPortrait());
+//                    setTitle(user.getName());
+//                }
+//            }
+//        });
+//
+//    }
 
 
     /**
@@ -298,4 +325,6 @@ public class Session extends BaseDbModel<Session> {
             return result;
         }
     }
+
+
 }
