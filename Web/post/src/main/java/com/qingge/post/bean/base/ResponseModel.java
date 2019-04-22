@@ -34,7 +34,8 @@ public class ResponseModel<M> implements Serializable {
     public static final int ERROR_PARAMETERS_EXIST_ACCOUNT = 4002;
     // 请求参数错误-已存在名称
     public static final int ERROR_PARAMETERS_EXIST_NAME = 4003;
-
+    // 请求参数错误-已存在群成员
+    public static final int ERROR_PARAMETERS_EXIST_GROUP_MEMBER = 4004;
     // 服务器错误
     public static final int ERROR_SERVICE = 5001;
 
@@ -163,6 +164,10 @@ public class ResponseModel<M> implements Serializable {
 
     public static <M> ResponseModel<M> buildNoPermissionError() {
         return new ResponseModel<M>(ERROR_ACCOUNT_NO_PERMISSION, "You do not have permission to operate.");
+    }
+
+    public static <M> ResponseModel<M> buildHaveGroupMemberError(String str) {
+        return new ResponseModel<M>(ERROR_PARAMETERS_EXIST_GROUP_MEMBER, str != null ? str : "You do not have permission to operate.");
     }
 
     public static <M> ResponseModel<M> buildCreateError(int type) {

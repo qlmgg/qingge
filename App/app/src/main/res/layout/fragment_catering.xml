@@ -49,12 +49,13 @@
             android:textColorHint="#bdbdbd"
             android:gravity="center"
             android:textSize="@dimen/font_14"
-            android:background="@drawable/test"
+            android:background="@drawable/search_bar_gray"
             android:layout_width="match_parent"
             android:layout_marginStart="@dimen/len_12"
             android:layout_marginEnd="@dimen/len_12"
             android:layout_height="@dimen/len_32"
-            tools:ignore="RtlSymmetry"/>
+            tools:ignore="RtlSymmetry"
+             />
 
         <com.qingge.yangsong.common.widget.RoundImageView
             android:src="@drawable/guanggao"

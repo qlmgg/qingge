@@ -65,9 +65,9 @@
                 android:layout_gravity="end|center_vertical"
                 android:layout_margin="@dimen/len_4"
                 android:contentDescription="@string/title_more"
-                android:padding="@dimen/len_10"
+                android:padding="@dimen/len_6"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_search" />
+                android:src="@drawable/ic_add_gray" />
         </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>

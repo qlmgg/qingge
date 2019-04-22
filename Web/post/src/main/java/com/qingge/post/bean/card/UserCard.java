@@ -3,6 +3,7 @@ package com.qingge.post.bean.card;
 import com.google.gson.annotations.Expose;
 import com.qingge.post.bean.db.University;
 import com.qingge.post.bean.db.User;
+import com.qingge.post.utils.Hib;
 
 import java.time.LocalDateTime;
 
@@ -61,6 +62,11 @@ public class UserCard {
         this.modifyAt = user.getUpdateAt();
         this.universityId = universityId;
 
+        Hib.queryOnly(session -> {
+            session.load(user,user.getId());
+            this.follows = user.getFollowers().size();
+            this.following = user.getFollowing().size();
+        });
     }
 
 

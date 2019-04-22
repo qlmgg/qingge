@@ -66,13 +66,13 @@ public class Post {
 
     //不可选   必须有
     @ManyToOne(optional = false)
-    @JoinColumn(name = "UniversityId")
+    @JoinColumn(name = "universityId")
     private University university;
 
     //发送的消息所在的大学的id
     //在发送消息时就设置并且不允许更改插入
     @Column(nullable = false,updatable = false,insertable = false)
-    private String UniversityId;
+    private String universityId;
 
     //该帖子下的评论   目前用的急加载
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
@@ -153,11 +153,11 @@ public class Post {
     }
 
     public String getUniversityId() {
-        return UniversityId;
+        return universityId;
     }
 
     public void setUniversityId(String universityId) {
-        UniversityId = universityId;
+        this.universityId = universityId;
     }
 
     public String getContent() {

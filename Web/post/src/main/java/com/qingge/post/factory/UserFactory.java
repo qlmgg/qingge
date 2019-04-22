@@ -93,7 +93,8 @@ public class UserFactory {
             // 那么需要单点登录，让之前的设备退出账户，
             // 给之前的设备推送一条退出消息
             if (Strings.isNullOrEmpty(user.getPushId())) {
-                // TODO 推送一个退出消息
+                // 推送一个退出消息
+                PushFactory.pushLogout(user, user.getPushId());
             }
 
             // 更新新的设备Id

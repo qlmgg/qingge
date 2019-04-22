@@ -67,7 +67,7 @@
                 android:contentDescription="@string/title_more"
                 android:padding="@dimen/len_10"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_search" />
+                android:src="@drawable/ic_add_gray" />
         </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>

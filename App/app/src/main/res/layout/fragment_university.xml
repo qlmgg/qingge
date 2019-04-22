@@ -10,16 +10,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/len_12"
-            android:clipToPadding="false"
-            android:visibility="gone"
-            tools:targetApi="lollipop"
-             />
+            android:focusableInTouchMode="true"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/search_edit_shop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/text_search_post"
+                    android:layout_marginTop="@dimen/len_6"
+                    android:textColorHint="#bdbdbd"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_14"
+                    android:background="@drawable/search_bar_white"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/len_12"
+                    android:layout_marginEnd="@dimen/len_12"
+                    android:layout_height="26dp"
+                    tools:ignore="RtlSymmetry"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/len_12"
+                    android:clipToPadding="false"
+                    android:visibility="gone"
+                    tools:targetApi="lollipop"
+                    />
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
         <!--android:elevation="1dp"-->
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

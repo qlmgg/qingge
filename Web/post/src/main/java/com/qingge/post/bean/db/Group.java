@@ -1,5 +1,6 @@
 package com.qingge.post.bean.db;
 
+import com.qingge.post.bean.api.group.GroupCreateModel;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -34,6 +35,18 @@ public class Group {
     @Column(nullable = false)
     private String picture;
 
+    //相片墙
+    @Column
+    private String photoWall;
+
+    @ManyToOne
+    @JoinColumn(name = "universityId")
+    private University university;
+
+    //社团所在学校的id
+    //在创建社团的时候必须设置
+    @Column(nullable = false,updatable = false,insertable = false)
+    private String universityId;
 
     // 定义为创建时间戳，在创建时就已经写入
     @CreationTimestamp
@@ -55,6 +68,17 @@ public class Group {
     private User owner;
     @Column(nullable = false, updatable = false, insertable = false)
     private String ownerId;
+
+    public Group() {
+    }
+
+    public Group(User creator,University university, GroupCreateModel model) {
+        this.owner = creator;
+        this.name = model.getName();
+        this.description = model.getDesc();
+        this.picture = model.getPicture();
+        this.university = university;
+    }
 
 
     public String getId() {
@@ -119,5 +143,29 @@ public class Group {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getPhotoWall() {
+        return photoWall;
+    }
+
+    public void setPhotoWall(String photoWall) {
+        this.photoWall = photoWall;
+    }
+
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
+    }
+
+    public String getUniversityId() {
+        return universityId;
+    }
+
+    public void setUniversityId(String universityId) {
+        this.universityId = universityId;
     }
 }

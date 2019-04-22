@@ -4,6 +4,7 @@ import com.google.common.base.Strings;
 import com.qingge.post.bean.base.ResponseModel;
 import com.qingge.post.bean.card.UserCard;
 import com.qingge.post.bean.db.User;
+import com.qingge.post.factory.PushFactory;
 import com.qingge.post.factory.UniversityFactory;
 import com.qingge.post.factory.UserFactory;
 
@@ -99,7 +100,8 @@ public class UserService extends BaseService {
             return ResponseModel.buildServiceError();
         }
 
-        // TODO 通知我关注的人我关注他
+        // 通知我关注的人我关注他
+        PushFactory.pushFollow(followUser,new UserCard(self,self.getUniversityId()));
 
         // 返回关注的人的信息
         return ResponseModel.buildOk(new UserCard(followUser, followUser.getUniversityId(), true));

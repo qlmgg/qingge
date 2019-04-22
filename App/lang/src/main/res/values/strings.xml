@@ -11,7 +11,7 @@
     <string name="text_news">消息</string>
     <string name="text_help">帮助</string>
     <string name="text_hint_shop">请输入商家</string>
-
+    <string name="text_search_post">搜索帖子</string>
     <string name="dialog_tv_my">我的大学</string>
     <string name="dialog_tv_city">市内大学</string>
     <string name="dialog_tv_province">省内大学</string>

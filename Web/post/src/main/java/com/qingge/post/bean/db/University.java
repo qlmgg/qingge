@@ -72,8 +72,14 @@ public class University {
     //当前大学的帖子集合
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.EXTRA)//懒加载
-    @JoinColumn(name = "UniversityId")
+    @JoinColumn(name = "universityId")
     private Set<Post> posts = new HashSet<>();
+
+    //当前大学的社团集合(group就是作为社团)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.EXTRA)//懒加载
+    @JoinColumn(name = "universityId")
+    private Set<Group> groups = new HashSet<>();
 
 
     public University(SchoolModel model, User owner) {

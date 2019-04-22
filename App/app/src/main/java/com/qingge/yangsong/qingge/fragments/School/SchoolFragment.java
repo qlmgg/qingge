@@ -85,6 +85,7 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
 
 
         mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecycler.setFocusableInTouchMode(false);
         mRecycler.setAdapter(mAdapter = new RecyclerAdapter<Post>(this) {
             @Override
             protected int getItemViewType(int position, Post post) {

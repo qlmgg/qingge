@@ -21,6 +21,7 @@ import com.qingge.yangsong.factory.data.user.UserCenter;
 import com.qingge.yangsong.factory.data.user.UserDispatcher;
 import com.qingge.yangsong.factory.model.PushModel;
 import com.qingge.yangsong.factory.model.RspModel;
+import com.qingge.yangsong.factory.model.card.GroupCard;
 import com.qingge.yangsong.factory.model.card.MessageCard;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.Account;
@@ -231,8 +232,8 @@ public class Factory {
 
                 case PushModel.ENTITY_TYPE_ADD_GROUP: {
                     // 添加群
-//                    GroupCard card = getGson().fromJson(entity.content, GroupCard.class);
-//                    getGroupCenter().dispatch(card);
+                    GroupCard card = getGson().fromJson(entity.content, GroupCard.class);
+                    getGroupCenter().dispatch(card);
                     break;
                 }
 
