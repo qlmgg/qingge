@@ -1,5 +1,9 @@
 package com.qingge.yangsong.common;
 
+import android.util.DisplayMetrics;
+
+import com.qingge.yangsong.common.app.Application;
+
 public class Common {
     /**
      * 一些不可变的永恒的参数
@@ -13,4 +17,6 @@ public class Common {
 //        String API_URL = "http://192.168.43.212:8080/api/";
         String API_URL = "http://47.102.110.203:8080/post-1.0-SNAPSHOT/api/";
     }
+
+
 }

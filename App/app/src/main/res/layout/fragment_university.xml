@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/smart_refresh"
         android:layout_width="match_parent"
@@ -13,41 +13,81 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusableInTouchMode="true"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:focusableInTouchMode="true">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/search_edit_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="@dimen/len_12"
+                    android:layout_marginTop="@dimen/len_6"
+                    android:layout_marginEnd="@dimen/len_12"
+                    android:background="@drawable/search_bar_white"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="false"
-                    android:hint="@string/text_search_post"
-                    android:layout_marginTop="@dimen/len_6"
-                    android:textColorHint="#bdbdbd"
                     android:gravity="center"
+                    android:hint="@string/text_search_post"
+                    android:textColorHint="#bdbdbd"
                     android:textSize="@dimen/font_14"
-                    android:background="@drawable/search_bar_white"
+                    tools:ignore="RtlSymmetry" />
+
+                <RelativeLayout
+                    android:id="@+id/all_show"
                     android:layout_width="match_parent"
-                    android:layout_marginStart="@dimen/len_12"
-                    android:layout_marginEnd="@dimen/len_12"
-                    android:layout_height="26dp"
-                    tools:ignore="RtlSymmetry"
-                    />
+                    android:layout_height="25dp"
+                    android:layout_marginTop="@dimen/len_4"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/len_24"
+                        android:layout_marginStart="@dimen/len_8"
+                        android:gravity="center"
+                        android:text="@string/text_all_group"
+                        android:textColor="@color/grey_500"
+                        android:textSize="@dimen/font_12"
+                        tools:ignore="RelativeOverlap" />
+
+                    <ImageView
+                        android:id="@+id/show_groups"
+                        android:layout_width="@dimen/len_12"
+                        android:layout_height="@dimen/len_12"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/len_12"
+                        android:contentDescription="@string/app_name"/>
+                    <ImageView
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_200"
+                        android:contentDescription="@string/app_name" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:background="@color/white"
+                    android:id="@+id/group_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/len_2">
+
+                </android.support.v7.widget.RecyclerView>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="@dimen/len_12"
                     android:clipToPadding="false"
+                    android:paddingBottom="@dimen/len_12"
                     android:visibility="gone"
-                    tools:targetApi="lollipop"
-                    />
+                    tools:targetApi="lollipop" />
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
@@ -59,6 +99,6 @@
     <com.qingge.yangsong.common.widget.EmptyView
         android:id="@+id/empty"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

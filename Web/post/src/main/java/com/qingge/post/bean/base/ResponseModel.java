@@ -17,6 +17,8 @@ public class ResponseModel<M> implements Serializable {
     public static final int ERROR_NOT_FOUND_GROUP = 4042;
     // 没有找到群成员信息
     public static final int ERROR_NOT_FOUND_GROUP_MEMBER = 4043;
+    // 没有找到学校信息
+    public static final int ERROR_NOT_FOUND_UNIVERSITY = 4044;
 
     // 创建用户失败
     public static final int ERROR_CREATE_USER = 3001;
@@ -144,6 +146,10 @@ public class ResponseModel<M> implements Serializable {
 
     public static <M> ResponseModel<M> buildNotFoundGroupError(String str) {
         return new ResponseModel<M>(ERROR_NOT_FOUND_GROUP, str != null ? str : "Not Found Group.");
+    }
+
+    public static <M> ResponseModel<M> buildNotFoundUniversityError(String str) {
+        return new ResponseModel<M>(ERROR_NOT_FOUND_UNIVERSITY, str != null ? str : "Not Found University.");
     }
 
     public static <M> ResponseModel<M> buildNotFoundGroupMemberError(String str) {

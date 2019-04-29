@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:backgroundDimEnabled">true</item>
         <!--
         <item name="toolbarStyle">@style/Widget.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Widget.ToolbarNavigationButtonStyle</item>

@@ -4,17 +4,21 @@ import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.DataSource;
 import com.qingge.yangsong.factory.model.RspModel;
 
+import com.qingge.yangsong.factory.model.card.GroupCard;
 import com.qingge.yangsong.factory.model.card.LoadPostCard;
 import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.card.UniversityCard;
+import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.model.db.University_Table;
+import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.net.Network;
 import com.qingge.yangsong.factory.net.RemoteService;
 import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,29 +57,7 @@ public class SchoolHelper {
                     //TODO    失败的处理
             }
         });
-//        call.enqueue(new Callback<RspModel<List<PostCard>>>() {
-//            @Override
-//            public void onResponse(Call<RspModel<List<PostCard>>> call, Response<RspModel<List<PostCard>>> response) {
-//
-//                RspModel<List<PostCard>> rspModel = response.body();
-//                if (rspModel.success()) {
-//                    List<PostCard> cards = rspModel.getResult();
-//                    if (cards == null || cards.size() == 0)
-//                        return;
-//                    PostCard[] cards1 = cards.toArray(new PostCard[0]);
-//                    //进行储存并分发
-//                    Factory.getPostCenter().dispatch(cards1);
-//
-//                } else {
-//                    Factory.decodeRspCode(rspModel, null);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<RspModel<List<PostCard>>> call, Throwable t) {
-//                //TODO    失败的处理
-//            }
-//        });
+
     }
 
     //根据学校id查询学校  远程
@@ -121,5 +103,37 @@ public class SchoolHelper {
             return university[0];
         }
         return university[0];
+    }
+
+    //拿到当前学校下的群集合
+    public static void findGroupList(String schoolId, final SchoolContract.View view){
+
+       RemoteService service = Network.remote();
+       Call<RspModel<List<GroupCard>>> call =  service.searchGroups(schoolId);
+        call.enqueue(new Callback<RspModel<List<GroupCard>>>() {
+            @Override
+            public void onResponse(Call<RspModel<List<GroupCard>>> call, Response<RspModel<List<GroupCard>>> response) {
+               RspModel<List<GroupCard>> rspModel = response.body();
+               if (rspModel.success()){
+                   //要返回的集合
+                   final List<Group> groups = new ArrayList<>();
+                  List<GroupCard> cards = rspModel.getResult();
+                  //遍历成group并添加到集合中
+                   for (GroupCard card : cards) {
+                       //拿到创建者
+                       User owner = UserHelper.search(card.getOwnerId());
+                       //添加到集合
+                       groups.add(card.build(owner));
+                   }
+                   view.loadGroupList(groups);
+               }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<List<GroupCard>>> call, Throwable t) {
+                //TODO 失败的处理
+            }
+        });
+
     }
 }

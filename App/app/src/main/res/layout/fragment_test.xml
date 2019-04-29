@@ -1,169 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp">
-
-        <!--去掉 app:expandedTitleTextAppearance="xx"  中的snap   这样可以使CollapsingToolbarLayout折叠时不自动回弹-->
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/CollapsingToolbarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:contentScrim="@color/grey_100"
-            app:expandedTitleTextAppearance="@style/TextAppearance.Title"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:titleEnabled="false">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/len_224"
-                android:contentDescription="@string/app_name"
-                android:foreground="@color/black_alpha_80"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bg21" />
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/len_10"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_22" />
-
-            <TextView
-                android:id="@+id/describe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/len_16"
-                android:text="社会新的角色"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_14" />
-
-            <TextView
-                android:id="@+id/follows"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/len_36"
-                android:layout_marginTop="@dimen/len_156"
-                android:text="0"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_14" />
-
-            <TextView
-                android:id="@+id/following"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/len_36"
-                android:layout_marginTop="176dp"
-                android:layout_marginBottom="@dimen/len_2"
-                android:text="0"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_14" />
-
-
-            <com.qingge.yangsong.common.widget.PortraitView
-                android:id="@+id/portrait"
-                android:layout_width="@dimen/len_72"
-                android:layout_height="@dimen/len_72"
-                android:layout_marginStart="@dimen/len_24"
-                android:layout_marginTop="@dimen/len_76"
-                android:src="@drawable/default_portrait" />
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/len_48"
-                android:layout_marginTop="@dimen/statusBarSize"
-                app:layout_collapseMode="pin">
-
-                <TextView
-                    android:id="@+id/tv_title_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/font_18" />
-                <ImageView
-                    android:id="@+id/iv_set"
-                    android:src="@drawable/ic_set"
-                    android:layout_width="@dimen/len_24"
-                    android:layout_height="@dimen/len_24" />
-
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <!--android:background="@drawable/layout_border"-->
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/personal_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <!--去掉 app:expandedTitleTextAppearance="xx"  中的snap   这样可以使CollapsingToolbarLayout折叠时不自动回弹-->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/CollapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="226dp"
+                android:background="@drawable/bg_src_woman"
+
+                app:expandedTitleTextAppearance="@style/TextAppearance.Title"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:layout_marginStart="@dimen/len_20"
+                    android:layout_marginTop="117dp"
+                    android:layout_marginEnd="@dimen/len_20"
+                    android:background="@drawable/layout_personal_border">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="@dimen/len_116"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/line"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/len_8"
+                        android:layout_marginTop="@dimen/len_4"
+                        android:layout_marginBottom="@dimen/len_2"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="测试测试试测试"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_16" />
+
+                    <TextView
+                        android:id="@+id/describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/len_8"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="社会新的角色社会新的角色社会新的角色社会新的角新的角色社会新的角社会新的角色社会新的角色色社会新的角色社会新的角色"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_12" />
+
+                    <net.qiujuer.genius.ui.widget.Button
+                        android:id="@+id/btn_follow"
+                        android:layout_width="@dimen/len_68"
+                        android:layout_height="@dimen/len_28"
+                        android:layout_above="@+id/line"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="46dp"
+                        android:layout_marginBottom="@dimen/len_6"
+                        android:background="@drawable/sel_btn_bg_accent_44"
+                        android:padding="0dp"
+                        android:text="@string/follow"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                        android:textColor="@color/white"
+                        app:gTouchColor="@color/white_alpha_48"
+                        app:gTouchCornerRadius="22dp"
+                        app:gTouchEffect="ripple" />
+
+
+                    <ImageView
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_centerVertical="true"
+                        android:background="@color/grey_300" />
+
+                    <net.qiujuer.genius.ui.widget.Button
+                        android:id="@+id/btn_send_message"
+                        android:layout_width="@dimen/len_28"
+                        android:layout_height="@dimen/len_28"
+                        android:layout_above="@+id/line"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="@dimen/len_8"
+                        android:layout_marginBottom="@dimen/len_6"
+                        android:background="@drawable/ic_send_message"
+                        app:gTouchColor="@color/white_alpha_48"
+                        app:gTouchCornerRadius="22dp"
+                        app:gTouchEffect="ripple" />
+
+                    <com.qingge.yangsong.common.widget.PortraitView
+                        android:id="@+id/portrait"
+                        android:layout_width="@dimen/len_88"
+                        android:layout_height="@dimen/len_88"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/default_portrait" />
+                </RelativeLayout>
+
+
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/len_48"
+                    android:layout_marginTop="@dimen/statusBarSize"
+                    app:layout_collapseMode="pin">
+
+                    <TextView
+                        android:id="@+id/tv_title_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_18" />
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="0dp">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <!--android:background="@drawable/layout_border"-->
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="368dp"
-                android:layout_height="@dimen/len_36"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/len_2"
-                android:background="@drawable/layout_border"
-                android:paddingBottom="@dimen/len_4"
-                app:tabBackground="@color/white"
-                app:tabIndicatorColor="@color/grey_700"
-                app:tabIndicatorFullWidth="false"
-                app:tabSelectedTextColor="@color/grey_700"
-                app:tabTextColor="@color/grey_500">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_10"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_order" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_100" />
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_10"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_collection" />
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="@dimen/len_156"
+                    android:layout_height="@dimen/len_36"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/len_2"
+                    android:layout_marginBottom="@dimen/len_2"
+                    android:background="@drawable/layout_border"
+                    app:tabBackground="@color/white"
+                    app:tabIndicatorColor="@color/grey_700"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabSelectedTextColor="@color/grey_700"
+                    app:tabTextColor="@color/grey_500">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_10"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_shop" />
+                    <android.support.design.widget.TabItem
+                        android:layout_width="@dimen/len_10"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_dynamic" />
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="@dimen/len_10"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_dynamic" />
+                    <android.support.design.widget.TabItem
+                        android:layout_width="@dimen/len_10"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_album" />
 
-            </android.support.design.widget.TabLayout>
+                </android.support.design.widget.TabLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/len_40"
+                    android:background="@color/grey_100" />
+            </FrameLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/ViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v4.view.ViewPager>
 
         </FrameLayout>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/len_36">
+    </android.support.design.widget.CoordinatorLayout>
 
-        </android.support.v4.view.ViewPager>
 
-    </FrameLayout>
+    <com.qingge.yangsong.common.widget.EmptyView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

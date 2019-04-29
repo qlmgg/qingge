@@ -133,4 +133,15 @@ public class GroupFactory {
             return member;
         });
     }
+
+    //找群信息(用学校id)
+    public static List<Group> findGroupsBySchoolId(String schoolId ) {
+            return Hib.query(session -> {
+                @SuppressWarnings("unchecked")
+                List<Group> groups = session.createQuery("from Group where universityId=:schoolId")
+                        .setParameter("schoolId",schoolId)
+                        .list();
+                return groups;
+            });
+    }
 }

@@ -14,6 +14,7 @@ import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.community.CommunityContract;
 import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
+import com.qingge.yangsong.qingge.GroupDialog;
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.activity.SendPostActivity;
 import com.qingge.yangsong.qingge.fragments.school.SchoolFragment;
@@ -39,10 +40,9 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
     FloatActionButton mWritePost;
 
     private static String mSchoolId;
-
     @Override
     protected int getContentLayoutId() {
-        return R.layout.fragment_message;
+        return R.layout.fragment_community;
     }
 
     @Override
@@ -92,5 +92,12 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
     @OnClick(R.id.write_post)
     public void writePost(){
         SendPostActivity.show(getActivity());
+    }
+
+    @OnClick(R.id.iv_menu)
+    public void searchPostAndSchool(){
+            //TODO 搜索当前学校的帖子或者其它学校
+//        new GroupDialog().show(getFragmentManager(),"s");
+
     }
 }

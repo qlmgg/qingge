@@ -5,6 +5,7 @@ import com.qingge.yangsong.factory.model.SchoolInfoModel;
 import com.qingge.yangsong.factory.model.account.AccountRspModel;
 import com.qingge.yangsong.factory.model.account.LoginModel;
 import com.qingge.yangsong.factory.model.account.RegisterModel;
+import com.qingge.yangsong.factory.model.card.GroupCard;
 import com.qingge.yangsong.factory.model.card.LoadPostCard;
 import com.qingge.yangsong.factory.model.card.MessageCard;
 import com.qingge.yangsong.factory.model.card.PostCard;
@@ -107,4 +108,9 @@ public interface RemoteService {
     // 发送消息的接口
     @POST("msg")
     Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
+
+    //搜素群列表
+    @GET("group/search/{schoolId}")
+    Call<RspModel<List<GroupCard>>> searchGroups(@Path("schoolId") String schoolId);
+
 }

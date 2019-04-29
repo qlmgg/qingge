@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -23,6 +24,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.qingge.yangsong.common.app.PresenterToolbarActivity;
 import com.qingge.yangsong.common.widget.EmptyView;
 import com.qingge.yangsong.common.widget.PortraitView;
@@ -38,6 +43,7 @@ import net.qiujuer.genius.res.Resource;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
         implements PersonalContract.View {
@@ -51,12 +57,12 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     TabLayout mTabLayout;
     @BindView(R.id.describe)
     TextView mDescribe;
-    @BindView(R.id.follows)
-    TextView mFollows;
+//    @BindView(R.id.follows)
+//    TextView mFollows;
     @BindView(R.id.tv_title_name)
     TextView mTitleName;
-    @BindView(R.id.following)
-    TextView mFollowing;
+//    @BindView(R.id.following)
+//    TextView mFollowing;
     @BindView(R.id.tv_name)
     TextView mTvName;
     @BindView(R.id.btn_send_message)
@@ -67,10 +73,8 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     EmptyView mEmptyView;
     @BindView(R.id.layout)
     CoordinatorLayout layout;
-    // 关注
-    private MenuItem mFollowItem;
-    private boolean mIsFollowUser = false;
-
+    @BindView(R.id.personal_bg)
+    ImageView mBg;
     //当前用户的缓存
     private User user;
     //当前是否关注
@@ -179,10 +183,22 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         this.user = user;
         mEmptyView.triggerOk();
         mPortrait.setup(Glide.with(this), user);
+
+        Glide.with(this)
+                .load(user.getPortrait())
+                .bitmapTransform(new BlurTransformation(this,14,15))
+                .dontAnimate()
+                .into(new ViewTarget<View,GlideDrawable>(mBg) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                        this.view.setBackground(resource.getCurrent());
+                    }
+                });
+
         mTvName.setText(user.getName());
         mDescribe.setText(user.getDesc());
-        mFollows.setText("关注 : " + user.getFollows());
-        mFollowing.setText("粉丝 : " + user.getFollowing());
+//        mFollows.setText("关注 : " + user.getFollows());
+//        mFollowing.setText("粉丝 : " + user.getFollowing());
         hideLoading();
     }
 
@@ -196,10 +212,10 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
         this.isFollow = isFollow;
         if (isFollow) {
             mFollow.setText("已关注");
-            mFollow.setBackgroundColor(0x7f040027);
+            mFollow.setBackground(getResources().getDrawable(R.drawable.btn_unfollow));
         } else {
             mFollow.setText("关注");
-            mFollow.setBackgroundColor(0x7f040063);
+            mFollow.setBackground(getResources().getDrawable(R.drawable.btn_follow));
         }
     }
 

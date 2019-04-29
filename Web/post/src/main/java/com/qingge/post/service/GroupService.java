@@ -243,7 +243,7 @@ public class GroupService extends BaseService {
 
 
     @GET
-    @Path("/search/{groupId}")
+    @Path("/search/members/{groupId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel<List<GroupMemberCard>> searchGroupMembers(@PathParam("groupId") String groupId) {
@@ -275,5 +275,25 @@ public class GroupService extends BaseService {
                 .collect(Collectors.toList());
 
         return ResponseModel.buildOk(memberCards);
+    }
+
+    //用学校id拿群成员
+    @GET
+    @Path("/search/{schoolId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<List<GroupCard>> searchGroups(@PathParam("schoolId") String schoolId){
+        if (Strings.isNullOrEmpty(schoolId)) {
+            return ResponseModel.buildParameterError();
+        }
+
+        University university = UniversityFactory.findById(schoolId);
+        if (university == null)
+            return ResponseModel.buildNotFoundUniversityError("没找到这个学校");
+
+        List<GroupCard> cards = GroupFactory.findGroupsBySchoolId(university.getId()).stream()
+                .map(GroupCard::new)
+                .collect(Collectors.toList());
+        return ResponseModel.buildOk(cards);
     }
 }

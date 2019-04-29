@@ -11,6 +11,7 @@ import com.qingge.yangsong.factory.data.helper.SchoolHelper;
 import com.qingge.yangsong.factory.data.post.PostRepository;
 import com.qingge.yangsong.factory.model.SchoolInfoModel;
 import com.qingge.yangsong.factory.model.card.PostCard;
+import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.BasePresenter;
 import com.qingge.yangsong.factory.presenter.BaseSourcePresenter;
@@ -46,6 +47,9 @@ public class SchoolPresenter extends BaseSourcePresenter<Post, Post, PostReposit
         start();
         //开始加载
         SchoolHelper.loadingPost(schoolId, 0, getView());
+        //根据学校id拿到下面的群(社团兴趣群)
+        SchoolHelper.findGroupList(schoolId,getView());
+
         pageCount = getView().getPageCount();
     }
 
