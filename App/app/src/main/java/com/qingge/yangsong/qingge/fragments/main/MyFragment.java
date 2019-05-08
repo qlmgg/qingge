@@ -1,5 +1,6 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
@@ -12,11 +13,15 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.qingge.yangsong.common.app.Fragment;
 import com.qingge.yangsong.common.app.PresenterFragment;
 
@@ -39,6 +44,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class MyFragment extends Fragment implements LoginActivity.initMyData {
     @BindView(R.id.toolbar)
@@ -60,9 +66,8 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     ImageView mSet;
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
-
-    @BindView(R.id.tv_name)
-    TextView mTextView;
+    @BindView(R.id.iv_bg)
+    ImageView mBg;
 
     @BindView(R.id.tv_title_name)
     TextView mTitleName;
@@ -71,6 +76,16 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     protected void initData() {
         super.initData();
         mPortraitView.setup(Glide.with(getActivity()), Account.getUser());
+        Glide.with(this)
+                .load(Account.getUser().getPortrait())
+                .bitmapTransform(new BlurTransformation(Objects.requireNonNull(getContext()),14,15))
+                .dontAnimate()
+                .into(new ViewTarget<View, GlideDrawable>(mBg) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                        this.view.setBackground(resource.getCurrent());
+                    }
+                });
     }
 
     @Override
@@ -91,16 +106,18 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
         mFragments.add(new CollectionFragment());
         mFragments.add(new ShopFragment());
         mFragments.add(new DynamicFragment());
+
         mTitles.add("订单");
         mTitles.add("收藏");
         mTitles.add("店铺");
         mTitles.add("动态");
 
-        mTextView.setText(Account.getUser().getName());
+//        mTextView.setText(Account.getUser().getName());
 
         MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
                 mFragments,
                 mTitles);
+
         mViewPager.setAdapter(adapter);
         //关联
         mTabLayout.setupWithViewPager(mViewPager);
@@ -137,6 +154,15 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     public void init() {
         //加载头像
         mPortraitView.setup(Glide.with(MyFragment.this), Account.getUser());
-
+        Glide.with(this)
+                .load(Account.getUser().getPortrait())
+                .bitmapTransform(new BlurTransformation(Objects.requireNonNull(getContext()),14,15))
+                .dontAnimate()
+                .into(new ViewTarget<View, GlideDrawable>(mBg) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                        this.view.setBackground(resource.getCurrent());
+                    }
+                });
     }
 }

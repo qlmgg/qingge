@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize"
-        android:background="@drawable/default_portrait"
+        android:background="@drawable/toolbar_color_theme"
         android:paddingTop="@dimen/statusBarSize" >
         <TextView
             android:id="@+id/tv_title_name"

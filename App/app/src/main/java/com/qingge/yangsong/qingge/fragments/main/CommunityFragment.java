@@ -14,8 +14,9 @@ import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.community.CommunityContract;
 import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
-import com.qingge.yangsong.qingge.GroupDialog;
+
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.activity.GroupCreateActivity;
 import com.qingge.yangsong.qingge.activity.SendPostActivity;
 import com.qingge.yangsong.qingge.fragments.school.SchoolFragment;
 
@@ -34,8 +35,7 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
     TextView mRange;
     @BindView(R.id.iv_portrait)
     PortraitView mPortrait;
-    @BindView(R.id.iv_menu)
-    ImageView mSearch;
+
     @BindView(R.id.write_post)
     FloatActionButton mWritePost;
 
@@ -94,10 +94,12 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
         SendPostActivity.show(getActivity());
     }
 
-    @OnClick(R.id.iv_menu)
-    public void searchPostAndSchool(){
-            //TODO 搜索当前学校的帖子或者其它学校
-//        new GroupDialog().show(getFragmentManager(),"s");
 
+    /**
+     * 弹出框一个  可以创建群 ..
+     * */
+    @OnClick(R.id.iv_menu)
+    public void createGroup(){
+        GroupCreateActivity.show(Objects.requireNonNull(getContext()));
     }
 }

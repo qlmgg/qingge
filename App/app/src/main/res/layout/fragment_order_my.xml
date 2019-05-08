@@ -2,9 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <TextView
             android:textColor="@color/black"
@@ -12,6 +9,5 @@
             android:text="@string/text_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>

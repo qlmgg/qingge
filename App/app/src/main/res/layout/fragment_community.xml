@@ -27,12 +27,12 @@
 
             <TextView
                 android:id="@+id/tv_range"
-                android:lines="1"
-                android:ellipsize="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/len_52"
+                android:ellipsize="end"
+                android:lines="1"
                 android:maxEms="6"
                 android:textColor="@color/grey_500" />
 
@@ -72,61 +72,23 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<android.support.design.widget.TabLayout-->
-            <!--android:id="@+id/tab_layout"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="@dimen/len_36"-->
-            <!--android:layout_marginTop="@dimen/actionBarWithStatusBarSize"-->
-            <!--android:layout_weight="9"-->
-            <!--android:background="@color/white"-->
-            <!--app:tabRippleColor="@color/white"-->
-            <!--app:tabIndicatorColor="@color/light_green_400"-->
-
-            <!--app:tabMode="scrollable"-->
-            <!--app:tabSelectedTextColor="@color/light_green_400"-->
-            <!--app:tabTextColor="@color/grey_500"/>-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/iv_more"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="@dimen/len_36"-->
-            <!--android:layout_marginTop="@dimen/actionBarWithStatusBarSize"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/white"-->
-            <!--android:contentDescription="@string/title_more"-->
-            <!--android:padding="@dimen/len_10"-->
-            <!--android:scaleType="centerInside"-->
-            <!--android:src="@drawable/ic_plus" />-->
-    <!--</LinearLayout>-->
-
-    <!--<android.support.v4.view.ViewPager-->
-        <!--android:id="@+id/viewpager"-->
-        <!--android:layout_marginTop="@dimen/actionBarWithStatusBarSize"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-    <!--</android.support.v4.view.ViewPager>-->
-
     <FrameLayout
         android:id="@+id/container"
-        android:layout_marginTop="@dimen/actionBarWithStatusBarSize"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/actionBarWithStatusBarSize" />
 
     <net.qiujuer.genius.ui.widget.FloatActionButton
         android:id="@+id/write_post"
         android:layout_width="@dimen/len_44"
         android:layout_height="@dimen/len_44"
-        app:layout_anchor="@id/container"
-        app:layout_anchorGravity="bottom|center_horizontal"
+        android:elevation="0dp"
         android:padding="@dimen/len_14"
         android:src="@drawable/ic_add"
-        />
+        app:gInterceptEvent="none"
+        app:layout_anchor="@id/container"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        app:shadowColor="@color/white" />
 
 
 </android.support.design.widget.CoordinatorLayout>

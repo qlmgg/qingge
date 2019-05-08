@@ -26,7 +26,7 @@
         <!--ToolBar高度-->
         <item name="actionBarSize">@dimen/len_48</item>
         <!-- 左上角返回Icon -->
-        <item name="homeAsUpIndicator">@drawable/ic_delete</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
 
         <!--初始化自己定义的3个属性值-->
         <item name="toolbarTitleSize">@dimen/font_12</item>

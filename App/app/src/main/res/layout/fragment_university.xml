@@ -86,8 +86,7 @@
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
                     android:paddingBottom="@dimen/len_12"
-                    android:visibility="gone"
-                    tools:targetApi="lollipop" />
+                    android:visibility="gone" />
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>

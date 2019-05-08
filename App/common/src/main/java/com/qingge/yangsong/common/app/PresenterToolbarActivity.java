@@ -3,10 +3,6 @@ package com.qingge.yangsong.common.app;
 
 import com.qingge.yangsong.factory.presenter.BaseContract;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Presenter>
         extends ToolbarActivity implements BaseContract.View<Presenter> {
     protected Presenter mPresenter;
@@ -62,4 +58,5 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
         // View中赋值Presenter
         mPresenter = presenter;
     }
+
 }

@@ -30,7 +30,6 @@ public abstract class Activity extends AppCompatActivity{
      * 初始化控件调用之前
      */
     protected void initBefore() {
-
     }
     //初始化窗口
     protected void initWindows(){}

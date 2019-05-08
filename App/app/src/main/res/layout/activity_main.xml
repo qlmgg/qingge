@@ -4,34 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/lay_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/len_52"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-        <!--layout_behavior  行为约定    后面的参数就是说在高度宽度占满同时处于appbar下面-->
-    </FrameLayout>
-
+        android:layout_marginBottom="@dimen/len_52" />
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+    <!--layout_behavior  行为约定    后面的参数就是说在高度宽度占满同时处于appbar下面-->
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/len_52"
         android:layout_gravity="bottom"
+        android:background="@color/white"
         android:elevation="@dimen/len_4"
         android:outlineProvider="bounds"
         android:translationZ="@dimen/len_8"
-        tools:targetApi="lollipop"
-        tools:visibility="invisible"
-        android:background="@color/white"
         app:itemIconTint="@color/color_tab"
         app:itemTextColor="@color/color_tab"
         app:menu="@menu/tab_items"
-        />
+        tools:visibility="invisible" />
 
 </android.support.design.widget.CoordinatorLayout>
