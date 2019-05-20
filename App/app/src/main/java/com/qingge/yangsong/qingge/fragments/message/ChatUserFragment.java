@@ -14,7 +14,7 @@ import com.qingge.yangsong.factory.presenter.message.ChatContract;
 import com.qingge.yangsong.factory.presenter.message.ChatUserPresenter;
 import com.qingge.yangsong.qingge.R;
 
-
+//TODO  等待删除
 /**
  * 用户聊天界面    // 这个界面被ChatUserActivity代替了   以后项目完成后再删除
  */

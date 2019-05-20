@@ -39,6 +39,13 @@ public class Comment {
     @Column(insertable = false,updatable = false,nullable = false)
     private String senderId;
 
+    //评论者名字
+    @Column
+    private String senderName;
+
+    //评论者头像
+    @Column
+    private String commenterPortrait;
 
     //对应的接收人
     @JoinColumn(name = "receiverId")
@@ -82,6 +89,8 @@ public class Comment {
         this.post = post;
         this.content = model.getContent();
         this.receiver = receiver;
+        this.senderName = model.getSenderName();
+        this.commenterPortrait = model.getCommenterPortrait();
     }
 
     public Comment() {
@@ -173,5 +182,21 @@ public class Comment {
 
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getCommenterPortrait() {
+        return commenterPortrait;
+    }
+
+    public void setCommenterPortrait(String commenterPortrait) {
+        this.commenterPortrait = commenterPortrait;
     }
 }

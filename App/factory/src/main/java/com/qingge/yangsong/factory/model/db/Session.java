@@ -1,21 +1,15 @@
 package com.qingge.yangsong.factory.model.db;
 
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.GroupHelper;
 import com.qingge.yangsong.factory.data.helper.MessageHelper;
 import com.qingge.yangsong.factory.data.helper.UserHelper;
-import com.qingge.yangsong.factory.presenter.Account;
+
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-
-
-import net.qiujuer.genius.kit.handler.Run;
-import net.qiujuer.genius.kit.handler.runable.Action;
 
 import java.util.Date;
 import java.util.Objects;
@@ -23,9 +17,6 @@ import java.util.Objects;
 
 /**
  * 本地的会话表
- *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
 public class Session extends BaseDbModel<Session> {

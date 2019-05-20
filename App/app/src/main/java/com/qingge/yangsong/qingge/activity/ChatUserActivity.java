@@ -41,11 +41,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
-        implements Toolbar.OnMenuItemClickListener,ChatContract.UserView {
-    // 接收者Id，可以是群，也可以是人的Id
+        implements Toolbar.OnMenuItemClickListener, ChatContract.UserView {
+    // 接收者Id
     public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
     // 是否是群
-    private static final String KEY_RECEIVER_IS_GROUP = "KEY_RECEIVER_IS_GROUP";
+//    private static final String KEY_RECEIVER_IS_GROUP = "KEY_RECEIVER_IS_GROUP";
     private String mReceiverId;
 
     protected Adapter mAdapter;
@@ -59,6 +59,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     EditText mContent;
     @BindView(R.id.btn_submit)
     View mSubmit;
+
     @Override
     protected int getContentLayoutId() {
         return R.layout.fragment_chat_user;
@@ -76,7 +77,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
             return;
         Intent intent = new Intent(context, ChatUserActivity.class);
         intent.putExtra(KEY_RECEIVER_ID, session.getId());
-        intent.putExtra(KEY_RECEIVER_IS_GROUP, session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
+//        intent.putExtra(KEY_RECEIVER_IS_GROUP, session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
         context.startActivity(intent);
     }
 
@@ -105,16 +106,14 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
         mAdapter = new Adapter();
         mRecyclerView.setAdapter(mAdapter);
         mToolbar.setNavigationIcon(R.drawable.ic_back);
-        mToolbar.setNavigationOnClickListener(v -> {
-            finish();
-        });
+        mToolbar.setNavigationOnClickListener(v -> finish());
         mToolbar.inflateMenu(R.menu.chat_user);
         mToolbar.setOnMenuItemClickListener(this);
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        Toast.makeText(ChatUserActivity.this,"个人详细信息界面:" + menuItem.getItemId(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChatUserActivity.this, "个人详细信息界面:" + menuItem.getItemId(), Toast.LENGTH_SHORT).show();
         return false;
     }
 
@@ -129,6 +128,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     protected ChatContract.Presenter initPresenter() {
         return new ChatUserPresenter(this, mReceiverId);
     }
+
     //用户信息初始化
     @Override
     public void onInit(User user) {
@@ -234,7 +234,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
         Loading mLoading;
 
 
-        public BaseHolder(View itemView) {
+        BaseHolder(View itemView) {
             super(itemView);
         }
 
@@ -290,7 +290,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
         @BindView(R.id.txt_content)
         TextView mContent;
 
-        public TextHolder(View itemView) {
+        TextHolder(View itemView) {
             super(itemView);
         }
 
@@ -307,7 +307,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     // 语音的Holder
     class AudioHolder extends BaseHolder {
 
-        public AudioHolder(View itemView) {
+        AudioHolder(View itemView) {
             super(itemView);
         }
 
@@ -321,7 +321,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     // 图片的Holder
     class PicHolder extends BaseHolder {
 
-        public PicHolder(View itemView) {
+        PicHolder(View itemView) {
             super(itemView);
         }
 

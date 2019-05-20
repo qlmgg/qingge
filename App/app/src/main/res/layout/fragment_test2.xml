@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:paddingTop="@dimen/statusBarSize" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/actionBarWithStatusBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/len_10">
+
+                <com.qingge.yangsong.common.widget.PortraitView
+                    android:id="@+id/portrait"
+                    android:layout_width="@dimen/len_48"
+                    android:layout_height="@dimen/len_48"
+                    android:src="@drawable/default_banner_group" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/len_6"
+                    android:layout_marginTop="@dimen/len_2"
+                    android:layout_toEndOf="@+id/portrait"
+                    android:text="无限可能"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:layout_marginStart="@dimen/len_6"
+                    android:layout_marginTop="@dimen/len_4"
+                    android:layout_toEndOf="@+id/portrait"
+                    android:text="5/6 12:30"
+                    android:textColor="@color/grey_600" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/portrait"
+                    android:layout_marginTop="@dimen/len_10"
+                    android:minHeight="@dimen/len_60"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/content"
+                        android:padding="@dimen/len_6"
+                        android:text="d觉得哈达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d达d觉得哈达d觉d觉得哈达d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="赞:"
+                    android:textColor="@color/grey_600" />
+
+                <TextView
+                    android:id="@+id/txt_fabulous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/len_2"
+                    android:text="1255"
+                    android:textColor="@color/grey_600" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/len_20"
+                    android:text="评论:"
+                    android:textColor="@color/grey_600" />
+
+                <TextView
+                    android:id="@+id/txt_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/len_2"
+                    android:text="1255"
+                    android:textColor="@color/grey_600" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white_alpha_224"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:outlineProvider="bounds"
+        tools:targetApi="lollipop">
+
+        <EditText
+            android:id="@+id/search_edit_shop"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/len_32"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/len_12"
+            android:layout_marginEnd="@dimen/len_12"
+            android:layout_weight="1"
+            android:background="@drawable/search_bar_gray"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:hint="说点什么~~"
+            android:paddingStart="@dimen/len_10"
+            android:textColorHint="#bdbdbd"
+            android:textSize="@dimen/font_14"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/len_44"
+            android:layout_height="@dimen/len_44"
+            android:contentDescription="@string/app_name"
+            android:enabled="true"
+            android:foreground="@drawable/ic_touch_fg"
+            android:padding="@dimen/len_10"
+            android:src="@drawable/ic_zan"
+            android:tint="@color/textPrimary" />
+    </LinearLayout>
+</FrameLayout>

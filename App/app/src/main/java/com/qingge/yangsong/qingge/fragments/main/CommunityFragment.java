@@ -1,5 +1,6 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +18,9 @@ import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
 
 import com.qingge.yangsong.qingge.R;
 import com.qingge.yangsong.qingge.activity.GroupCreateActivity;
+import com.qingge.yangsong.qingge.activity.LaunchActivity;
 import com.qingge.yangsong.qingge.activity.SendPostActivity;
+import com.qingge.yangsong.qingge.activity.TestActivity;
 import com.qingge.yangsong.qingge.fragments.school.SchoolFragment;
 
 
@@ -101,5 +104,7 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
     @OnClick(R.id.iv_menu)
     public void createGroup(){
         GroupCreateActivity.show(Objects.requireNonNull(getContext()));
+            //TODO  退出登陆的操作,已经实现,待应用
+//        Account.signOut(getContext(),new Intent(getContext(), LaunchActivity.class));
     }
 }

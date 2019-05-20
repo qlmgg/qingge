@@ -1,6 +1,8 @@
 package com.qingge.yangsong.factory.presenter;
 
 import android.support.v7.util.DiffUtil;
+import android.util.Log;
+
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
@@ -30,7 +32,6 @@ public class BaseRecyclerPresenter<ViewMode, View extends BaseContract.RecyclerV
                 View view = getView();
                 if (view == null)
                     return;
-
                 // 基本的更新数据并刷新界面
                 RecyclerAdapter<ViewMode> adapter = view.getRecyclerAdapter();
                 adapter.replace(dataList);

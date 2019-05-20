@@ -22,7 +22,12 @@ public class CommentCard {
     //评论者
     @Expose
     private String senderId;
-
+    //评论者名字
+    @Expose
+    private String senderName;
+    //评论者头像
+    @Expose
+    private String commenterPortrait;
     //内容
     @Expose
     private String content;
@@ -40,6 +45,8 @@ public class CommentCard {
         this.attach = comment.getAttach();
         this.content = comment.getContent();
         this.createAt = comment.getCreateAt();
+        this.senderName = comment.getSenderName();
+        this.commenterPortrait = comment.getCommenterPortrait();
     }
 
 
@@ -81,5 +88,21 @@ public class CommentCard {
 
     public void setAttach(String attach) {
         this.attach = attach;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getCommenterPortrait() {
+        return commenterPortrait;
+    }
+
+    public void setCommenterPortrait(String commenterPortrait) {
+        this.commenterPortrait = commenterPortrait;
     }
 }

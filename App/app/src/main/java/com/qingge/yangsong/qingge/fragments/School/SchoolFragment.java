@@ -20,11 +20,14 @@ import com.qingge.yangsong.factory.data.helper.SchoolHelper;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.net.RemoteService;
+import com.qingge.yangsong.factory.presenter.message.ChatGroupPresenter;
 import com.qingge.yangsong.factory.presenter.school.SchoolContract;
 import com.qingge.yangsong.factory.presenter.school.SchoolPresenter;
 import com.qingge.yangsong.factory.utils.DiffUiDataCallback;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.activity.ChatGroupActivity;
 import com.qingge.yangsong.qingge.activity.PersonalActivity;
+import com.qingge.yangsong.qingge.activity.PostActivity;
 import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -58,6 +61,7 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
     private RecyclerAdapter<Group> mGroupAdapter;//这是群的适配器
     public int pageCount = 2;// 总页数 每次请求返回后的会得到
     private boolean isShow;//是否显示群列表
+
     public SchoolFragment() {
     }
 
@@ -84,7 +88,17 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRecyclerGroup.setLayoutManager(layoutManager);
-        mRecyclerGroup.setAdapter(mGroupAdapter = new RecyclerAdapter<Group>() {
+        mRecyclerGroup.setAdapter(mGroupAdapter = new RecyclerAdapter<Group>(new RecyclerAdapter.AdapterListener<Group>() {
+            @Override
+            public void onItemClick(RecyclerAdapter.ViewHolder holder, Group group) {
+                ChatGroupActivity.show(getContext(), group);
+            }
+
+            @Override
+            public void onItemLongClick(RecyclerAdapter.ViewHolder holder, Group group) {
+
+            }
+        }) {
             @Override
             protected int getItemViewType(int position, Group group) {
                 return R.layout.cell_group_list;
@@ -111,7 +125,7 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
             //下拉刷新完成
             mRefreshLayout.finishRefresh();
             //刷新群列表
-            SchoolHelper.findGroupList(mSchoolId,this);
+            SchoolHelper.findGroupList(mSchoolId, this);
         });
 
         mRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
@@ -137,7 +151,6 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
 
         mEmptyView.bind(mRecycler);
         setPlaceHolderView(mEmptyView);
-
     }
 
     @Override
@@ -191,8 +204,8 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
 
     @Override
     public void onItemClick(RecyclerAdapter.ViewHolder holder, Post post) {
-        //TODO 点击帖子后的处理
-        Application.showToast("待完成");
+
+        PostActivity.show(getContext(),post);
     }
 
     @Override
@@ -249,7 +262,7 @@ public class SchoolFragment extends PresenterFragment<SchoolContract.Presenter>
 
         @Override
         protected void onBind(Group group) {
-            mGroupPortrait.setup(Glide.with(SchoolFragment.this),group.getPicture());
+            mGroupPortrait.setup(Glide.with(SchoolFragment.this), group.getPicture());
             mGroupName.setText(group.getName());
             mGroupDesc.setText(group.getDesc());
         }

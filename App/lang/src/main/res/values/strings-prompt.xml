@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="prompt_empty">Oh~, it empty!</string>
-    <string name="prompt_error">Sorry, you have or more error!</string>
-    <string name="prompt_loading">Loading…</string>
+    <string name="prompt_empty">Oh~, 毛都没有!</string>
+    <string name="prompt_error">网络错误,请检查网络状态!</string>
+    <string name="prompt_loading">加载中…</string>
 </resources>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:expandableTextView="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/len_6"
+    android:background="@drawable/arc_group_activity_bar"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/len_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_40"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/len_6"
+                android:layout_marginTop="@dimen/len_2"
+                android:text="发起人: "
+                android:textColor="#757575"
+                android:textSize="@dimen/font_10" />
+
+            <TextView
+                android:id="@+id/txt_originator_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="无限可能啊h"
+                android:textColor="#757575"
+                android:textSize="@dimen/font_12" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_activity_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="12"
+            android:maxLines="1"
+            android:text="南充集体春游"
+            android:textColor="#424242"
+            android:textSize="@dimen/font_14" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_2"
+                android:text="12/25 12:30"
+                android:textColor="#9e9e9e"
+                android:textSize="@dimen/font_8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/len_2"
+                android:layout_marginTop="@dimen/len_2"
+                android:layout_marginEnd="@dimen/len_2"
+                android:text="-"
+                android:textColor="#9e9e9e"
+                android:textSize="@dimen/font_10" />
+
+            <TextView
+                android:id="@+id/txt_end_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/len_2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="12/25 12:30"
+                android:textColor="#9e9e9e"
+                android:textSize="@dimen/font_8" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.ms.square.android.expandabletextview.ExpandableTextView
+        android:id="@+id/expand_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:maxCollapsedLines="3"
+        expandableTextView:animDuration="100">
+
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="@dimen/len_10"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@id/expand_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/len_8" />
+
+    </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="@dimen/len_20"
+        android:layout_marginEnd="@dimen/len_20"
+        android:background="#4dd0e1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/len_10"
+        android:paddingStart="@dimen/len_10"
+        android:paddingEnd="@dimen/len_10">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/txt_join_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="等322位参与"
+            android:textColor="#9e9e9e"
+            android:textSize="@dimen/font_10" />
+    </LinearLayout>
+
+</LinearLayout>

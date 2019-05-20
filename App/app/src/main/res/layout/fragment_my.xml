@@ -61,13 +61,14 @@
                 android:id="@+id/portrait"
                 android:layout_width="100dp"
                 android:layout_height="@dimen/len_100"
-
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
                 android:layout_gravity="center"
                 android:src="@drawable/default_portrait" />
 
 
             <net.qiujuer.genius.ui.widget.Button
-                android:id="@+id/btn_follow"
+                android:id="@+id/btn_follows"
                 android:layout_width="@dimen/len_76"
                 android:layout_height="@dimen/len_28"
                 android:layout_gravity="end|bottom"

@@ -38,6 +38,8 @@ import com.qingge.yangsong.qingge.fragments.mytab.OrderFragment;
 import com.qingge.yangsong.qingge.fragments.mytab.ShopFragment;
 
 
+import net.qiujuer.genius.ui.widget.Button;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,9 +70,13 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     ViewPager mViewPager;
     @BindView(R.id.iv_bg)
     ImageView mBg;
-
+    @BindView(R.id.btn_follows)
+    Button mFollos;
     @BindView(R.id.tv_title_name)
     TextView mTitleName;
+
+
+
 
     @Override
     protected void initData() {
@@ -78,6 +84,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
         mPortraitView.setup(Glide.with(getActivity()), Account.getUser());
         Glide.with(this)
                 .load(Account.getUser().getPortrait())
+                .placeholder(R.drawable.default_portrait)
                 .bitmapTransform(new BlurTransformation(Objects.requireNonNull(getContext()),14,15))
                 .dontAnimate()
                 .into(new ViewTarget<View, GlideDrawable>(mBg) {
@@ -97,7 +104,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-
+        initFollowBtn();
         List<Fragment> mFragments = new ArrayList<>();
         //因为系统原因  需要把tab的名字传过去才能设定到TabLayout上
         List<String> mTitles = new ArrayList<>();
@@ -141,6 +148,13 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
         });
     }
 
+    private void initFollowBtn() {
+        if (Account.isLogin())
+            mFollos.setVisibility(View.VISIBLE);
+        else
+            mFollos.setVisibility(View.GONE);
+    }
+
     @OnClick(R.id.portrait)
     public void startLogin() {
         if (!Account.isLogin()) {//如果没登陆才跳转到登陆
@@ -152,6 +166,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     //当登陆完成后的调用,用于加载头像等数据
     @Override
     public void init() {
+        initFollowBtn();
         //加载头像
         mPortraitView.setup(Glide.with(MyFragment.this), Account.getUser());
         Glide.with(this)

@@ -1,12 +1,15 @@
 package com.qingge.yangsong.factory.presenter;
 
+import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;
 import com.qingge.yangsong.factory.model.account.AccountRspModel;
+import com.qingge.yangsong.factory.model.db.AppDatabase;
 import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.model.db.User_Table;
@@ -57,6 +60,19 @@ public class Account {
                 .putString(KEY_USER_ID, userId)
                 .putString(KEY_ACCOUNT, account)
 //                .putString(KEY_USER_SCHOOL_ID, schoolId)
+                .apply();
+    }
+
+    /**
+     * 删除数据  XML文件
+     */
+    private static void delete(Context context) {
+        // 获取数据持久化的SP
+        SharedPreferences sp = context.getSharedPreferences(Account.class.getName(),
+                Context.MODE_PRIVATE);
+        // 存储数据
+        sp.edit()
+                .clear()
                 .apply();
     }
 
@@ -118,6 +134,7 @@ public class Account {
                 && !TextUtils.isEmpty(token);
     }
 
+
     /**
      * 是否已经完善了用户信息
      *
@@ -164,6 +181,24 @@ public class Account {
         Account.userId = model.getUserCard().build().getId();
         save(Factory.app());
     }
+
+    /**
+     * 退出操作
+     *
+     */
+    public static void signOut(Context context,Intent intent) {
+        // 删除xml持续化文件
+        delete(Factory.app());
+        //数据初始化
+        load(context);
+        //删除数据库
+        AppDatabase.delete();
+        //关闭所有activity
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+
+    }
+
 
     /**
      * 获取当前登录的用户信息

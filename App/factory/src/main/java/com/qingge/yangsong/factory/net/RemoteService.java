@@ -5,6 +5,7 @@ import com.qingge.yangsong.factory.model.SchoolInfoModel;
 import com.qingge.yangsong.factory.model.account.AccountRspModel;
 import com.qingge.yangsong.factory.model.account.LoginModel;
 import com.qingge.yangsong.factory.model.account.RegisterModel;
+import com.qingge.yangsong.factory.model.card.CommentCard;
 import com.qingge.yangsong.factory.model.card.GroupCard;
 import com.qingge.yangsong.factory.model.card.LoadPostCard;
 import com.qingge.yangsong.factory.model.card.MessageCard;
@@ -13,6 +14,7 @@ import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.card.UniversityCard;
 import com.qingge.yangsong.factory.model.card.UserCard;
 import com.qingge.yangsong.factory.model.db.University;
+import com.qingge.yangsong.factory.model.group.GroupCreateModel;
 import com.qingge.yangsong.factory.model.message.MsgCreateModel;
 
 
@@ -61,24 +63,23 @@ public interface RemoteService {
 
     @GET("university/query/{range}")
     Call<RspModel<List<SchoolInfoModel>>> schoolsInRange(@Path("range") String range);
+
     /**
      * 根据学校id拿帖子
-     *
-     * */
+     */
     @GET("post/{id}")
     Call<RspModel<List<PostCard>>> getPosts(@Path("id") String id);
 
     /**
      * 根据学校id和页数拿帖子
-     *得到总页数和帖子集合
-     * */
+     * 得到总页数和帖子集合
+     */
     @GET("post/{id}|{page}")
-    Call<RspModel<LoadPostCard>> getPostsByPage(@Path("id") String id,@Path("page") int page);
+    Call<RspModel<LoadPostCard>> getPostsByPage(@Path("id") String id, @Path("page") int page);
 
     /**
      * 根据id拿学校
-     *
-     * */
+     */
     @GET("university/{id}")
     Call<RspModel<UniversityCard>> findUniversity(@Path("id") String id);
 
@@ -86,21 +87,24 @@ public interface RemoteService {
 //    @PUT("user")
 //    Call<RspModel<List<MessageCard>>> userUpdate(@Path() UserUpdateModel model);
 
-//    //用户搜索接口
+    //    //用户搜索接口
 //    @GET("user/search/{name}")
 //    Call<RspModel<List<UserCard>>> userSearch(@Path("name") String name);
 //
 //    //用户关注接口
     @PUT("user/follow/{userId}")
     Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
+
     //取消用户关注接口
     @PUT("user/un_follow/{userId}")
     Call<RspModel<UserCard>> userCancelFollow(@Path("userId") String userId);
-//
+
+    //
 //    //刷新联系人
-//    @GET("user/contact")
-//    Call<RspModel<List<UserCard>>> userContacts();
-//
+    @GET("user/contact")
+    Call<RspModel<List<UserCard>>> userContacts();
+
+    //
     //获取某人详细信息
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
@@ -113,4 +117,10 @@ public interface RemoteService {
     @GET("group/search/{schoolId}")
     Call<RspModel<List<GroupCard>>> searchGroups(@Path("schoolId") String schoolId);
 
+    //创建群
+    @POST("group")
+    Call<RspModel<GroupCard>> groupCreate(@Body GroupCreateModel model);
+
+    @GET("post/comment/{postId}")
+    Call<RspModel<List<CommentCard>>> loadComments(@Path("postId") String postId);
 }

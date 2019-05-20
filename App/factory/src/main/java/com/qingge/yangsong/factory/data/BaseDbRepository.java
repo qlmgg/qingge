@@ -57,9 +57,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     public void onDataSave(Data[] list) {
         boolean isChanged = false;
         //这儿直接清空,也就没有缓存了,也就是说下面其实insertOrUpdate(data)始终是insert
-        Log.e("haw","绘画测试"+list);
 
-//        dataList.clear();
         // 当数据库数据变更的操作
         for (Data data : list) {
             // 是关注的人，同时不是我自己

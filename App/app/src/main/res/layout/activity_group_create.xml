@@ -24,6 +24,7 @@
         android:layout_marginTop="@dimen/len_56"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_add"
+        app:civ_fill_color="@color/cyan_100"
         app:civ_border_color="#63C2C2"
         app:civ_border_width="0.5dp" />
 
@@ -74,8 +75,6 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_marginStart="@dimen/len_40"
-        android:layout_marginEnd="@dimen/len_40"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

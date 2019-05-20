@@ -42,6 +42,7 @@ public interface ChatContract {
 
     // 群聊天的界面
     interface GroupView extends View<Group> {
-
+        //当已经是群成员的时候显示的界面
+        void showGroupMember(boolean isGroupMember);
     }
 }

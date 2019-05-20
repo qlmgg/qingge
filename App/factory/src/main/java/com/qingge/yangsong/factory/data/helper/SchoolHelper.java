@@ -107,7 +107,7 @@ public class SchoolHelper {
 
     //拿到当前学校下的群集合
     public static void findGroupList(String schoolId, final SchoolContract.View view){
-
+//TODO 进行优化,只需要name id pic desc  服务端对应
        RemoteService service = Network.remote();
        Call<RspModel<List<GroupCard>>> call =  service.searchGroups(schoolId);
         call.enqueue(new Callback<RspModel<List<GroupCard>>>() {
@@ -124,7 +124,10 @@ public class SchoolHelper {
                        User owner = UserHelper.search(card.getOwnerId());
                        //添加到集合
                        groups.add(card.build(owner));
+
                    }
+
+                   Factory.getGroupCenter().dispatch(cards.toArray(new GroupCard[0]));
                    view.loadGroupList(groups);
                }
             }

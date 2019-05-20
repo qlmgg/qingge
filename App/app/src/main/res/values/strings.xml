@@ -43,4 +43,6 @@
     <string name="input_group_name">群名称</string>
     <string name="input_desc">简述</string>
     <string name="text_select_group_member">选择添加群成员</string>
+    <string name="dummy_text1">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测
+        试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</string>
 </resources>

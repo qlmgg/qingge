@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.qingge.yangsong.common.app.PresenterActivity;
+import com.qingge.yangsong.factory.data.helper.UserHelper;
 import com.qingge.yangsong.factory.presenter.account.LoginContract;
 import com.qingge.yangsong.factory.presenter.account.LoginPresenter;
 import com.qingge.yangsong.qingge.R;
@@ -81,6 +82,8 @@ public class LoginActivity extends PresenterActivity<LoginContract.Presenter>
     //登陆成功后的调用
     @Override
     public void loginSuccess() {
+        //登陆成功后就进行我关注的人的刷新,并保存到本地
+        UserHelper.refreshContacts();
         mInitData.init();
         finish();
     }

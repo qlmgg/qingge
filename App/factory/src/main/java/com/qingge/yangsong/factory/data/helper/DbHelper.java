@@ -121,6 +121,7 @@ public class DbHelper {
 
         //拿到当前数据库的管理者
         DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
+
         //提交事务
         definition.beginTransactionAsync(new ITransaction() {
             @Override

@@ -72,6 +72,12 @@
         <activity android:name=".activity.GroupCreateActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Group.Create"/>
+        <activity android:name=".activity.TestActivity"
+            android:theme="@style/AppTheme.Main"/>
+        <activity android:name=".activity.ChatGroupActivity"
+            android:theme="@style/AppTheme.TransStatusBar"/>
+        <activity android:name=".activity.PostActivity" 
+            android:theme="@style/AppTheme.Main"/>
 
         <service android:name=".getuiService.DemoIntentService" />
         <service

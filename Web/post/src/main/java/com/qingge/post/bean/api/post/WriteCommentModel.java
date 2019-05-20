@@ -13,12 +13,18 @@ public class WriteCommentModel {
     @Expose
     private String receiverId;
     @Expose
+    private String senderName;
+    @Expose
+    private String commenterPortrait;
+    @Expose
     private String attach;
     @Expose
     private String postId;
 
     public static boolean check(WriteCommentModel model) {
         return model != null
+                && !Strings.isNullOrEmpty(model.senderName)
+                && !Strings.isNullOrEmpty(model.commenterPortrait)
                 && !Strings.isNullOrEmpty(model.content)
                 && !Strings.isNullOrEmpty(model.senderId)
                 && !Strings.isNullOrEmpty(model.receiverId)
@@ -71,5 +77,21 @@ public class WriteCommentModel {
 
     public void setPostId(String postId) {
         this.postId = postId;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getCommenterPortrait() {
+        return commenterPortrait;
+    }
+
+    public void setCommenterPortrait(String commenterPortrait) {
+        this.commenterPortrait = commenterPortrait;
     }
 }

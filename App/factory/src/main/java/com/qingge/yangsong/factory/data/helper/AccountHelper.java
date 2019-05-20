@@ -63,7 +63,7 @@ public class AccountHelper {
                 //保存
                 DbHelper.save(User.class,user);
                 //进行一次学校的查询并保存
-                SchoolHelper.findUniversity(user.getSchoolId());
+                SchoolHelper.findUniversity(user.getSchoolId());//TODO   登陆成功后需要把关注的人同步到本地
                 // 同步到XML持久化中
                 Account.login(model);
                 //判断是否绑定

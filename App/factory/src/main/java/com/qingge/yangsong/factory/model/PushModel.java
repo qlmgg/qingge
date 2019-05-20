@@ -33,7 +33,7 @@ public class PushModel {
     // 群成员退出
     public static final int ENTITY_TYPE_EXIT_GROUP_MEMBERS = 3001;
 
-    private List<Entity> entities = new ArrayList<>();
+    private List<Entity> entities;
 
     private PushModel(List<Entity> entities) {
         this.entities = entities;

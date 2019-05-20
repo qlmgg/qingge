@@ -41,4 +41,7 @@ dependencies {
     api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     api "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+
+    //图片/视频选择、预览、编辑与拍照
+    implementation 'com.github.guoxiaoxing:phoenix:1.0.15'
 }

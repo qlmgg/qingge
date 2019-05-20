@@ -20,10 +20,13 @@ import com.qingge.yangsong.factory.model.db.Session;
 import com.qingge.yangsong.factory.presenter.message.SessionContract;
 import com.qingge.yangsong.factory.presenter.message.SessionPresenter;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.activity.ChatGroupActivity;
 import com.qingge.yangsong.qingge.activity.ChatUserActivity;
 import com.qingge.yangsong.utils.DateTimeUtil;
 
 import butterknife.BindView;
+
+import static com.qingge.yangsong.factory.model.db.Message.RECEIVER_TYPE_GROUP;
 
 public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
         implements SessionContract.View {
@@ -90,7 +93,10 @@ public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
             @Override
             public void onItemClick(RecyclerAdapter.ViewHolder holder, Session session) {
                 // 跳转到聊天界面
-                ChatUserActivity.show(getContext(), session);
+                if (session.getReceiverType() == RECEIVER_TYPE_GROUP)
+                    ChatGroupActivity.show(getContext(), session);
+                else
+                    ChatUserActivity.show(getContext(), session);
             }
 
             @Override
