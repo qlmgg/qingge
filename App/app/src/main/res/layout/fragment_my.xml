@@ -29,42 +29,15 @@
                 android:foreground="@color/black_alpha_48"
                 android:scaleType="centerCrop" />
 
-            <!--<TextView-->
-            <!--android:id="@+id/tv_name"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:layout_marginBottom="@dimen/len_36"-->
-            <!--android:text="@string/app_name"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textSize="@dimen/font_22" />-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="@dimen/len_20"-->
-            <!--android:layout_marginTop="@dimen/len_172"-->
-            <!--android:text="关注 : 2888"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textSize="@dimen/font_14" />-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="@dimen/len_20"-->
-            <!--android:layout_marginTop="192dp"-->
-            <!--android:text="粉丝 : 6666"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textSize="@dimen/font_14" />-->
 
             <com.qingge.yangsong.common.widget.PortraitView
                 android:id="@+id/portrait"
                 android:layout_width="100dp"
                 android:layout_height="@dimen/len_100"
-                app:civ_border_color="@color/white"
-                app:civ_border_width="1dp"
                 android:layout_gravity="center"
-                android:src="@drawable/default_portrait" />
+                android:src="@drawable/default_portrait"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp" />
 
 
             <net.qiujuer.genius.ui.widget.Button
@@ -106,6 +79,7 @@
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

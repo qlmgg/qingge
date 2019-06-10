@@ -1,5 +1,6 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -14,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -77,11 +79,10 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
 
 
 
-
     @Override
     protected void initData() {
         super.initData();
-        mPortraitView.setup(Glide.with(getActivity()), Account.getUser());
+        mPortraitView.setup(Glide.with(mActivity), Account.getUser());
         Glide.with(this)
                 .load(Account.getUser().getPortrait())
                 .placeholder(R.drawable.default_portrait)
@@ -104,6 +105,8 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
+
+
         initFollowBtn();
         List<Fragment> mFragments = new ArrayList<>();
         //因为系统原因  需要把tab的名字传过去才能设定到TabLayout上
@@ -121,7 +124,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
 
 //        mTextView.setText(Account.getUser().getName());
 
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
+        MyViewPagerAdapter adapter = new MyViewPagerAdapter(mActivity.getSupportFragmentManager(),
                 mFragments,
                 mTitles);
 
@@ -158,7 +161,7 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
     @OnClick(R.id.portrait)
     public void startLogin() {
         if (!Account.isLogin()) {//如果没登陆才跳转到登陆
-            LoginActivity.show(Objects.requireNonNull(getActivity()), this);
+            LoginActivity.show(mActivity, this);
         }
 
     }
@@ -180,4 +183,5 @@ public class MyFragment extends Fragment implements LoginActivity.initMyData {
                     }
                 });
     }
+
 }

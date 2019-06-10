@@ -107,7 +107,7 @@ public class StreamUtil {
      */
     public static boolean copy(InputStream inputStream, OutputStream outputStream) {
         try {
-            byte buffer[] = new byte[1024];
+            byte[] buffer = new byte[1024];
             int realLength;
             while ((realLength = inputStream.read(buffer)) > 0) {
                 outputStream.write(buffer, 0, realLength);

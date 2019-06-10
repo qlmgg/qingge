@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -45,18 +47,6 @@
                 android:text="@string/title_message"
                 android:textAppearance="@style/TextAppearance.Title" />
 
-            <!--<ImageView-->
-            <!--android:id="@+id/im_search"-->
-            <!--android:layout_width="@dimen/len_40"-->
-            <!--android:layout_height="@dimen/len_40"-->
-            <!--android:layout_gravity="end|center_vertical"-->
-            <!--android:layout_marginEnd="@dimen/len_48"-->
-            <!--android:contentDescription="@string/title_search"-->
-            <!--android:padding="@dimen/len_10"-->
-            <!--android:scaleType="centerInside"-->
-            <!--android:src="@drawable/ic_search" />-->
-            <!--android:tint="?attr/toolbarMenuIconColor"  这个是用于设置icon图标颜色的,默认白色,也可在src的矢量图文件调-->
-
 
             <ImageView
                 android:id="@+id/iv_menu"
@@ -72,23 +62,92 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/container"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/actionBarWithStatusBarSize" />
+        android:layout_height="match_parent">
 
-    <net.qiujuer.genius.ui.widget.FloatActionButton
-        android:id="@+id/write_post"
-        android:layout_width="@dimen/len_44"
-        android:layout_height="@dimen/len_44"
-        android:elevation="0dp"
-        android:padding="@dimen/len_14"
-        android:src="@drawable/ic_add"
-        app:gInterceptEvent="none"
-        app:layout_anchor="@id/container"
-        app:layout_anchorGravity="bottom|center_horizontal"
-        app:shadowColor="@color/white" />
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/search_edit_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="@dimen/len_12"
+                    android:layout_marginTop="@dimen/len_6"
+                    android:layout_marginEnd="@dimen/len_12"
+                    android:background="@drawable/search_bar_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:hint="@string/text_search_post"
+                    android:textColorHint="#bdbdbd"
+                    android:textSize="@dimen/font_14"
+                    tools:ignore="RtlSymmetry" />
+
+                <RelativeLayout
+                    android:id="@+id/all_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="@dimen/len_4"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/len_24"
+                        android:layout_marginStart="@dimen/len_8"
+                        android:gravity="center"
+                        android:text="@string/text_all_group"
+                        android:textColor="@color/grey_500"
+                        android:textSize="@dimen/font_12"
+                        tools:ignore="RelativeOverlap" />
+
+                    <ImageView
+                        android:id="@+id/show_groups"
+                        android:layout_width="@dimen/len_12"
+                        android:layout_height="@dimen/len_12"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/len_12"
+                        android:contentDescription="@string/app_name" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/grey_200"
+                        android:contentDescription="@string/app_name" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/group_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/len_2" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingTop="@dimen/len_6"
+                    android:paddingBottom="@dimen/len_12" />
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

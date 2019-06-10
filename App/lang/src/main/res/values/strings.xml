@@ -15,4 +15,5 @@
     <string name="dialog_tv_my">我的大学</string>
     <string name="dialog_tv_city">市内大学</string>
     <string name="dialog_tv_province">省内大学</string>
+    <string name="send">发送</string>
 </resources>

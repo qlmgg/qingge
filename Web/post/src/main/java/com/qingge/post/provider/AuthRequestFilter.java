@@ -16,7 +16,7 @@ import java.security.Principal;
 public class AuthRequestFilter implements ContainerRequestFilter {
     // 实现接口的过滤方法
     @Override
-    public void filter(ContainerRequestContext requestContext) throws IOException {
+    public void filter(ContainerRequestContext requestContext) {
         // 检查是否是登录注册接口
         String relationPath = ((ContainerRequest) requestContext).getPath(false);
         if (relationPath.startsWith("account/login")

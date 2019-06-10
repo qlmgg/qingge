@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".activity.GroupCreateActivity">
 
     <android.support.v7.widget.Toolbar
@@ -24,7 +26,7 @@
         android:layout_marginTop="@dimen/len_56"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_add"
-        app:civ_fill_color="@color/cyan_100"
+
         app:civ_border_color="#63C2C2"
         app:civ_border_width="0.5dp" />
 
@@ -58,8 +60,8 @@
         android:gravity="center"
         android:hint="@string/input_desc"
         android:inputType="text"
-        android:maxLength="50"
         android:lines="3"
+        android:maxLength="50"
         android:padding="@dimen/len_4"
         android:textColor="@color/grey_700"
         android:textColorHint="@color/grey_400"
@@ -69,7 +71,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/len_40"
+        android:layout_marginStart="@dimen/len_20"
         android:layout_marginTop="@dimen/len_20"
         android:text="@string/text_select_group_member" />
 

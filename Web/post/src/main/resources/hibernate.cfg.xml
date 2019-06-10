@@ -79,6 +79,8 @@
                  class="com.qingge.post.bean.db.UserFollow"/>
         <mapping package="com.qingge.post.bean.db"
                  class="com.qingge.post.bean.db.Apply"/>
+        <mapping package="com.qingge.post.bean.db"
+                 class="com.qingge.post.bean.db.Album"/>
         <!--<mapping package="net.qiujuer.web.italker.push.bean.db"-->
                  <!--class="net.qiujuer.web.italker.push.bean.db.UserFollow"/>-->
 

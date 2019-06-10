@@ -23,24 +23,21 @@ public class DynamicFragment extends Fragment {
 
     @Override
     protected int getContentLayoutId() {
-        Log.e("MMM","c测试数据");
         return R.layout.fragment_dynamic_my;
     }
 
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-        Log.e("MMM","c测试数据int");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            data.add("我是数据:"+ i);
-            Log.e("MMM","c测试数据intdata");
+            data.add("我是数据:" + i);
         }
-        mRecyclerView.setAdapter(new RecyclerAdapter<String>(null,data) {
+        mRecyclerView.setAdapter(new RecyclerAdapter<String>(null, data) {
             @Override
             protected int getItemViewType(int position, String o) {
-                return R.layout.cell_test;
+                return R.layout.cell_test2;
             }
 
             @Override
@@ -57,13 +54,13 @@ public class DynamicFragment extends Fragment {
         @BindView(R.id.text)
         TextView mText;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
         @Override
         protected void onBind(String s) {
-            Log.e("MMM","c测试数据"+s);
+
             mText.setText(s);
         }
     }

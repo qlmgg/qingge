@@ -1,8 +1,5 @@
 package com.qingge.yangsong.common;
 
-import android.util.DisplayMetrics;
-
-import com.qingge.yangsong.common.app.Application;
 
 public class Common {
     /**

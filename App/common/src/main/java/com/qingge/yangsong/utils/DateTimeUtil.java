@@ -11,7 +11,7 @@ import java.util.Locale;
  * @version 1.0.0
  */
 public class DateTimeUtil {
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yy-MM-dd", Locale.ENGLISH);
+    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yy-MM-dd HH:mm", Locale.ENGLISH);
 
     /**
      * 获取一个简单的时间字符串

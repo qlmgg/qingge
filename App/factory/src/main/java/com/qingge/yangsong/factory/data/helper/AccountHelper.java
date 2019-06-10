@@ -2,6 +2,7 @@ package com.qingge.yangsong.factory.data.helper;
 
 import android.util.Log;
 
+import com.qingge.yangsong.common.app.Application;
 import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.R;
 import com.qingge.yangsong.factory.data.DataSource;
@@ -29,7 +30,7 @@ public class AccountHelper {
     }
 
     //注册
-    public static void register(RegisterModel model, DataSource.Callback<User> callback){
+    public static void register(RegisterModel model, DataSource.Callback<User> callback) {
         Network.remote().accountRegister(model).enqueue(new AccountRspCallback(callback));
     }
 
@@ -61,7 +62,7 @@ public class AccountHelper {
                 //构建user
                 User user = model.getUserCard().build();
                 //保存
-                DbHelper.save(User.class,user);
+                DbHelper.save(User.class, user);
                 //进行一次学校的查询并保存
                 SchoolHelper.findUniversity(user.getSchoolId());//TODO   登陆成功后需要把关注的人同步到本地
                 // 同步到XML持久化中
@@ -71,7 +72,7 @@ public class AccountHelper {
                     //设置绑定ok
                     Account.setBind(true);
                     //然后返回
-                    if (callback!=null)
+                    if (callback != null)
                         callback.onDataLoaded(user);
                 } else {
                     //唤起绑定
@@ -79,6 +80,7 @@ public class AccountHelper {
                 }
             } else {//错误解析
                 Factory.decodeRspCode(rspModel, callback);
+
             }
         }
 

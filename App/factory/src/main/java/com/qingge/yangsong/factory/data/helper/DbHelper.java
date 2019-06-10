@@ -1,8 +1,6 @@
 package com.qingge.yangsong.factory.data.helper;
 
-import android.util.Log;
 
-import com.qingge.yangsong.factory.data.post.PostRepository;
 import com.qingge.yangsong.factory.model.db.AppDatabase;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.GroupMember;
@@ -17,7 +15,7 @@ import com.raizlabs.android.dbflow.structure.ModelAdapter;
 import com.raizlabs.android.dbflow.structure.database.DatabaseWrapper;
 import com.raizlabs.android.dbflow.structure.database.transaction.ITransaction;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -102,14 +100,11 @@ public class DbHelper {
         //拿到当前数据库的管理者
         DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
         //提交事务
-        definition.beginTransactionAsync(new ITransaction() {
-            @Override
-            public void execute(DatabaseWrapper databaseWrapper) {
-                ModelAdapter<Model> adapter = FlowManager.getModelAdapter(tClass);
-                //数组转换成集合并保存
-                adapter.saveAll(Arrays.asList(models));
-                instance.notifySave(tClass,models);
-            }
+        definition.beginTransactionAsync(databaseWrapper -> {
+            ModelAdapter<Model> adapter = FlowManager.getModelAdapter(tClass);
+            //数组转换成集合并保存
+            adapter.saveAll(Arrays.asList(models));
+            instance.notifySave(tClass,models);
         }).build().execute();
     }
 

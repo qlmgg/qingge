@@ -42,7 +42,10 @@
     <string name="input_psw">密码</string>
     <string name="input_group_name">群名称</string>
     <string name="input_desc">简述</string>
-    <string name="text_select_group_member">选择添加群成员</string>
+    <string name="text_select_group_member">选择添加群成员:</string>
     <string name="dummy_text1">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测
         试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

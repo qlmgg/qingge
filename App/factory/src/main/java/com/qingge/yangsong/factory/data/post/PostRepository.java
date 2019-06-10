@@ -19,7 +19,6 @@ import java.util.Objects;
  */
 public class PostRepository extends BaseDbRepository<Post> implements PostDataSource {
 
-
     public  PostRepository() {
     }
 

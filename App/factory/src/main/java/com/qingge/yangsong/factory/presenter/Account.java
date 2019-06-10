@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;

@@ -18,7 +18,6 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
     private List<String> mTitles;
 
 
-
     public MyViewPagerAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
         super(fm);
         this.mFragments = fragments;
@@ -40,4 +39,6 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTitles.get(position);
     }
+
+
 }

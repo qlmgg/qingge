@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -35,24 +35,15 @@ android {
 
 dependencies {
     implementation 'com.android.support:support-annotations:28.0.0'
-    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
 
-    api "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
-    api "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
-
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     api "com.android.support:design:$rootProject.ext.supportVersion"
 
-    //dialog
-    api 'com.github.xujiaji:happy-bubble:1.0.1'
     // 个推
-    api 'com.getui:sdk:2.12.5.0'
+    api 'com.getui:sdk:2.13.0.0'
 
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
     api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
-
 
     api 'com.ms-square:expandableTextView:0.1.4'
 
@@ -60,10 +51,9 @@ dependencies {
     implementation 'com.github.guoxiaoxing:phoenix:1.0.15'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api project(':factory')
     implementation 'com.android.support:support-v4:28.0.0'
 
+    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 }

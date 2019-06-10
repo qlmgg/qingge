@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.qingge.yangsong.common.app.PresenterActivity;
 import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.adapter.TextWatcherAdapter;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
+import com.qingge.yangsong.face.Face;
 import com.qingge.yangsong.factory.model.Author;
 import com.qingge.yangsong.factory.model.db.Message;
 import com.qingge.yangsong.factory.model.db.Session;
@@ -29,11 +32,15 @@ import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.message.ChatContract;
 import com.qingge.yangsong.factory.presenter.message.ChatUserPresenter;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.fragments.panel.PanelFragment;
 
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
+import net.qiujuer.genius.ui.Ui;
 import net.qiujuer.genius.ui.compat.UiCompat;
 import net.qiujuer.genius.ui.widget.Loading;
+import net.qiujuer.widget.airpanel.AirPanel;
+import net.qiujuer.widget.airpanel.Util;
 
 import java.util.Objects;
 
@@ -41,7 +48,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
-        implements Toolbar.OnMenuItemClickListener, ChatContract.UserView {
+        implements Toolbar.OnMenuItemClickListener, ChatContract.UserView, PanelFragment.PanelCallback {
     // 接收者Id
     public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
     // 是否是群
@@ -59,6 +66,9 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     EditText mContent;
     @BindView(R.id.btn_submit)
     View mSubmit;
+    //控制顶部面板与软键盘过度的Boss控件
+    private AirPanel.Boss mPanelBoss;
+    private PanelFragment mPanelFragment;
 
     @Override
     protected int getContentLayoutId() {
@@ -100,11 +110,19 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     protected void initWidget() {
         super.initWidget();
 
+        mPanelBoss = findViewById(R.id.lay_content);
+        mPanelBoss.setup(() -> {
+            //请求隐藏软键盘
+            Util.hideKeyboard(mContent);
+        });
         initEditContent();
+        mPanelFragment = (PanelFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_panel);
+        mPanelFragment.setup(this);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new Adapter();
         mRecyclerView.setAdapter(mAdapter);
+
         mToolbar.setNavigationIcon(R.drawable.ic_back);
         mToolbar.setNavigationOnClickListener(v -> finish());
         mToolbar.inflateMenu(R.menu.chat_user);
@@ -122,6 +140,7 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
     protected void initData() {
         super.initData();
         mPresenter.start();
+
     }
 
     @Override
@@ -154,9 +173,25 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
             String content = mContent.getText().toString();
             mContent.setText("");
             mPresenter.pushText(content);
+
+
         } else {
-//            onMoreClick();
+            mPanelBoss.openPanel();
+            mPanelFragment.showGallery();
+
         }
+    }
+
+    @OnClick(R.id.btn_face)
+    void onFaceClick() {
+        mPanelBoss.openPanel();
+        mPanelFragment.showFace();
+    }
+
+    @OnClick(R.id.btn_record)
+    void onRecordClick() {
+        mPanelBoss.openPanel();
+        mPanelFragment.showRecord();
     }
 
     // 初始化输入框监听
@@ -170,6 +205,11 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
                 mSubmit.setActivated(needSendMsg);
             }
         });
+    }
+
+    @Override
+    public EditText getInputEditText() {
+        return mContent;
     }
 
     // 内容的适配器
@@ -298,9 +338,15 @@ public class ChatUserActivity extends PresenterActivity<ChatContract.Presenter>
         protected void onBind(Message message) {
             super.onBind(message);
 
-            // 把内容设置到布局上
-            mContent.setText(message.getContent());
+            Spannable spannable = new SpannableString(message.getContent());
+            // 解析表情
+            Face.decode(mContent, spannable, (int) Ui.dipToPx(getResources(), 20));
 
+            // 把内容设置到布局上
+            mContent.setText(spannable);
+
+            //TODO 发送或接受消息后会自动加载到最后,但是如果向上拉的话,创建holder时就会跑到下面去
+//            mRecyclerView.smoothScrollToPosition(mAdapter.getItemCount()-1);
         }
     }
 

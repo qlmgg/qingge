@@ -16,6 +16,7 @@ import com.qingge.yangsong.common.app.PresenterFragment;
 import com.qingge.yangsong.common.widget.EmptyView;
 import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
+import com.qingge.yangsong.face.Face;
 import com.qingge.yangsong.factory.model.db.Session;
 import com.qingge.yangsong.factory.presenter.message.SessionContract;
 import com.qingge.yangsong.factory.presenter.message.SessionPresenter;
@@ -153,7 +154,7 @@ public class NewsFragment extends PresenterFragment<SessionContract.Presenter>
             String str = TextUtils.isEmpty(session.getContent()) ? "" : session.getContent();
             Spannable spannable = new SpannableString(str);
             // 解析表情
-//            Face.decode(mContent, spannable, (int) mContent.getTextSize());
+            Face.decode(mContent, spannable, (int) mContent.getTextSize());
             // 把内容设置到布局上
             mContent.setText(spannable);
 

@@ -3,20 +3,16 @@ package com.qingge.post.service;
 import com.google.common.base.Strings;
 
 import com.qingge.post.bean.api.post.PostModel;
-import com.qingge.post.bean.api.post.WriteCommentModel;
-import com.qingge.post.bean.base.PushModel;
+import com.qingge.post.bean.api.post.CommentModel;
 import com.qingge.post.bean.base.ResponseModel;
+import com.qingge.post.bean.card.AlbumCard;
 import com.qingge.post.bean.card.CommentCard;
 import com.qingge.post.bean.card.LoadPostCard;
 import com.qingge.post.bean.card.PostCard;
-import com.qingge.post.bean.db.Comment;
-import com.qingge.post.bean.db.Post;
-import com.qingge.post.bean.db.University;
-import com.qingge.post.bean.db.User;
+import com.qingge.post.bean.db.*;
 import com.qingge.post.factory.PostFactory;
 import com.qingge.post.factory.UniversityFactory;
 import com.qingge.post.factory.UserFactory;
-import com.qingge.post.utils.PushDispatcher;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -27,20 +23,22 @@ import java.util.stream.Collectors;
 public class PostService extends BaseService {
     @GET
     @Path("/test")
-    public String test() {
+    public List<AlbumCard> test() {
+        //测试 用帖子id查图片
 
-        PushModel model = new PushModel();
-        model.add(new PushModel.Entity(0,"你好呀!青鸽"));
+//        PushModel model = new PushModel();
+//        model.add(new PushModel.Entity(0,"你好呀!青鸽"));
+//
+//        PushDispatcher dispatcher = new PushDispatcher();
+//        dispatcher.add(getSelf(),model);
+//        dispatcher.submit();
 
-        PushDispatcher dispatcher = new PushDispatcher();
-        dispatcher.add(getSelf(),model);
-        dispatcher.submit();
 
-        return "测试成功";
+        return PostFactory.getAlbumAddress("test26");
     }
 
 
-    // 分页拿帖子拿帖子
+    // 分页拿帖子
     @GET
     @Path("{id}|{page}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -53,7 +51,8 @@ public class PostService extends BaseService {
         LoadPostCard loadPostCard = new LoadPostCard();
         loadPostCard.setPageCount(4);
 
-        List<Post> posts = UniversityFactory.findByIdPage(id,page);
+        List<Post> posts = UniversityFactory.findByIdAndPage(id,page);
+
         //转换
         List<PostCard> cards = posts.stream()
                 .map(PostCard::new)
@@ -81,6 +80,7 @@ public class PostService extends BaseService {
 //        }
 
         List<Post> posts = UniversityFactory.postsById(id);
+
         //转换
         List<PostCard> cards = posts.stream()
                 .map(PostCard::new)
@@ -97,7 +97,7 @@ public class PostService extends BaseService {
         if (!PostModel.check(model)) {
             return ResponseModel.buildParameterError();//返回参数异常
         }
-
+//TODO 加入图片集合
         User sender = UserFactory.findById(model.getSenderId());
 
         if (sender == null) {
@@ -144,8 +144,8 @@ public class PostService extends BaseService {
     @Path("/comment/write")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseModel writeComment(WriteCommentModel model) {
-        if (!WriteCommentModel.check(model)) {
+    public ResponseModel<CommentCard> writeComment(CommentModel model) {
+        if (!CommentModel.check(model)) {
             return ResponseModel.buildParameterError();
         }
         User sender = getSelf();
@@ -162,8 +162,8 @@ public class PostService extends BaseService {
         if (comment == null)
             return ResponseModel.buildCreateError(ResponseModel.ERROR_CREATE_COMMENT);
         //写入成功就直接build
-        return ResponseModel.buildOk();
-
+        return ResponseModel.buildOk(new CommentCard(comment));
 
     }
+
 }

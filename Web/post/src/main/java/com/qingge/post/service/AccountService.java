@@ -106,6 +106,8 @@ public class AccountService extends BaseService {
 
         // 拿到自己的个人信息
         User user = UserFactory.findByToken(token);
+        if(user == null)
+            return ResponseModel.buildAccountError();//没找到就代表token过期了
 //                User self = getSelf();
         return bind(user, pushId);
     }

@@ -13,6 +13,7 @@ import com.qingge.yangsong.factory.model.card.PostCard;
 
 import com.qingge.yangsong.factory.model.card.UniversityCard;
 import com.qingge.yangsong.factory.model.card.UserCard;
+import com.qingge.yangsong.factory.model.comment.CommentModel;
 import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.model.group.GroupCreateModel;
 import com.qingge.yangsong.factory.model.message.MsgCreateModel;
@@ -62,8 +63,11 @@ public interface RemoteService {
     Call<RspModel<AccountRspModel>> accountBind(@Path(encoded = true, value = "pushId") String pushId);
 
     @GET("university/query/{range}")
-    Call<RspModel<List<SchoolInfoModel>>> schoolsInRange(@Path("range") String range);
+    Call<RspModel<SchoolInfoModel>> schoolsInRange(@Path("range") String range);
 
+    //用id拿到学校的帖子,群  完善用户信息的时候保存所选学校信息到本地
+    @GET("university/query/{schoolId}")
+    Call<RspModel<SchoolInfoModel>> getSchoolInfo(@Path("schoolId") String schoolId);
     /**
      * 根据学校id拿帖子
      */
@@ -123,4 +127,7 @@ public interface RemoteService {
 
     @GET("post/comment/{postId}")
     Call<RspModel<List<CommentCard>>> loadComments(@Path("postId") String postId);
+
+    @PUT("post/comment/write")
+    Call<RspModel<CommentCard>> writeComment(@Body CommentModel model);
 }

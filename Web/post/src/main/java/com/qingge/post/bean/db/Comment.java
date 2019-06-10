@@ -1,7 +1,7 @@
 package com.qingge.post.bean.db;
 
 
-import com.qingge.post.bean.api.post.WriteCommentModel;
+import com.qingge.post.bean.api.post.CommentModel;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
@@ -33,10 +33,10 @@ public class Comment {
     //对应的评论者
     @JoinColumn(name = "senderId")
     //不可选,必须有一个发送者,急加载, 串联级别MERGE
-    @ManyToOne(optional = false, fetch = FetchType.EAGER , cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private User sender;
 
-    @Column(insertable = false,updatable = false,nullable = false)
+    @Column(insertable = false, updatable = false, nullable = false)
     private String senderId;
 
     //评论者名字
@@ -50,24 +50,24 @@ public class Comment {
     //对应的接收人
     @JoinColumn(name = "receiverId")
     //不可选,必须有一个发送者,急加载, 串联级别MERGE
-    @ManyToOne(optional = false, fetch = FetchType.EAGER , cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private User receiver;
 
-    @Column(insertable = false,updatable = false,nullable = false)
+    @Column(insertable = false, updatable = false, nullable = false)
     private String receiverId;
 
     // 对应的帖子的id
     @JoinColumn(name = "postId")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Post post;
-    @Column(insertable = false,updatable = false,nullable = false)
+    @Column(insertable = false, updatable = false, nullable = false)
     private String postId;
 
     // 此评论对应的回复集合
     //懒加载
     @JoinColumn(name = "commentId")
     @LazyCollection(LazyCollectionOption.EXTRA)
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Reply> replies = new HashSet<>();
 
     //类容
@@ -83,7 +83,7 @@ public class Comment {
     private LocalDateTime createAt = LocalDateTime.now();
 
 
-    public Comment(User sender,User receiver , Post post, WriteCommentModel model) {
+    public Comment(User sender, User receiver, Post post, CommentModel model) {
         this.id = model.getId();
         this.sender = sender;
         this.post = post;

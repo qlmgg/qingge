@@ -7,6 +7,7 @@ import com.qingge.yangsong.factory.model.db.User;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 public class PostCard{
     private String id; // Id
@@ -19,7 +20,7 @@ public class PostCard{
     private String universityId;// 学校Id
     private int fabulousNumber;//点赞量
     private int commentNumber; //评论量
-
+    private List<AlbumCard> images;//帖子的图片集合
 
     public Post build(){
         Post post = new Post();
@@ -32,6 +33,7 @@ public class PostCard{
         post.setFabulousNumber(fabulousNumber);
         post.setSenderName(senderName);
         post.setSenderPortrait(senderPortrait);
+        post.setImages(images);
         return post;
     }
 
@@ -115,4 +117,11 @@ public class PostCard{
         this.senderPortrait = senderPortrait;
     }
 
+    public List<AlbumCard> getAlbumCards() {
+        return images;
+    }
+
+    public void setAlbumCards(List<AlbumCard> images) {
+        this.images = images;
+    }
 }

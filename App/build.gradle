@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
@@ -9,7 +9,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'
-
         classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc3'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -34,7 +33,7 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-ext{
+ext {
     // 版本号相关
     versionCode = 1
     versionName = '1.0.0'
@@ -42,13 +41,13 @@ ext{
     // 相关依赖库版本
     supportVersion = '28.0.0'
     butterknifeVersion = '9.0.0-rc3'
-    geniusVersion = '2.0.0'
+    geniusVersion = '2.1.1'
     glideVersion = '3.7.0'
-    circleimageviewVersion = '2.1.0'
+    circleimageviewVersion = '3.0.0'
     ucropVersion = "2.2.0-native"
     easyPMVersion = "0.3.0"
     ossVersion = '2.3.0'
-
+    airpanelVersion = "1.2.0"
     gsonVersion = '2.8.0'
     retrofitVersion = '2.1.0'
     getuiVersion = '2.12.5.0'

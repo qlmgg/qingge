@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
     android:paddingStart="@dimen/len_14"
     android:paddingTop="@dimen/len_4">
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="隔壁小刘"
+
             android:textColor="@color/black" />
 
         <TextView
@@ -41,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/len_6"
+            android:paddingEnd="@dimen/len_10"
             android:text="我觉得你这句话还是说的有道理的,不管从什么时候,我都会抱有一颗对外面的探索之心"
             android:textColor="@color/black" />
 
@@ -55,7 +58,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="@dimen/len_6"
                 android:contentDescription="@string/app_name"
-                android:padding="@dimen/len_12"
+                android:padding="@dimen/len_14"
                 android:src="@drawable/ic_zan" />
         </FrameLayout>
     </LinearLayout>

@@ -1,6 +1,9 @@
 package com.qingge.yangsong.factory.model.db;
 
 
+import android.util.Log;
+
+import com.qingge.yangsong.factory.model.card.AlbumCard;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
@@ -8,6 +11,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Table(database = AppDatabase.class)
@@ -31,6 +35,7 @@ public class Post extends BaseDbModel<Post> {
     @Column
     private String senderPortrait; //发送者头像
 
+    private List<AlbumCard> images;
 
     @Override
     public boolean equals(Object o) {
@@ -43,6 +48,7 @@ public class Post extends BaseDbModel<Post> {
                 Objects.equals(senderName, post.senderName) &&
                 Objects.equals(senderPortrait, post.senderPortrait) &&
                 Objects.equals(id, post.id) &&
+                isListEqual(images, post.images) &&
                 Objects.equals(content, post.content) &&
                 Objects.equals(attach, post.attach) &&
                 Objects.equals(createAt, post.createAt);
@@ -125,6 +131,14 @@ public class Post extends BaseDbModel<Post> {
         this.senderPortrait = senderPortrait;
     }
 
+    public List<AlbumCard> getImages() {
+        return images;
+    }
+
+    public void setImages(List<AlbumCard> images) {
+        this.images = images;
+    }
+
     @Override
     public boolean isSame(Post old) {
         return Objects.equals(id, old.id);
@@ -132,7 +146,6 @@ public class Post extends BaseDbModel<Post> {
 
     @Override
     public boolean isUiContentSame(Post old) {
-
         return Objects.equals(this.senderPortrait, old.senderPortrait)
                 && Objects.equals(this.attach, old.attach)
                 && Objects.equals(this.content, old.content)
@@ -140,6 +153,34 @@ public class Post extends BaseDbModel<Post> {
                 && Objects.equals(this.senderName, old.senderName)
                 && Objects.equals(this.senderPortrait, old.senderPortrait)
                 && Objects.equals(this.commentNumber, old.commentNumber)
+                && isListEqual(this.images, old.images)
                 && Objects.equals(this.fabulousNumber, old.fabulousNumber);
     }
+
+    //对数组中的元素进行对比
+    private static boolean isListEqual(List<AlbumCard> newList, List<AlbumCard> oldList) {
+
+        if (newList == oldList)//是不是同一个对象
+            return true;
+        if (newList == null || oldList == null)//一个为空,不等
+            return false;
+        if (newList.size() != oldList.size())//先判断大小是否等
+            return false;
+        if (oldList.size() == 0)//如果list中数据为0 则返回true
+            return true;
+
+        for (AlbumCard newCard : newList) {//遍历对比  拿新的第一个和旧的比,找不到就返回false  找到就下一个,同上,
+            boolean isSame = false;
+            for (AlbumCard oldCard : oldList) {
+                isSame = newCard.getAddress().equals(oldCard.getAddress()); //如果找到就结束当前for,
+                if (isSame)
+                    break;
+            }
+            if (!isSame) //如果一轮对比完都没找到,就返回false
+                return false;
+        }
+
+        return true;
+    }
+
 }

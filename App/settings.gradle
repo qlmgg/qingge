@@ -1,1 +1,1 @@
-include ':app', ':lang', ':common', ':factory'
+include ':app', ':lang', ':common', ':factory', ':face_res'

@@ -12,6 +12,8 @@ import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.qingge.getuiService.DemoIntentService;
 import com.qingge.yangsong.qingge.getuiService.DemoPushService;
 
+import net.qiujuer.genius.kit.handler.Run;
+
 public class App extends Application {
     @Override
     public void onCreate() {

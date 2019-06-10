@@ -9,12 +9,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.qingge.yangsong.common.app.Activity;
 
+import com.qingge.yangsong.common.app.Application;
 import com.qingge.yangsong.common.app.PresenterToolbarActivity;
 import com.qingge.yangsong.common.widget.EmptyView;
 import com.qingge.yangsong.common.widget.PortraitView;
@@ -23,20 +25,24 @@ import com.qingge.yangsong.factory.model.card.CommentCard;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.post.PostContract;
 import com.qingge.yangsong.factory.presenter.post.PostPresenter;
+import com.qingge.yangsong.qingge.App;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.fragments.post.CommentFragment;
 import com.qingge.yangsong.utils.DateTimeUtil;
 
 import net.qiujuer.genius.kit.handler.Run;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class PostActivity extends PresenterToolbarActivity<PostContract.Presenter>
         implements PostContract.View {
 
-    private static final String POST_ID = "POST_ID";
-    private static final String POST_CONTENT = "POST_CONTENT";
+    public static final String POST_ID = "POST_ID";
+    public static final String POST_CONTENT = "POST_CONTENT";
     private static final String POST_SENDER_NAME = "POST_SENDER_NAME";
     private static final String POST_PORTRAIT = "POST_PORTRAIT";
+    public static final String POST_SENDER_ID = "POST_SENDER_ID";
     @BindView(R.id.frame_layout)
     FrameLayout layout;
     @BindView(R.id.portrait)
@@ -57,14 +63,16 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
     EmptyView mEmptyView;
     private Adapter mAdapter;
 
-    private String name;
-    private String content;
-    private String portrait;
-    private String postId;
+    private String name;//发送者名字
+    private String content;//内容
+    private String portrait;//帖子的发送者头像
+    private String postId;//帖子的id
+    private String postSenderId;//帖子的发送者id
 
     public static void show(Context context, Post post) {
         Intent intent = new Intent(context, PostActivity.class);
         intent.putExtra(POST_ID, post.getId());
+        intent.putExtra(POST_SENDER_ID, post.getSenderId());
         intent.putExtra(POST_CONTENT, post.getContent());
         intent.putExtra(POST_SENDER_NAME, post.getSenderName());
         intent.putExtra(POST_PORTRAIT, post.getSenderPortrait());
@@ -74,14 +82,16 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
     @Override
     protected boolean initArgs(Bundle bundle) {
 
-        name = bundle.getString(POST_SENDER_NAME);
-        postId = bundle.getString(POST_ID);
-        portrait = bundle.getString(POST_PORTRAIT);
-        content = bundle.getString(POST_CONTENT);
+        name = bundle.getString(POST_SENDER_NAME, "");
+        postId = bundle.getString(POST_ID, "");
+        portrait = bundle.getString(POST_PORTRAIT, "");
+        content = bundle.getString(POST_CONTENT, "");
+        postSenderId = bundle.getString(POST_SENDER_ID, "");
 
         return !TextUtils.isEmpty(name)
                 && !TextUtils.isEmpty(postId)
                 && !TextUtils.isEmpty(portrait)
+                && !TextUtils.isEmpty(postSenderId)
                 && !TextUtils.isEmpty(content);
     }
 
@@ -179,5 +189,19 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
         }
     }
 
+    @OnClick(R.id.write_comment)
+    void onWriteComment() {
+        CommentFragment fragment = new CommentFragment();
+        Bundle bundle = new Bundle();
+
+        bundle.putString(POST_SENDER_ID, postSenderId);
+        bundle.putString(POST_CONTENT, content);
+        bundle.putString(POST_ID, postId);
+
+        fragment.setArguments(bundle);
+        //开始
+        fragment.show(getSupportFragmentManager(), CommentFragment.class.getName());
+
+    }
 }
 

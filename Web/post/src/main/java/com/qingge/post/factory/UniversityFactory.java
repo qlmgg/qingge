@@ -55,7 +55,7 @@ public class UniversityFactory {
 
 //    根据查询大学id查帖子分页查询
     @SuppressWarnings("unchecked")
-    public static List<Post> findByIdPage(String universityId,int page) {
+    public static List<Post> findByIdAndPage(String universityId,int page) {
         return Hib.query(session -> (List<Post>)session.createQuery("from Post where universityId=:universityId order by updateAt desc")
                 .setParameter("universityId",universityId)
                 .setFirstResult(page*8)

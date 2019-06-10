@@ -64,7 +64,7 @@ public class ChatUserFragment extends ChatFragment<User>
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        Toast.makeText(getActivity(),"个人详细信息界面:" + menuItem.getItemId(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(mActivity,"个人详细信息界面:" + menuItem.getItemId(),Toast.LENGTH_SHORT).show();
 //        if (menuItem.getItemId() == R.id.action_person) {
 //            PersonalActivity.show(getContext(), mReceiverId);
 //        }

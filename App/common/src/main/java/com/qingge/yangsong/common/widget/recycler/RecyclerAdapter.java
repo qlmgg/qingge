@@ -241,5 +241,4 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
         mDataList.addAll(dataList);
         notifyDataSetChanged();
     }
-
 }

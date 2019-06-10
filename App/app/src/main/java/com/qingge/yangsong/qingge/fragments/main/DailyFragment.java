@@ -17,10 +17,11 @@ import java.util.Objects;
 import butterknife.BindView;
 
 public class DailyFragment extends com.qingge.yangsong.common.app.Fragment {
-@BindView(R.id.tab_layout_daily)
+    @BindView(R.id.tab_layout_daily)
     TabLayout mTabLayout;
-@BindView(R.id.viewpager)
+    @BindView(R.id.viewpager)
     ViewPager mViewPager;
+
     public DailyFragment() {
         // Required empty public constructor
     }
@@ -34,18 +35,26 @@ public class DailyFragment extends com.qingge.yangsong.common.app.Fragment {
     protected void initWidget(View root) {
         super.initWidget(root);
         List<Fragment> mFragments = new ArrayList<>();
-        //因为系统原因  需要把tab的名字传过去才能设定到TabLayout上
         List<String> mTitles = new ArrayList<>();
-        mFragments.add(new NewsFragment());
-        mFragments.add(new EverydayFragment());
+        //  需要把tab的名字传过去才能设定到TabLayout上
         mTitles.add("消息");
         mTitles.add("日常");
 
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),
+//        if (mSaveState == null) {
+
+            mFragments.add(new NewsFragment());
+            mFragments.add(new EverydayFragment());
+//
+//        } else {//不为空就判断里面的f
+////            getFragmentManager().findFragmentByTag()
+//        }
+
+        MyViewPagerAdapter adapter = new MyViewPagerAdapter(mActivity.getSupportFragmentManager(),
                 mFragments,
                 mTitles);
         mViewPager.setAdapter(adapter);
         //关联
         mTabLayout.setupWithViewPager(mViewPager);
+
     }
 }

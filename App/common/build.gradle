@@ -20,12 +20,11 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    //dialog
-    api 'com.github.xujiaji:happy-bubble:1.0.1'
+
 
     api "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     api "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    api "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
 
     api "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
 
@@ -33,15 +32,17 @@ dependencies {
     //高斯模糊
     api 'jp.wasabeef:glide-transformations:2.0.1'
 
-    api "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api project(':lang')
+
     api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     api "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
-
     //图片/视频选择、预览、编辑与拍照
     implementation 'com.github.guoxiaoxing:phoenix:1.0.15'
+
+    // 空气面板
+    api "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
+    api "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+    api project(':lang')
+    api project(':face_res')
+
 }

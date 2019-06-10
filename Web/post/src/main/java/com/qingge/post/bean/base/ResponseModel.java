@@ -116,6 +116,8 @@ public class ResponseModel<M> implements Serializable {
         this.result = result;
     }
 
+
+
     public static <M> ResponseModel<M> buildOk() {
         return new ResponseModel<M>();
     }

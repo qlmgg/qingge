@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-def dbflow_version = "4.0.0-beta7"
+def dbflow_version = "4.0.4"
 android {
     compileSdkVersion 28
 
@@ -22,12 +22,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
 
     api "com.aliyun.dpa:oss-android-sdk:$rootProject.ext.ossVersion"
 
@@ -35,14 +38,12 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     api "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
-
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     api "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     api "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
     api "net.qiujuer.genius:kit-reflect:$rootProject.ext.geniusVersion"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
     api project(':common')
 }

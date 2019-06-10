@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -38,55 +39,58 @@
                     android:textSize="@dimen/font_14"
                     tools:ignore="RtlSymmetry" />
 
-                <RelativeLayout
-                    android:id="@+id/all_show"
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="@dimen/len_4"
-                    android:background="@color/white">
+                <!--<RelativeLayout-->
+                <!--android:id="@+id/all_show"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="25dp"-->
+                <!--android:layout_marginTop="@dimen/len_4"-->
+                <!--android:background="@color/white">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/len_24"
-                        android:layout_marginStart="@dimen/len_8"
-                        android:gravity="center"
-                        android:text="@string/text_all_group"
-                        android:textColor="@color/grey_500"
-                        android:textSize="@dimen/font_12"
-                        tools:ignore="RelativeOverlap" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="@dimen/len_24"-->
+                    <!--android:layout_marginStart="@dimen/len_8"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="@string/text_all_group"-->
+                    <!--android:textColor="@color/grey_500"-->
+                    <!--android:textSize="@dimen/font_12"-->
+                    <!--tools:ignore="RelativeOverlap" />-->
 
-                    <ImageView
-                        android:id="@+id/show_groups"
-                        android:layout_width="@dimen/len_12"
-                        android:layout_height="@dimen/len_12"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/len_12"
-                        android:contentDescription="@string/app_name"/>
-                    <ImageView
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_200"
-                        android:contentDescription="@string/app_name" />
-                </RelativeLayout>
+                <!--<ImageView-->
+                    <!--android:id="@+id/show_groups"-->
+                    <!--android:layout_width="@dimen/len_12"-->
+                    <!--android:layout_height="@dimen/len_12"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginEnd="@dimen/len_12"-->
+                    <!--android:contentDescription="@string/app_name" />-->
 
-                <android.support.v7.widget.RecyclerView
-                    android:background="@color/white"
-                    android:id="@+id/group_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/len_2">
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:background="@color/grey_200"-->
+                    <!--android:contentDescription="@string/app_name" />-->
+            <!--</RelativeLayout>-->
 
-                </android.support.v7.widget.RecyclerView>
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:id="@+id/group_recycler"-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/len_80"-->
+                    <!--android:layout_marginTop="@dimen/len_2"-->
+                    <!--android:background="@color/colorAccent">-->
+
+                <!--</android.support.v7.widget.RecyclerView>-->
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
+                    android:paddingTop="@dimen/len_6"
                     android:paddingBottom="@dimen/len_12"
-                    android:visibility="gone" />
+                     />
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
@@ -96,8 +100,8 @@
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     <com.qingge.yangsong.common.widget.EmptyView
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    android:id="@+id/empty"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>

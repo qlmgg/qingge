@@ -54,6 +54,7 @@ public class Factory {
 
 
     static {
+
         instance = new Factory();
     }
 

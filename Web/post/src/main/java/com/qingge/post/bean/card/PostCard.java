@@ -2,8 +2,10 @@ package com.qingge.post.bean.card;
 
 import com.google.gson.annotations.Expose;
 import com.qingge.post.bean.db.Post;
+import com.qingge.post.factory.PostFactory;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PostCard {
     @Expose
@@ -26,9 +28,14 @@ public class PostCard {
     private int comments;// 帖子评论数量
     @Expose
     private int fabulous;// 帖子点赞数量
+    @Expose
+    private List<AlbumCard> images;//帖子的图片路径
 
     public PostCard(Post post) {
         this.id = post.getId();
+
+        this.images = PostFactory.getAlbumAddress(post.getId());
+
         this.content = post.getContent();
         this.attach = post.getAttach();
         this.createAt = post.getCreateAt();
@@ -119,5 +126,13 @@ public class PostCard {
 
     public void setSenderPortrait(String senderPortrait) {
         this.senderPortrait = senderPortrait;
+    }
+
+    public List<AlbumCard> getImages() {
+        return images;
+    }
+
+    public void setImages(List<AlbumCard> images) {
+        this.images = images;
     }
 }

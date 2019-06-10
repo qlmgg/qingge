@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ import com.qingge.yangsong.common.app.PresenterActivity;
 import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.adapter.TextWatcherAdapter;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
+import com.qingge.yangsong.face.Face;
 import com.qingge.yangsong.factory.model.Author;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Message;
@@ -27,9 +30,13 @@ import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.message.ChatContract;
 import com.qingge.yangsong.factory.presenter.message.ChatGroupPresenter;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.fragments.panel.PanelFragment;
 
+import net.qiujuer.genius.ui.Ui;
 import net.qiujuer.genius.ui.compat.UiCompat;
 import net.qiujuer.genius.ui.widget.Loading;
+import net.qiujuer.widget.airpanel.AirPanel;
+import net.qiujuer.widget.airpanel.Util;
 
 import java.util.Objects;
 
@@ -39,7 +46,7 @@ import butterknife.OnClick;
 import static com.qingge.yangsong.qingge.activity.ChatUserActivity.KEY_RECEIVER_ID;
 
 public class ChatGroupActivity extends PresenterActivity<ChatContract.Presenter>
-implements ChatContract.GroupView{
+        implements ChatContract.GroupView,PanelFragment.PanelCallback {
     @BindView(R.id.tv_title_name)
     TextView mTitleName;
     @BindView(R.id.recycler)
@@ -54,6 +61,9 @@ implements ChatContract.GroupView{
     protected Adapter mAdapter = new Adapter();
 
     private String mReceiverId;
+    //控制顶部面板与软键盘过度的Boss控件
+    private AirPanel.Boss mPanelBoss;
+    private PanelFragment mPanelFragment;
 
     @Override
     protected int getContentLayoutId() {
@@ -74,7 +84,16 @@ implements ChatContract.GroupView{
     @Override
     protected void initWidget() {
         super.initWidget();
+        mPanelBoss = findViewById(R.id.lay_content);
+        mPanelBoss.setup(() -> {
+            //请求隐藏软键盘
+            Util.hideKeyboard(mContent);
+        });
         initEditContent();
+
+        mPanelFragment = (PanelFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_panel);
+        mPanelFragment.setup(this);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
         mToolbar.setNavigationIcon(R.drawable.ic_back);
@@ -114,7 +133,7 @@ implements ChatContract.GroupView{
 
     @Override
     protected ChatContract.Presenter initPresenter() {
-        return new ChatGroupPresenter(this,mReceiverId);
+        return new ChatGroupPresenter(this, mReceiverId);
     }
 
 
@@ -134,7 +153,6 @@ implements ChatContract.GroupView{
     }
 
 
-
     @OnClick(R.id.btn_submit)
     void onSubmitClick() {
         if (mSubmit.isActivated()) {
@@ -143,8 +161,21 @@ implements ChatContract.GroupView{
             mContent.setText("");
             mPresenter.pushText(content);
         } else {
-//            onMoreClick();
+            mPanelBoss.openPanel();
+            mPanelFragment.showGallery();
         }
+    }
+
+    @OnClick(R.id.btn_face)
+    void onFaceClick() {
+        mPanelBoss.openPanel();
+        mPanelFragment.showFace();
+    }
+
+    @OnClick(R.id.btn_record)
+    void onRecordClick() {
+        mPanelBoss.openPanel();
+        mPanelFragment.showRecord();
     }
 
     // 初始化输入框监听
@@ -158,6 +189,11 @@ implements ChatContract.GroupView{
                 mSubmit.setActivated(needSendMsg);
             }
         });
+    }
+
+    @Override
+    public EditText getInputEditText() {
+        return mContent;
     }
 
     // 内容的适配器
@@ -273,6 +309,7 @@ implements ChatContract.GroupView{
         }
     }
 
+
     // 文字的Holder
     class TextHolder extends ChatGroupActivity.BaseHolder {
         @BindView(R.id.txt_content)
@@ -286,8 +323,12 @@ implements ChatContract.GroupView{
         protected void onBind(Message message) {
             super.onBind(message);
 
+            Spannable spannable = new SpannableString(message.getContent());
+            // 解析表情
+            Face.decode(mContent, spannable, (int) Ui.dipToPx(getResources(), 20));
+
             // 把内容设置到布局上
-            mContent.setText(message.getContent());
+            mContent.setText(spannable);
 
         }
     }

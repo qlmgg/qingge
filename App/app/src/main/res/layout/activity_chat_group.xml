@@ -1,24 +1,27 @@
 <com.qingge.yangsong.common.widget.MessageLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize"
         android:background="@drawable/toolbar_color_theme"
-        android:paddingTop="@dimen/statusBarSize" >
+        android:paddingTop="@dimen/statusBarSize">
+
         <TextView
             android:id="@+id/tv_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/font_18" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
@@ -87,4 +90,19 @@
             android:src="@drawable/ic_submit"
             android:tint="@color/textPrimary" />
     </LinearLayout>
+
+    <net.qiujuer.widget.airpanel.AirPanelFrameLayout
+        android:id="@+id/airPanelSubLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_300"
+        android:visibility="gone">
+
+        <fragment
+            android:id="@+id/fragment_panel"
+            class="com.qingge.yangsong.qingge.fragments.panel.PanelFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_panel" />
+    </net.qiujuer.widget.airpanel.AirPanelFrameLayout>
 </com.qingge.yangsong.common.widget.MessageLayout>

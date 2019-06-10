@@ -88,7 +88,7 @@ public abstract class ChatFragment<InitModel>
     protected void initToolbar() {
         Toolbar toolbar = mToolbar;
         toolbar.setNavigationIcon(R.drawable.ic_back);
-        toolbar.setNavigationOnClickListener(v -> Objects.requireNonNull(getActivity()).finish());
+        toolbar.setNavigationOnClickListener(v -> mActivity.finish());
     }
 
 
