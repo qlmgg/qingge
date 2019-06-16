@@ -51,4 +51,6 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
         // View中赋值Presenter
         mPresenter = presenter;
     }
+
+
 }

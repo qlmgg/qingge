@@ -25,6 +25,7 @@ public class BaseRecyclerPresenter<ViewMode, View extends BaseContract.RecyclerV
      *
      * @param dataList 新数据
      */
+    @SuppressWarnings("unchecked")
     protected void refreshData(final List<ViewMode> dataList) {
         Run.onUiAsync(new Action() {
             @Override

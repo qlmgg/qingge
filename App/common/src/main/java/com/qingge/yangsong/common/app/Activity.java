@@ -39,10 +39,6 @@ public abstract class Activity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
 
     //初始化窗口
     protected void initWindows() {

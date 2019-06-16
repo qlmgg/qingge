@@ -1,6 +1,6 @@
 package com.qingge.yangsong.factory.presenter;
+
 /**
- *
  * 基础契约中的逻辑层
  *
  * @version 1.0.0
@@ -19,7 +19,7 @@ public class BasePresenter<T extends BaseContract.View> implements BaseContract.
     protected void setView(T view) {
         this.mView = view;
         this.mView.setPresenter(this);
-}
+    }
 
     /**
      * 给子类使用的获取View的操作

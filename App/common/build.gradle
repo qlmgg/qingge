@@ -24,6 +24,7 @@ dependencies {
 
     api "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     api "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+
     api "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
 
     api "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"

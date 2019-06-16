@@ -32,7 +32,7 @@ public interface BaseContract {
         //void onDone(List<User> users)
         //拿到一个适配器,然后自己自主的进行刷新
         RecyclerAdapter<ViewMode> getRecyclerAdapter();
-        //当适配器更改了的时候触发
+        //当适配器更改了的时候触发  当数据更改了后想做的事,比如刷新前由加载框,当刷新完成就在里面关闭
         void onAdapterDataChanged();
     }
 }

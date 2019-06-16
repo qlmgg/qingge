@@ -83,6 +83,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
         //绑定
         dataViewHolder.bind(data);
     }
+
     /**
      * 得到集合大小
      */
@@ -90,8 +91,10 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
     public int getItemCount() {
         return mDataList.size();
     }
+
     /**
      * 返回整个集合
+     *
      * @return 类型，其实复写后返回的都是XML文件的ID
      */
     public List<Data> getItems() {
@@ -101,10 +104,10 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
     @Override
     public void onClick(View v) {
         ViewHolder viewHolder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
-        if (this.mListener!=null){
+        if (this.mListener != null) {
             //得到当前viewHolder对应适配器中的坐标
             int position = viewHolder.getAdapterPosition();
-            this.mListener.onItemClick(viewHolder,mDataList.get(position));
+            this.mListener.onItemClick(viewHolder, mDataList.get(position));
         }
     }
 
@@ -162,7 +165,8 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
         /**
          * 更新数据
          */
-        public void updateData(Data data) {
+        protected void updateData(Data data) {
+
             if (this.callback != null) {
                 this.callback.update(data, this);
             }
@@ -197,8 +201,9 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 
     /**
      * 插入一堆数据，并通知这段集合更新
+     * 以数组形式添加
      *
-     * @param dataList Data
+     * @param dataList Data..
      */
     public void add(Data... dataList) {
         if (dataList != null && dataList.length > 0) {
@@ -210,6 +215,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
 
     /**
      * 插入一堆数据，并通知这段集合更新
+     * 以集合形式添加
      *
      * @param dataList Data
      */

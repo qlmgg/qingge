@@ -18,7 +18,6 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     protected View mRoot;
     protected PlaceHolderView mPlaceHolderView;
     protected Activity mActivity;
-    private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     protected Bundle mSaveState;
     @Override
     public void onAttach(Context context) {
@@ -33,18 +32,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mSaveState = savedInstanceState;
         super.onCreate(savedInstanceState);
-//        if (savedInstanceState != null) {
-//
-//            boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
-//
-//            FragmentTransaction ft = getFragmentManager().beginTransaction();
-//            if (isSupportHidden) {
-//                ft.hide(this);
-//            } else {
-//                ft.show(this);
-//            }
-//            ft.commit();
-//        }
+
     }
 
     @Nullable
@@ -111,21 +99,4 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
         this.mPlaceHolderView = placeHolderView;
     }
 
-    @Override
-    public void onDestroyView() {
-        Log.e("TABY","我是frag :onDestroyView  ;      " +getClass().getSimpleName());
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.e("TABY","我是frag :onDestroyView :       " + getClass().getSimpleName());
-        super.onDestroy();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        Log.e("TABY","我是frag :onSaveInstanceState :       " + getClass().getSimpleName());
-        super.onSaveInstanceState(outState);
-    }
 }

@@ -1,10 +1,9 @@
 package com.qingge.yangsong.qingge;
 
-import android.content.Context;
-import android.widget.ImageView;
+
 
 import com.bumptech.glide.Glide;
-import com.guoxiaoxing.phoenix.core.listener.ImageLoader;
+
 import com.guoxiaoxing.phoenix.picker.Phoenix;
 import com.igexin.sdk.PushManager;
 import com.qingge.yangsong.common.app.Application;
@@ -12,7 +11,6 @@ import com.qingge.yangsong.factory.Factory;
 import com.qingge.yangsong.qingge.getuiService.DemoIntentService;
 import com.qingge.yangsong.qingge.getuiService.DemoPushService;
 
-import net.qiujuer.genius.kit.handler.Run;
 
 public class App extends Application {
     @Override
