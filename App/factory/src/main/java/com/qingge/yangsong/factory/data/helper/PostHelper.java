@@ -52,7 +52,9 @@ public class PostHelper {
                             CommentCard card = rspModel.getResult();
                             if (card != null)
                                 Application.showToast("评论成功!");
-                        }
+                        } else
+                            Application.showToast("错误代码 :" + rspModel.getCode());
+
                     }
 
                     @Override

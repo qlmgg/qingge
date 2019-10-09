@@ -12,7 +12,7 @@ public class Common {
 
         // 基础的网络请求地址
 //        String API_URL = "http://192.168.43.212:8080/api/";
-        String API_URL = "http://47.102.110.203:8080/post-1.0-SNAPSHOT/api/";
+        String API_URL = "http://www.1009527.xyz:8888/api/";
     }
 
 

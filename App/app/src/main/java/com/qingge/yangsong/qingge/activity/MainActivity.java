@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import com.qingge.yangsong.common.app.Activity;
 import com.qingge.yangsong.common.app.Fragment;
 import com.qingge.yangsong.qingge.R;
-import com.qingge.yangsong.qingge.fragments.main.CateringFragment;
+
 import com.qingge.yangsong.qingge.fragments.main.DailyFragment;
 import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
 import com.qingge.yangsong.qingge.fragments.main.MyFragment;
@@ -24,7 +24,6 @@ import butterknife.BindView;
 
 public class MainActivity extends Activity
         implements BottomNavigationView.OnNavigationItemSelectedListener {
-    private CateringFragment cateringFragment;
     private CommunityFragment communityFragment;
     private DailyFragment dailyFragment;
     private MyFragment myFragment;
@@ -64,11 +63,9 @@ public class MainActivity extends Activity
             initFragments();
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.lay_container, cateringFragment, CateringFragment.class.getSimpleName())
                     .add(R.id.lay_container, communityFragment, CommunityFragment.class.getSimpleName())
                     .add(R.id.lay_container, dailyFragment, DailyFragment.class.getSimpleName())
                     .add(R.id.lay_container, myFragment, MyFragment.class.getSimpleName())
-                    .show(cateringFragment)
                     .hide(communityFragment)
                     .hide(dailyFragment)
                     .hide(myFragment)
@@ -85,12 +82,10 @@ public class MainActivity extends Activity
         String tag = mSaveInstanceState.getString(SAVE_CURRENT_FRAGMENT_TAG);
         Fragment getSaveFragment = (Fragment) getSupportFragmentManager().findFragmentByTag(tag);
 
-        cateringFragment = (CateringFragment) getSupportFragmentManager().findFragmentByTag(CateringFragment.class.getSimpleName());
         communityFragment = (CommunityFragment) getSupportFragmentManager().findFragmentByTag(CommunityFragment.class.getSimpleName());
         dailyFragment = (DailyFragment) getSupportFragmentManager().findFragmentByTag(DailyFragment.class.getSimpleName());
         myFragment = (MyFragment) getSupportFragmentManager().findFragmentByTag(MyFragment.class.getSimpleName());
         //保存到数组
-        mFragments.add(cateringFragment);
         mFragments.add(communityFragment);
         mFragments.add(dailyFragment);
         mFragments.add(myFragment);
@@ -101,18 +96,16 @@ public class MainActivity extends Activity
     //初始化首页的四个tabFragm
     private void initFragments() {
 
-        cateringFragment = (CateringFragment) CateringFragment.instantiate(MainActivity.this, CateringFragment.class.getName(), null);
-        communityFragment = (CommunityFragment) CateringFragment.instantiate(MainActivity.this, CommunityFragment.class.getName(), null);
-        dailyFragment = (DailyFragment) CateringFragment.instantiate(MainActivity.this, DailyFragment.class.getName(), null);
-        myFragment = (MyFragment) CateringFragment.instantiate(MainActivity.this, MyFragment.class.getName(), null);
+        communityFragment = (CommunityFragment) CommunityFragment.instantiate(MainActivity.this, CommunityFragment.class.getName(), null);
+        dailyFragment = (DailyFragment) DailyFragment.instantiate(MainActivity.this, DailyFragment.class.getName(), null);
+        myFragment = (MyFragment) MyFragment.instantiate(MainActivity.this, MyFragment.class.getName(), null);
         //保存
-        mFragments.add(cateringFragment);
         mFragments.add(communityFragment);
         mFragments.add(dailyFragment);
         mFragments.add(myFragment);
 
         //每次显示都会把显示的fragment存到mCurrent中去
-        mCurrent = cateringFragment;
+        mCurrent = communityFragment;
 
     }
 
@@ -120,19 +113,9 @@ public class MainActivity extends Activity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.tab_catering:
-                mCurrent = cateringFragment;
-                getSupportFragmentManager().beginTransaction()
-                        .show(cateringFragment)
-                        .hide(communityFragment)
-                        .hide(dailyFragment)
-                        .hide(myFragment)
-                        .commit();
-                break;
             case R.id.tab_message:
                 mCurrent = communityFragment;
                 getSupportFragmentManager().beginTransaction()
-                        .hide(cateringFragment)
                         .show(communityFragment)
                         .hide(dailyFragment)
                         .hide(myFragment)
@@ -141,7 +124,6 @@ public class MainActivity extends Activity
             case R.id.tab_daily:
                 mCurrent = dailyFragment;
                 getSupportFragmentManager().beginTransaction()
-                        .hide(cateringFragment)
                         .hide(communityFragment)
                         .show(dailyFragment)
                         .hide(myFragment)
@@ -150,7 +132,6 @@ public class MainActivity extends Activity
             case R.id.tab_my:
                 mCurrent = myFragment;
                 getSupportFragmentManager().beginTransaction()
-                        .hide(cateringFragment)
                         .hide(communityFragment)
                         .hide(dailyFragment)
                         .show(myFragment)
