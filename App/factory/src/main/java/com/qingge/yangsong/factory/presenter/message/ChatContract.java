@@ -11,8 +11,6 @@ import com.qingge.yangsong.factory.presenter.BaseContract;
 /**
  * 聊天契约
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public interface ChatContract {
     interface Presenter extends BaseContract.Presenter {

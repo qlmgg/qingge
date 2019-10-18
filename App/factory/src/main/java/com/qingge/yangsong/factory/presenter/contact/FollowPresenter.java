@@ -12,8 +12,6 @@ import net.qiujuer.genius.kit.handler.runable.Action;
 /**
  * 关注的逻辑实现
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class FollowPresenter extends BasePresenter<FollowContract.View>
         implements FollowContract.Presenter, DataSource.Callback<UserCard> {

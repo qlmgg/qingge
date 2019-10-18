@@ -10,9 +10,6 @@ import java.util.Date;
 
 /**
  * 消息的卡片，用于接收服务器返回信息
- *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class MessageCard {
     private String id;

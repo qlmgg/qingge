@@ -15,9 +15,6 @@ import java.util.Objects;
 
 /**
  * 本地的消息表
- *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
 public class Message extends BaseDbModel<Message> implements Serializable {

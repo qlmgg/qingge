@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,37 +12,36 @@
         android:layout_height="@dimen/actionBarWithStatusBarSize"
         android:background="@color/white"
         android:paddingTop="@dimen/statusBarSize">
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout_daily"
-            android:layout_width="@dimen/len_156"
-            android:layout_height="@dimen/len_36"
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/white"
-            app:tabIndicatorColor="@color/grey_700"
-            app:tabIndicatorFullWidth="false"
-            app:tabSelectedTextColor="@color/grey_700"
-            app:tabTextColor="@color/grey_500">
-
-            <android.support.design.widget.TabItem
-                android:layout_width="@dimen/len_10"
-                android:layout_height="wrap_content"
-                android:text="@string/text_news" />
-
-            <android.support.design.widget.TabItem
-                android:layout_width="@dimen/len_10"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_daily" />
-        </android.support.design.widget.TabLayout>
+            android:textAppearance="@style/TextAppearance.Title"
+            android:text="消息"
+            />
 
     </android.support.v7.widget.Toolbar>
 
-
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/actionBarWithStatusBarSize" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineProvider="bounds"
+            android:visibility="gone"
+            tools:targetApi="lollipop" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.qingge.yangsong.common.widget.EmptyView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

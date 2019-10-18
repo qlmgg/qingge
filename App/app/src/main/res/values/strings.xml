@@ -11,11 +11,11 @@
 
     <string name="title_activity_personal">PersonalActivity</string>
 
-    <string name="tab_message">社区</string>
+    <string name="tab_community">社区</string>
 
-    <string name="tab_daily">日常</string>
+    <string name="tab_message">消息</string>
 
-    <string name="tab_my">我的</string>
+    <string name="tab_contact">联系人</string>
 
     <string name="tab_catering">餐饮</string>
     <string name="title_activity_login">Sign in</string>

@@ -5,8 +5,6 @@ import android.support.annotation.StringRes;
 /**
  * 基础的占位布局接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public interface PlaceHolderView {
 

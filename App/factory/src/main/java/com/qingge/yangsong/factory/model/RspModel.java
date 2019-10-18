@@ -2,10 +2,7 @@ package com.qingge.yangsong.factory.model;
 
 import java.util.Date;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 @SuppressWarnings({"unused"})
 public class RspModel<T> {
     public static final int SUCCEED = 1;

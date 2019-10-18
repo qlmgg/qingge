@@ -7,8 +7,6 @@ import com.qingge.yangsong.factory.model.card.GroupMemberCard;
 /**
  * 群中心的接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public interface GroupCenter {
     // 群卡片的处理

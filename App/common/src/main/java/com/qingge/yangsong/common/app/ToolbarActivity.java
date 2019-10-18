@@ -6,10 +6,6 @@ import android.support.v7.widget.Toolbar;
 import com.qingge.yangsong.common.R;
 
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public abstract class ToolbarActivity extends Activity {
     protected Toolbar mToolbar;
 

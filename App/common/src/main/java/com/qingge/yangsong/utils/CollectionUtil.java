@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- *          <p>
  * 集合工具类
  */
 

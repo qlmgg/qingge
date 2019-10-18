@@ -13,9 +13,9 @@ import com.qingge.yangsong.common.app.Activity;
 import com.qingge.yangsong.common.app.Fragment;
 import com.qingge.yangsong.qingge.R;
 
+import com.qingge.yangsong.qingge.fragments.main.ContactFragment;
 import com.qingge.yangsong.qingge.fragments.main.DailyFragment;
 import com.qingge.yangsong.qingge.fragments.main.CommunityFragment;
-import com.qingge.yangsong.qingge.fragments.main.MyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +24,9 @@ import butterknife.BindView;
 
 public class MainActivity extends Activity
         implements BottomNavigationView.OnNavigationItemSelectedListener {
-    private CommunityFragment communityFragment;
-    private DailyFragment dailyFragment;
-    private MyFragment myFragment;
+    private CommunityFragment mCommunityFragment;
+    private DailyFragment mDailyFragment;
+    private ContactFragment mContactsFragment;
     private Fragment mCurrent; //用户保存内存回收 MainActivity销毁后保存当前显示的fragment,用于重启后的找回
     private List<Fragment> mFragments = new ArrayList<>(); //保存当前活动下的f,用于配合mCurrent的恢复
     private static final String SAVE_CURRENT_FRAGMENT_TAG = "TAG";
@@ -63,12 +63,12 @@ public class MainActivity extends Activity
             initFragments();
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.lay_container, communityFragment, CommunityFragment.class.getSimpleName())
-                    .add(R.id.lay_container, dailyFragment, DailyFragment.class.getSimpleName())
-                    .add(R.id.lay_container, myFragment, MyFragment.class.getSimpleName())
-                    .hide(communityFragment)
-                    .hide(dailyFragment)
-                    .hide(myFragment)
+                    .add(R.id.lay_container, mCommunityFragment, CommunityFragment.class.getSimpleName())
+                    .add(R.id.lay_container, mDailyFragment, DailyFragment.class.getSimpleName())
+                    .add(R.id.lay_container, mContactsFragment, ContactFragment.class.getSimpleName())
+                    .hide(mCommunityFragment)
+                    .hide(mDailyFragment)
+                    .hide(mContactsFragment)
                     .commit();
         }
 
@@ -82,13 +82,13 @@ public class MainActivity extends Activity
         String tag = mSaveInstanceState.getString(SAVE_CURRENT_FRAGMENT_TAG);
         Fragment getSaveFragment = (Fragment) getSupportFragmentManager().findFragmentByTag(tag);
 
-        communityFragment = (CommunityFragment) getSupportFragmentManager().findFragmentByTag(CommunityFragment.class.getSimpleName());
-        dailyFragment = (DailyFragment) getSupportFragmentManager().findFragmentByTag(DailyFragment.class.getSimpleName());
-        myFragment = (MyFragment) getSupportFragmentManager().findFragmentByTag(MyFragment.class.getSimpleName());
+        mCommunityFragment = (CommunityFragment) getSupportFragmentManager().findFragmentByTag(CommunityFragment.class.getSimpleName());
+        mDailyFragment = (DailyFragment) getSupportFragmentManager().findFragmentByTag(DailyFragment.class.getSimpleName());
+        mContactsFragment = (ContactFragment) getSupportFragmentManager().findFragmentByTag(ContactFragment.class.getSimpleName());
         //保存到数组
-        mFragments.add(communityFragment);
-        mFragments.add(dailyFragment);
-        mFragments.add(myFragment);
+        mFragments.add(mCommunityFragment);
+        mFragments.add(mDailyFragment);
+        mFragments.add(mContactsFragment);
 
         return getSaveFragment;
     }
@@ -96,16 +96,16 @@ public class MainActivity extends Activity
     //初始化首页的四个tabFragm
     private void initFragments() {
 
-        communityFragment = (CommunityFragment) CommunityFragment.instantiate(MainActivity.this, CommunityFragment.class.getName(), null);
-        dailyFragment = (DailyFragment) DailyFragment.instantiate(MainActivity.this, DailyFragment.class.getName(), null);
-        myFragment = (MyFragment) MyFragment.instantiate(MainActivity.this, MyFragment.class.getName(), null);
+        mCommunityFragment = (CommunityFragment) CommunityFragment.instantiate(MainActivity.this, CommunityFragment.class.getName(), null);
+        mDailyFragment = (DailyFragment) DailyFragment.instantiate(MainActivity.this, DailyFragment.class.getName(), null);
+        mContactsFragment = (ContactFragment) ContactFragment.instantiate(MainActivity.this, ContactFragment.class.getName(), null);
         //保存
-        mFragments.add(communityFragment);
-        mFragments.add(dailyFragment);
-        mFragments.add(myFragment);
+        mFragments.add(mCommunityFragment);
+        mFragments.add(mDailyFragment);
+        mFragments.add(mContactsFragment);
 
         //每次显示都会把显示的fragment存到mCurrent中去
-        mCurrent = communityFragment;
+        mCurrent = mCommunityFragment;
 
     }
 
@@ -113,28 +113,28 @@ public class MainActivity extends Activity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+            case R.id.tab_community:
+                mCurrent = mCommunityFragment;
+                getSupportFragmentManager().beginTransaction()
+                        .show(mCommunityFragment)
+                        .hide(mDailyFragment)
+                        .hide(mContactsFragment)
+                        .commit();
+                break;
             case R.id.tab_message:
-                mCurrent = communityFragment;
+                mCurrent = mDailyFragment;
                 getSupportFragmentManager().beginTransaction()
-                        .show(communityFragment)
-                        .hide(dailyFragment)
-                        .hide(myFragment)
+                        .hide(mCommunityFragment)
+                        .show(mDailyFragment)
+                        .hide(mContactsFragment)
                         .commit();
                 break;
-            case R.id.tab_daily:
-                mCurrent = dailyFragment;
+            case R.id.tab_contact:
+                mCurrent = mContactsFragment;
                 getSupportFragmentManager().beginTransaction()
-                        .hide(communityFragment)
-                        .show(dailyFragment)
-                        .hide(myFragment)
-                        .commit();
-                break;
-            case R.id.tab_my:
-                mCurrent = myFragment;
-                getSupportFragmentManager().beginTransaction()
-                        .hide(communityFragment)
-                        .hide(dailyFragment)
-                        .show(myFragment)
+                        .hide(mCommunityFragment)
+                        .hide(mDailyFragment)
+                        .show(mContactsFragment)
                         .commit();
                 break;
         }

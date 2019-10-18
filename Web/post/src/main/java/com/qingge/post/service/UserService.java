@@ -11,6 +11,8 @@ import com.qingge.post.factory.UserFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户信息处理的Service
@@ -45,29 +47,23 @@ public class UserService extends BaseService {
 //    }
 
     // 拉取联系人
-//    @GET
-//    @Path("/contact")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public ResponseModel<List<UserCard>> contact() {
-//        User self = getSelf();
-//
-//        PushDispatcher dispatcher = new PushDispatcher();
-//        PushModel model = new PushModel();
-//        model.add(new PushModel.Entity(0,"你好呀  青鸽"));
-//        dispatcher.add(self,model);
-//        dispatcher.submit();
-//
-//        // 拿到我的联系人
-//        List<User> users = UserFactory.contacts(self);
-//        // 转换为UserCard
-//        List<UserCard> userCards = users.stream()
-//                // map操作，相当于转置操作，User->UserCard
-//                .map(user -> new UserCard(user, true))
-//                .collect(Collectors.toList());
-//        // 返回
-//        return ResponseModel.buildOk(userCards);
-//    }
+    @GET
+    @Path("/contact")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<List<UserCard>> contact() {
+        User self = getSelf();
+
+        // 拿到我的联系人
+        List<User> users = UserFactory.contacts(self);
+        // 转换为UserCard
+        List<UserCard> userCards = users.stream()
+                // map操作，相当于转置操作，User->UserCard
+                .map(user -> new UserCard(user, user.getUniversityId(),true))
+                .collect(Collectors.toList());
+        // 返回
+        return ResponseModel.buildOk(userCards);
+    }
 
     // 关注人，
     // 简化：关注人的操作其实是双方同时关注

@@ -7,8 +7,6 @@ import com.qingge.yangsong.factory.presenter.BaseContract;
 /**
  * 关注的接口定义
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public interface FollowContract {
     // 任务调度者

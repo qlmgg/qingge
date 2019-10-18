@@ -22,8 +22,6 @@ import net.qiujuer.genius.kit.handler.Run;
 /**
  * 这个类应该是对账户的保存
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class Account {
     private static final String KEY_PUSH_ID = "KEY_PUSH_ID";

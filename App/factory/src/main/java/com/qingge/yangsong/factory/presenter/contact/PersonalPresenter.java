@@ -15,10 +15,6 @@ import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
 
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public class PersonalPresenter extends BasePresenter<PersonalContract.View>
         implements PersonalContract.Presenter,DataSource.Callback<UserCard> {
 

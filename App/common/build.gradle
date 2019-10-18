@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -22,6 +21,7 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
 
 
+
     api "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     api "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
 
@@ -34,8 +34,10 @@ dependencies {
     api 'jp.wasabeef:glide-transformations:2.0.1'
 
 
-    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+    //黄油刀
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     api "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
     //图片/视频选择、预览、编辑与拍照
     implementation 'com.github.guoxiaoxing:phoenix:1.0.15'

@@ -13,8 +13,6 @@ import java.util.Objects;
 /**
  * 群信息Model
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 @Table(database = AppDatabase.class)
 public class Group extends BaseDbModel<Group> implements Serializable {

@@ -10,10 +10,7 @@ import com.qingge.yangsong.factory.presenter.Account;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class MsgCreateModel {
     // ID从客户端生产，一个UUID
     private String id;

@@ -17,8 +17,6 @@ import java.util.List;
 /**
  * 联系人的Presenter实现
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class ContactPresenter extends BaseSourcePresenter<User, User, ContactDataSource, ContactContract.View>
         implements ContactContract.Presenter, DataSource.SucceedCallback<List<User>> {
@@ -34,7 +32,7 @@ public class ContactPresenter extends BaseSourcePresenter<User, User, ContactDat
         super.start();
 
         // 加载网络数据
-//        UserHelper.refreshContacts();
+        UserHelper.refreshContacts();
     }
 
     // 运行到这里的时候是子线程

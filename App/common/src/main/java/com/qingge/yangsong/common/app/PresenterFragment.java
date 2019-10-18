@@ -8,9 +8,6 @@ import com.qingge.yangsong.factory.presenter.BaseContract;
 /**
  *
  * 基础契约中的视图层
- *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
         implements BaseContract.View<Presenter> {

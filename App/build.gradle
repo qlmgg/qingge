@@ -9,7 +9,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -40,7 +39,7 @@ ext {
 
     // 相关依赖库版本
     supportVersion = '28.0.0'
-    butterknifeVersion = '9.0.0-rc3'
+    butterknifeVersion = '8.8.1'
     geniusVersion = '2.1.1'
     glideVersion = '3.7.0'
     circleimageviewVersion = '3.0.0'

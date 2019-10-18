@@ -9,7 +9,7 @@
         <item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>
         -->
         <!--顶部导航条中的Icon和二级字体的颜色-->
-        <item name="colorControlNormal">@color/white_alpha_240</item>
+        <item name="colorControlNormal">@color/grey_800</item>
         <item name="colorControlActivated">@color/textPrimary</item>
     </style>
 
@@ -31,7 +31,7 @@
     </style>
 
     <style name="AppTheme.Main" parent="AppTheme.TransStatusBar">
-        <item name="toolbarTitleColor">@color/white</item>
+        <item name="toolbarTitleColor">@color/grey_800</item>
         <item name="toolbarMenuIconColor">@color/white</item>
         <item name="colorControlHighlight">@color/textSecond</item>
         <item name="android:windowBackground">@color/windowsBackgroundLight</item>

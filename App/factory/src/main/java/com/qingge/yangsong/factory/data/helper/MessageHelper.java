@@ -23,8 +23,6 @@ import retrofit2.Response;
 /**
  * 消息工具类
  *
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
  */
 public class MessageHelper {
     // 从本地找消息

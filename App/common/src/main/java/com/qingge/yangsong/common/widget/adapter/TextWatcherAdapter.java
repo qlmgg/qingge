@@ -3,10 +3,6 @@ package com.qingge.yangsong.common.widget.adapter;
 import android.text.Editable;
 import android.text.TextWatcher;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public abstract class TextWatcherAdapter implements TextWatcher {
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {

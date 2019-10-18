@@ -4,10 +4,7 @@ package com.qingge.yangsong.factory.presenter.contact;
 import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.presenter.BaseContract;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public interface PersonalContract {
     interface Presenter extends BaseContract.Presenter {
         // 获取用户信息

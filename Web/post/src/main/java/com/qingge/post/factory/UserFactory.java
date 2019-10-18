@@ -7,7 +7,9 @@ import com.qingge.post.utils.Hib;
 import com.qingge.post.utils.TextUtil;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class UserFactory {
     // 通过Token字段查询用户信息
@@ -215,21 +217,21 @@ public class UserFactory {
      * @param self User
      * @return List<User>
      */
-//    public static List<User> contacts(User self) {
-//        return Hib.query(session -> {
-//            // 重新加载一次用户信息到self中，和当前的session绑定
-//            session.load(self, self.getId());
-//
-//            // 获取我关注的人
-//            Set<UserFollow> flows = self.getFollowing();
-//
-//            // 使用简写方式
-//            return flows.stream()
-//                    .map(UserFollow::getTarget)
-//                    .collect(Collectors.toList());
-//
-//        });
-//    }
+    public static List<User> contacts(User self) {
+        return Hib.query(session -> {
+            // 重新加载一次用户信息到self中，和当前的session绑定
+            session.load(self, self.getId());
+
+            // 获取我关注的人
+            Set<UserFollow> flows = self.getFollowing();
+
+            // 使用简写方式
+            return flows.stream()
+                    .map(UserFollow::getTarget)
+                    .collect(Collectors.toList());
+
+        });
+    }
 
     /**
      * 关注人的操作

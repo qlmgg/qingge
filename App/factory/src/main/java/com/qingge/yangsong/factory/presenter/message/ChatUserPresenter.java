@@ -7,10 +7,7 @@ import com.qingge.yangsong.factory.data.message.MessageRepository;
 import com.qingge.yangsong.factory.model.db.Message;
 import com.qingge.yangsong.factory.model.db.User;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class ChatUserPresenter extends ChatPresenter<ChatContract.UserView>
         implements ChatContract.Presenter {
 

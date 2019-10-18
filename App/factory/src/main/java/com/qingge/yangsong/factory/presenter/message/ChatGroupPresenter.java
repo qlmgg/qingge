@@ -6,10 +6,7 @@ import com.qingge.yangsong.factory.data.message.MessageGroupRepository;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Message;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class ChatGroupPresenter extends ChatPresenter<ChatContract.GroupView>
 implements ChatContract.Presenter{
 

@@ -1,9 +1,6 @@
 package com.qingge.yangsong.factory.model.account;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class LoginModel {
     private String phone;
     private String password;

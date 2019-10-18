@@ -34,10 +34,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.OnClick;
 //TODO  等待删除
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public abstract class ChatFragment<InitModel>
         extends PresenterFragment<ChatContract.Presenter>
         implements ChatContract.View<InitModel> {

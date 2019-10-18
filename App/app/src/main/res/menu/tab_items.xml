@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/tab_message"
-        android:icon="@drawable/ic_tab_message"
+        android:id="@+id/tab_community"
+        android:icon="@drawable/ic_community"
         android:title="@string/tab_message"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/tab_daily"
-        android:icon="@drawable/ic_daily"
-        android:title="@string/tab_daily"
+        android:id="@+id/tab_message"
+        android:icon="@drawable/ic_message"
+        android:title="@string/tab_message"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/tab_my"
-        android:icon="@drawable/ic_tab_my"
-        android:title="@string/tab_my"
+        android:id="@+id/tab_contact"
+        android:icon="@drawable/ic_contact"
+        android:title="@string/tab_contact"
         app:showAsAction="ifRoom" />
 
 </menu>

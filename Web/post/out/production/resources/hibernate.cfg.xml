@@ -20,7 +20,7 @@
         <property name="connection.pool_size">5</property>
 
         <!-- SQL 方言 -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
         <!-- Hibernate session 上下文为线程级别 -->
         <property name="current_session_context_class">thread</property>

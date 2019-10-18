@@ -39,10 +39,6 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
 public class Factory {
     private static final String TAG = Factory.class.getSimpleName();
     // 单例模式ø

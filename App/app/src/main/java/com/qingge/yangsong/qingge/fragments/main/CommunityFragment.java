@@ -1,12 +1,9 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +16,6 @@ import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
 import com.qingge.yangsong.factory.data.helper.CommunityHelper;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;
-import com.qingge.yangsong.factory.model.SchoolInfoModel;
 import com.qingge.yangsong.factory.model.card.AlbumCard;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Post;

@@ -12,10 +12,7 @@ import com.qingge.yangsong.qingge.R;
 
 import butterknife.BindView;
 
-/**
- * @author qiujuer Email:qiujuer@live.cn
- * @version 1.0.0
- */
+
 public class FaceHolder extends RecyclerAdapter.ViewHolder<Face.Bean> {
     @BindView(R.id.im_face)
     ImageView mFace;
