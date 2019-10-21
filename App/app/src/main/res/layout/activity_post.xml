@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize"
         android:background="@color/grey_50"
-
         android:elevation="1dp"
         android:paddingTop="@dimen/statusBarSize" />
 
@@ -83,14 +82,18 @@
                             android:letterSpacing="0.01"
                             android:lineSpacingMultiplier="1.1"
                             android:padding="@dimen/len_6"
-                            android:text="海马做了这么多年汽车，总共赚的利润也没有16亿。海马董事长景柱同志“立志造车30年”，最后拯救他的，还是房地产。
-朴石看了一下，海口的这批房子是2000年建成，当时的估值为2000元/平米左右，如今至少增值了五六倍。2004年，海马借壳房地产公司金盘上市，这些房子被海马继承了下来。
-在宣传中，景柱一直被描述海汽筹建基地这块红土地”，“几千个日日夜夜的厮守，景柱已与海南的汽车工业融为一体”。
-在海马公司的历史记载中，19柱把海南马自达的资产，悄悄转移到了自己名下。"
+                            android:text="@string/txt_text"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
-
+                        <com.qingge.yangsong.common.widget.MyGridView
+                            android:id="@+id/grid_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:horizontalSpacing="@dimen/len_6"
+                            android:nestedScrollingEnabled="false"
+                            android:numColumns="3"
+                            android:verticalSpacing="@dimen/len_6" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -152,7 +155,8 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recycler"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="false" />
 
                 </LinearLayout>
 

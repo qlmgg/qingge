@@ -1,7 +1,5 @@
 package com.qingge.yangsong.qingge.fragments.main;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,7 +27,7 @@ import butterknife.BindView;
 
 import static com.qingge.yangsong.factory.model.db.Message.RECEIVER_TYPE_GROUP;
 
-public class DailyFragment extends PresenterFragment<SessionContract.Presenter>
+public class MessageFragment extends PresenterFragment<SessionContract.Presenter>
         implements SessionContract.View{
     @BindView(R.id.recycler)
     RecyclerView mRecyclerView;
@@ -39,13 +37,13 @@ public class DailyFragment extends PresenterFragment<SessionContract.Presenter>
     @BindView(R.id.layout)
     SwipeRefreshLayout mLayout;
 
-    public DailyFragment() {
+    public MessageFragment() {
         // Required empty public constructor
     }
 
     @Override
     protected int getContentLayoutId() {
-        return R.layout.fragment_daily;
+        return R.layout.fragment_message;
     }
 
     @Override
@@ -72,7 +70,7 @@ public class DailyFragment extends PresenterFragment<SessionContract.Presenter>
 
             @Override
             protected ViewHolder<Session> onCreateViewHolder(View root, int viewType) {
-                return new DailyFragment.ViewHolder(root);
+                return new MessageFragment.ViewHolder(root);
             }
         });
 

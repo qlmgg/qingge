@@ -93,11 +93,11 @@ public class PostService extends BaseService {
     @Path("/write")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseModel writePost(PostModel model) {
+    public ResponseModel<PostCard> writePost(PostModel model) {
         if (!PostModel.check(model)) {
             return ResponseModel.buildParameterError();//返回参数异常
         }
-//TODO 加入图片集合
+
         User sender = UserFactory.findById(model.getSenderId());
 
         if (sender == null) {
@@ -116,7 +116,7 @@ public class PostService extends BaseService {
         Post post = PostFactory.add(sender, university, model);
         if (post == null)
             return ResponseModel.buildCreateError(ResponseModel.ERROR_CREATE_MESSAGE);
-        return ResponseModel.buildOk();
+        return ResponseModel.buildOk(new PostCard(post));
     }
 
     //点击帖子或者点击帖子下面的评论图片

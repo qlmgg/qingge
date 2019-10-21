@@ -59,7 +59,7 @@ public class UserService extends BaseService {
         // 转换为UserCard
         List<UserCard> userCards = users.stream()
                 // map操作，相当于转置操作，User->UserCard
-                .map(user -> new UserCard(user, user.getUniversityId(),true))
+                .map(user -> new UserCard(user, user.getUniversityId(), true))
                 .collect(Collectors.toList());
         // 返回
         return ResponseModel.buildOk(userCards);
@@ -97,12 +97,11 @@ public class UserService extends BaseService {
         }
 
         // 通知我关注的人我关注他
-        PushFactory.pushFollow(followUser,new UserCard(self,self.getUniversityId()));
+        PushFactory.pushFollow(followUser, new UserCard(self, self.getUniversityId()));
 
         // 返回关注的人的信息
         return ResponseModel.buildOk(new UserCard(followUser, followUser.getUniversityId(), true));
     }
-
 
 
     // 取消关注人
@@ -140,8 +139,6 @@ public class UserService extends BaseService {
     }
 
 
-
-
     // 获取某人的详细信息
     @GET
     @Path("{id}") // http://127.0.0.1/api/user/{id}
@@ -174,38 +171,38 @@ public class UserService extends BaseService {
 
     // 搜索人的接口实现
     // 为了简化分页：只返回20条数据
-//    @GET // 搜索人，不涉及数据更改，只是查询，则为GET
-//    // http://127.0.0.1/api/user/search/
-//    @Path("/search/{name:(.*)?}") // 名字为任意字符，可以为空
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public ResponseModel<List<UserCard>> search(@DefaultValue("") @PathParam("name") String name) {
-//        User self = getSelf();
-//
-//        // 先查询数据
-//        List<User> searchUsers = UserFactory.search(name);
-//        // 把查询的人封装为UserCard
-//        // 判断这些人是否有我已经关注的人，
-//        // 如果有，则返回的关注状态中应该已经设置好状态
-//
-//        // 拿出我的联系人
-//        final List<User> contacts = UserFactory.contacts(self);
-//
-//        // 把User->UserCard
-//        List<UserCard> userCards = searchUsers.stream()
-//                .map(user -> {
-//                    // 判断这个人是否是我自己，或者是我的联系人中的人
-//                    boolean isFollow = user.getId().equalsIgnoreCase(self.getId())
-//                            // 进行联系人的任意匹配，匹配其中的Id字段
-//                            || contacts.stream().anyMatch(
-//                            contactUser -> contactUser.getId()
-//                                    .equalsIgnoreCase(user.getId())
-//                    );
-//
-//                    return new UserCard(user, isFollow);
-//                }).collect(Collectors.toList());
-//        // 返回
-//        return ResponseModel.buildOk(userCards);
-//    }
+    @GET // 搜索人，不涉及数据更改，只是查询，则为GET
+    // http://127.0.0.1/api/user/search/
+    @Path("/search/{name:(.*)?}") // 名字为任意字符，可以为空
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<List<UserCard>> search(@DefaultValue("") @PathParam("name") String name) {
+        User self = getSelf();
+
+        // 先查询数据
+        List<User> searchUsers = UserFactory.search(name);
+        // 把查询的人封装为UserCard
+        // 判断这些人是否有我已经关注的人，
+        // 如果有，则返回的关注状态中应该已经设置好状态
+
+        // 拿出我的联系人
+        final List<User> contacts = UserFactory.contacts(self);
+
+        // 把User->UserCard
+        List<UserCard> userCards = searchUsers.stream()
+                .map(user -> {
+                    // 判断这个人是否是我自己，或者是我的联系人中的人
+                    boolean isFollow = user.getId().equalsIgnoreCase(self.getId())
+                            // 进行联系人的任意匹配，匹配其中的Id字段
+                            || contacts.stream().anyMatch(
+                            contactUser -> contactUser.getId()
+                                    .equalsIgnoreCase(user.getId())
+                    );
+
+                    return new UserCard(user, user.getUniversityId(), isFollow);
+                }).collect(Collectors.toList());
+        // 返回
+        return ResponseModel.buildOk(userCards);
+    }
 
 }

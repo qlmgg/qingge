@@ -65,7 +65,6 @@ public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Pr
                 mLoadingDialog = loading;
             }
             loading.setVisibility(View.VISIBLE);
-
         }
     }
 

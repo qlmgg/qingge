@@ -22,9 +22,20 @@ public class PostFactory {
     //添加帖子
     // 添加一条普通消息
     public static Post add(User sender, University university, PostModel model) {
+
         Post post = new Post(sender, university, model);
         return Hib.query(session -> {
             session.save(post);
+            session.flush();
+            session.refresh(post);
+
+            if (model.getPictureList()!=null){
+                for (String path : model.getPictureList()) {
+                    Album album = new Album(path,post,null,sender);
+                    session.save(album);
+                }
+            }
+
             return post;
         });
     }
@@ -34,10 +45,10 @@ public class PostFactory {
             session.save(comment);
 
             // 写入到数据库
-            session.flush();
 
+//            session.flush();
             // 紧接着从数据库中查询出来
-            session.refresh(comment);
+//            session.refresh(comment);
             return comment;
         });
     }

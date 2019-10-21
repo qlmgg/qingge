@@ -3,8 +3,10 @@ package com.qingge.yangsong.qingge.fragments.main;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.presenter.contact.ContactContract;
 import com.qingge.yangsong.factory.presenter.contact.ContactPresenter;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.activity.SearchActivity;
 
 import butterknife.BindView;
 
@@ -27,7 +30,8 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
         implements ContactContract.View,RecyclerAdapter.AdapterListener<User> {
     @BindView(R.id.recycler)
     RecyclerView mRecyclerView;
-
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
     private RecyclerAdapter<User> adapter;
 
     @Override
@@ -38,6 +42,13 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
+
+        mToolbar.inflateMenu(R.menu.search_menu);
+        mToolbar.setOnMenuItemClickListener(menuItem ->{
+            SearchActivity.show(getContext());
+            return false;
+        });
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new RecyclerAdapter<User>(this) {
             @Override

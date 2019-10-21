@@ -17,14 +17,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAppearance="@style/TextAppearance.Title"
             android:text="消息"
-            />
+            android:textAppearance="@style/TextAppearance.Title" />
 
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/layout"
+        android:layout_marginTop="@dimen/len_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

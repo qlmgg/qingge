@@ -16,10 +16,12 @@ import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
 import com.qingge.yangsong.factory.data.helper.CommunityHelper;
 import com.qingge.yangsong.factory.data.helper.SchoolHelper;
+import com.qingge.yangsong.factory.data.helper.UserHelper;
 import com.qingge.yangsong.factory.model.card.AlbumCard;
 import com.qingge.yangsong.factory.model.db.Group;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.model.db.University;
+import com.qingge.yangsong.factory.model.db.User;
 import com.qingge.yangsong.factory.presenter.Account;
 import com.qingge.yangsong.factory.presenter.community.CommunityContract;
 import com.qingge.yangsong.factory.presenter.community.CommunityPresenter;
@@ -188,14 +190,12 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
         return mSchoolId;
     }
 
-//    @OnClick(R.id.write_post)
-//    public void writePost() {
-//        SendPostActivity.show(mActivity);
-//    }
+    @OnClick(R.id.btn_send_post)
+    public void sendPost() {
+        SendPostActivity.show(mActivity);
+    }
 
-    /**
-     * 弹出框一个  可以创建群 ..
-     */
+
     @OnClick(R.id.iv_menu)
     public void createGroup() {
         GroupCreateActivity.show(Objects.requireNonNull(getContext()));
@@ -226,8 +226,8 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
 
     private int imageNumber;
 
-    //这儿记得别写private  要有包访问权限
-    class ViewHolder extends RecyclerAdapter.ViewHolder<Post> {
+    class ViewHolder extends RecyclerAdapter.ViewHolder<Post>
+            implements RecyclerAdapter.AdapterListener<AlbumCard> {
         @BindView(R.id.portrait_view)
         PortraitView mPortraitView;
 
@@ -236,20 +236,22 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
 
         @BindView(R.id.content)
         TextView mContent;
-
         @BindView(R.id.recycler)
         RecyclerView mRecyclerView;
 
+        private Post post;
+
         ViewHolder(View itemView) {
             super(itemView);
-
         }
 
         //每个数据都会过这儿绑定, 存一个照片集合,这儿有个表格布局,根据集合大小显示列数.
         @Override
         protected void onBind(Post post) {
-            imageNumber = post.getImages().size();
+            this.post = post;
 
+
+            imageNumber = post.getImages().size();
             Run.onUiAsync(() -> {
                 mPortraitView.setup(Glide.with(getContext()), post.getSenderPortrait());
                 mName.setText(post.getSenderName());
@@ -259,7 +261,7 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
                 int imageSize = postImages.size();
 
                 mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), getCountColumns(imageSize) == 0 ? 1 : getCountColumns(imageSize)));
-                mRecyclerView.setAdapter(new RecyclerAdapter<AlbumCard>(null, postImages) {
+                mRecyclerView.setAdapter(new RecyclerAdapter<AlbumCard>(this, postImages) {
                     @Override
                     protected int getItemViewType(int position, AlbumCard albumCard) {
                         return R.layout.cell_test;
@@ -274,6 +276,7 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
             });
 
         }
+
         //根据图片数量去判断作几列显示
         private int getCountColumns(int size) {
             if (size == 1) {
@@ -291,6 +294,16 @@ public class CommunityFragment extends PresenterFragment<CommunityContract.Prese
         void onPortraitClick() {
             // 显示信息
             PersonalActivity.show(getContext(), mData.getSenderId());
+        }
+
+        @Override
+        public void onItemClick(RecyclerAdapter.ViewHolder holder, AlbumCard albumCard) {
+            PostActivity.show(getContext(), post);
+        }
+
+        @Override
+        public void onItemLongClick(RecyclerAdapter.ViewHolder holder, AlbumCard albumCard) {
+
         }
     }
 

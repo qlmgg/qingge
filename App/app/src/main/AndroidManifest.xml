@@ -86,6 +86,7 @@
             android:name=".activity.PostActivity"
             android:theme="@style/AppTheme.Main"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.SearchActivity" />
 
         <service android:name=".getuiService.DemoIntentService" />
         <service

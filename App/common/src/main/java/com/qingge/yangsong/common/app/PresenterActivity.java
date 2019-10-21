@@ -28,7 +28,7 @@ implements BaseContract.View<Presenter> {
 
     @Override
     public void showError(int str) {
-
+        Application.showToast(str);
     }
 
     @Override

@@ -14,8 +14,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_message" />
-                            <entry key="sourceFile" value="C:\Users\yangsong\Desktop\message.svg" />
+                            <entry key="height" value="32" />
+                            <entry key="outputName" value="ic_add_picture" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="C:\Users\yangsong\Desktop\add_picture.svg" />
+                            <entry key="width" value="32" />
                           </map>
                         </option>
                       </PersistentState>

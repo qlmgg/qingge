@@ -3,6 +3,8 @@ package com.qingge.post.bean.api.post;
 import com.google.common.base.Strings;
 import com.google.gson.annotations.Expose;
 
+import java.util.List;
+
 public class PostModel {
     @Expose
     private String id;
@@ -18,6 +20,8 @@ public class PostModel {
     private String senderPortrait;
     @Expose
     private String universityId;
+    @Expose
+    private List<String> pictureList;
 
     public String getContent() {
         return content;
@@ -73,6 +77,14 @@ public class PostModel {
 
     public void setSenderPortrait(String senderPortrait) {
         this.senderPortrait = senderPortrait;
+    }
+
+    public List<String> getPictureList() {
+        return pictureList;
+    }
+
+    public void setPictureList(List<String> pictureList) {
+        this.pictureList = pictureList;
     }
 
     // 校验

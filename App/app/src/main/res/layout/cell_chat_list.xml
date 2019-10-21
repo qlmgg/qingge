@@ -6,10 +6,10 @@
     android:layout_marginTop="@dimen/len_4"
     android:background="@color/white"
     android:foreground="@drawable/ic_touch_fg"
-    android:paddingBottom="@dimen/len_10"
-    android:paddingEnd="@dimen/len_16"
     android:paddingStart="@dimen/len_16"
-    android:paddingTop="@dimen/len_10">
+    android:paddingTop="@dimen/len_10"
+    android:paddingEnd="@dimen/len_16"
+    android:paddingBottom="@dimen/len_10">
 
     <com.qingge.yangsong.common.widget.PortraitView
         android:id="@+id/im_portrait"
@@ -23,21 +23,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/len_24"
         android:layout_gravity="start"
+        android:layout_marginStart="@dimen/len_56"
         android:layout_marginEnd="@dimen/len_60"
-        android:layout_marginStart="@dimen/len_52"
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:lines="1"
         android:textColor="@color/textPrimary"
         android:textSize="@dimen/font_16"
-        tools:text="Mary Harmon" />
+        tools:text="Mary HarmonMary Harmon" />
 
     <TextView
         android:id="@+id/txt_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginStart="@dimen/len_52"
+        android:layout_marginStart="@dimen/len_56"
         android:layout_marginTop="@dimen/len_28"
         android:ellipsize="end"
         android:gravity="center_vertical"

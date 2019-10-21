@@ -48,18 +48,7 @@
             android:textColor="@color/grey_500"
             android:textSize="@dimen/len_10" />
 
-        <ImageView
-            android:id="@+id/im_follow"
-            android:layout_width="@dimen/len_52"
-            android:layout_height="@dimen/len_24"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="@dimen/len_20"
-            android:background="@drawable/selector_btn_follow"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/selector_follow_add"
-            android:tint="@color/white_alpha_208" />
+
     </RelativeLayout>
 
     <TextView

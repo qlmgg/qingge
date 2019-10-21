@@ -6,7 +6,10 @@ import com.qingge.yangsong.factory.R;
 import com.qingge.yangsong.factory.data.DataSource;
 import com.qingge.yangsong.factory.model.RspModel;
 import com.qingge.yangsong.factory.model.card.CommentCard;
+import com.qingge.yangsong.factory.model.card.PostCard;
 import com.qingge.yangsong.factory.model.comment.CommentModel;
+import com.qingge.yangsong.factory.model.db.Post;
+import com.qingge.yangsong.factory.model.post.CreatePostModel;
 import com.qingge.yangsong.factory.net.Network;
 import com.qingge.yangsong.factory.net.RemoteService;
 
@@ -63,5 +66,34 @@ public class PostHelper {
                         Application.showToast(R.string.data_network_error);
                     }
                 });
+    }
+
+    public static void sendPost(CreatePostModel model, DataSource.Callback<Post> callback) {
+        RemoteService service = Network.remote();
+        service.sendPost(model).enqueue(new Callback<RspModel<PostCard>>() {
+            @Override
+            public void onResponse(Call<RspModel<PostCard>> call, Response<RspModel<PostCard>> response) {
+                RspModel<PostCard> rspModel = response.body();
+                if (rspModel == null) {
+                    callback.onDataNotAvailable(R.string.data_network_error);
+                    return;
+                }
+                if (rspModel.success()) {
+                    PostCard postCard = rspModel.getResult();
+                    if (callback != null) {
+                        callback.onDataLoaded(postCard.build());
+                    }
+                } else {
+                    if (callback != null)
+                        Factory.decodeRspCode(rspModel, callback);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<PostCard>> call, Throwable t) {
+                if (callback != null)
+                    callback.onDataNotAvailable(R.string.data_network_error);
+            }
+        });
     }
 }

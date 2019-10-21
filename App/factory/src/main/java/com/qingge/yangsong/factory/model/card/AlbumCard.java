@@ -1,5 +1,7 @@
 package com.qingge.yangsong.factory.model.card;
 
+import java.io.Serializable;
+
 public class AlbumCard {
     private String address;
 

@@ -165,7 +165,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
         /**
          * 更新数据
          */
-        protected void updateData(Data data) {
+        public void updateData(Data data) {
 
             if (this.callback != null) {
                 this.callback.update(data, this);
@@ -246,5 +246,17 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
             return;
         mDataList.addAll(dataList);
         notifyDataSetChanged();
+    }
+
+    public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data> {
+        @Override
+        public void onItemClick(ViewHolder holder, Data data) {
+
+        }
+
+        @Override
+        public void onItemLongClick(ViewHolder holder, Data data) {
+
+        }
     }
 }

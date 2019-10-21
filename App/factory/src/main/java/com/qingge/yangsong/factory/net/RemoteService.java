@@ -17,6 +17,7 @@ import com.qingge.yangsong.factory.model.comment.CommentModel;
 import com.qingge.yangsong.factory.model.db.University;
 import com.qingge.yangsong.factory.model.group.GroupCreateModel;
 import com.qingge.yangsong.factory.model.message.MsgCreateModel;
+import com.qingge.yangsong.factory.model.post.CreatePostModel;
 
 
 import java.util.List;
@@ -103,12 +104,17 @@ public interface RemoteService {
     @PUT("user/un_follow/{userId}")
     Call<RspModel<UserCard>> userCancelFollow(@Path("userId") String userId);
 
-    //
-//    //刷新联系人
+
+    //刷新联系人
     @GET("user/contact")
     Call<RspModel<List<UserCard>>> userContacts();
-
-    //
+//   用name搜人
+    @GET("user/search/{name}")
+    Call<RspModel<List<UserCard>>> searchByName(@Path("name") String name);
+//   用帖子名字搜帖子
+    @GET("user/search/post/{name}")
+    Call<RspModel<List<PostCard>>> searchPostByName(@Path("name") String name);
+    
     //获取某人详细信息
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
@@ -130,4 +136,8 @@ public interface RemoteService {
 
     @PUT("post/comment/write")
     Call<RspModel<CommentCard>> writeComment(@Body CommentModel model);
+
+    @PUT("post/write")
+    Call<RspModel<PostCard>> sendPost(@Body CreatePostModel model);
+
 }

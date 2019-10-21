@@ -7,67 +7,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e6082e7-c881-4900-9599-d2798a5f8195" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../App/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/adapter/AlbumAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/MyFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/message/ChatFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/message/ChatFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/panel/FaceHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/panel/FaceHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/getuiService/DemoPushService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/getuiService/DemoPushService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_my.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/ToolbarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/ToolbarActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/MessageLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/MessageLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/adapter/TextWatcherAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/adapter/TextWatcherAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/convention/PlaceHolderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/convention/PlaceHolderView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/factory/data/DbDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/factory/data/DbDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/CollectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/CollectionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/DateTimeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/DateTimeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/HashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/HashUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/StreamUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/StreamUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/UiTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/utils/UiTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/Factory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/group/GroupCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/group/GroupCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/group/GroupDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/group/GroupDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/MessageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/MessageHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/SessionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/SessionHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/SessionDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/SessionDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/SessionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/message/SessionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/PushModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/PushModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/RspModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/RspModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/account/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/account/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/GroupCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/GroupCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/GroupMemberCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/GroupMemberCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/MessageCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/GroupMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/GroupMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/view/MemberUserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/view/MemberUserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/view/UserSampleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/db/view/UserSampleModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/message/MsgCreateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/message/MsgCreateModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/net/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/net/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/ContactContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/ContactContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/ContactPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/ContactPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/FollowContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/FollowContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/FollowPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/FollowPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/PersonalContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/PersonalContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/PersonalPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/contact/PersonalPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatGroupPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatGroupPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatUserPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/ChatUserPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/SessionContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/SessionContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/SessionPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/presenter/message/SessionPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/PostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/SendPostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/activity/SendPostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/CommunityFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/CommunityFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/ContactFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/ContactFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/DailyFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/java/com/qingge/yangsong/qingge/fragments/main/MessageFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/drawable/ic_message.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/activity_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/activity_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/activity_send_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/activity_send_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/cell_chat_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/cell_chat_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/cell_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/cell_contacts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_contacts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_contacts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_daily.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/fragment_message.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/layout/item_school_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/layout/item_school_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/menu/tab_items.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/menu/tab_items.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterToolbarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/app/PresenterToolbarActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/recycler/RecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/java/com/qingge/yangsong/common/widget/recycler/RecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/res/drawable/ic_search.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/res/drawable/ic_send.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/common/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/common/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/PostHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/data/helper/PostHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/AlbumCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/model/card/AlbumCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/net/RemoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/factory/src/main/java/com/qingge/yangsong/factory/net/RemoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../App/lang/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../App/lang/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/bean/api/post/PostModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/bean/api/post/PostModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/factory/PostFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/factory/PostFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/factory/UserFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/factory/UserFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/exploded/post-1.0-SNAPSHOT.war/WEB-INF/classes/com/qingge/post/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/post-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/post-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/qingge/post/bean/api/post/PostModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/qingge/post/bean/api/post/PostModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/qingge/post/factory/PostFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/qingge/post/factory/PostFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/qingge/post/factory/UserFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/qingge/post/factory/UserFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/qingge/post/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/qingge/post/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/qingge/post/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/qingge/post/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qingge/post/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qingge/post/service/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -224,31 +209,36 @@
     <session id="2016633030">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.30" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="5" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="java" value="125" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="125" />
         </counts>
       </usages-collector>
     </session>
@@ -256,23 +246,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/base/ResponseModel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="3180">
+              <caret line="123" column="17" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Album.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Post.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2040">
+              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               <folding>
-                <element signature="e#2867#2868#0" expanded="true" />
-                <element signature="e#2903#2904#0" expanded="true" />
+                <element signature="e#1650#1651#0" expanded="true" />
+                <element signature="e#1684#1685#0" expanded="true" />
+                <element signature="e#1744#1745#0" expanded="true" />
+                <element signature="e#1790#1791#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/AccountService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/GroupFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="3060">
+              <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9420">
+              <caret line="323" column="29" selection-start-line="323" selection-start-column="29" selection-end-line="323" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -280,11 +308,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="362">
+              <caret line="185" column="33" lean-forward="true" selection-start-line="185" selection-start-column="33" selection-end-line="185" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -292,8 +317,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/UserCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+            <state relative-caret-position="1350">
+              <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
               <folding>
                 <element signature="e#904#905#0" expanded="true" />
                 <element signature="e#950#951#0" expanded="true" />
@@ -303,44 +328,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/GroupFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="811">
-              <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="229" column="47" lean-forward="true" selection-start-line="229" selection-start-column="47" selection-end-line="229" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/UserFollow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="2280">
               <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
               <folding>
                 <element signature="e#2204#2205#0" expanded="true" />
                 <element signature="e#2233#2234#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="e#4761#4762#0" expanded="true" />
-                <element signature="e#4793#4794#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -364,6 +358,8 @@
       <find>@One</find>
       <find>急</find>
       <find>manyto</find>
+      <find>flush</find>
+      <find>ERROR_CREATE_MESSAGE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -767,18 +763,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/group/GroupCreateModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Group.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/CommentCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Album.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/AlbumCard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/PostCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/university/SchoolInfoModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UniversityFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/service/UniversityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/WriteCommentModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/CommentModel.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/User.java" />
@@ -787,6 +780,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/provider/AuthRequestFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/base/ResponseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/qingge/post/service/UserService.java" />
       </list>
@@ -812,8 +808,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="245" />
-    <option name="width" value="960" />
+    <option name="x" value="647" />
+    <option name="y" value="5" />
+    <option name="width" value="1223" />
     <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -830,6 +827,17 @@
             <path>
               <item name="post" type="b2602c69:ProjectViewProjectNode" />
               <item name="post" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="post" type="b2602c69:ProjectViewProjectNode" />
+              <item name="post" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="post" type="b2602c69:ProjectViewProjectNode" />
+              <item name="post" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="post" type="b2602c69:ProjectViewProjectNode" />
@@ -944,10 +952,13 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559625072321" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571586821164" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
@@ -1240,17 +1251,25 @@
       <workItem from="1570808746402" duration="204000" />
       <workItem from="1571232517519" duration="52000" />
       <workItem from="1571391906124" duration="1713000" />
+      <workItem from="1571473399258" duration="1034000" />
+      <workItem from="1571553281924" duration="3432000" />
+      <workItem from="1571557974089" duration="431000" />
+      <workItem from="1571567819451" duration="798000" />
+      <workItem from="1571585588523" duration="1039000" />
+      <workItem from="1571586691467" duration="206000" />
+      <workItem from="1571631710559" duration="639000" />
+      <workItem from="1571639814152" duration="2568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133994000" />
+    <option name="totallyTimeSpent" value="144141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21588486" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -1300,13 +1319,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/group/GroupCreateModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
@@ -1332,13 +1344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1395,13 +1400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-656">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1489,20 +1487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Album.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/AlbumCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1580,49 +1564,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/base/ResponseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="e#2903#2904#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3210">
-          <caret line="124" column="41" selection-start-line="124" selection-start-column="41" selection-end-line="124" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#4761#4762#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/UniversityService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="811">
           <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-          <folding>
-            <element signature="e#1905#1915#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1633,9 +1578,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/base/ResponseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="48" />
+          <folding>
+            <element signature="e#2867#2868#0" expanded="true" />
+            <element signature="e#2903#2904#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/PostFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2070">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/android/JAVA/JDK/jdk1.8.0_181/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="874" column="12" selection-start-line="874" selection-start-column="12" selection-end-line="874" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/PostService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3180">
+          <caret line="123" column="17" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Album.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/api/post/PostModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+          <folding>
+            <element signature="e#1650#1651#0" expanded="true" />
+            <element signature="e#1684#1685#0" expanded="true" />
+            <element signature="e#1744#1745#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/GroupFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9420">
+          <caret line="323" column="29" selection-start-line="323" selection-start-column="29" selection-end-line="323" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/UserCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/db/UserFollow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="2280">
           <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
           <folding>
             <element signature="e#2204#2205#0" expanded="true" />
@@ -1644,47 +1687,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/GroupFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/factory/UserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="229" column="47" lean-forward="true" selection-start-line="229" selection-start-column="47" selection-end-line="229" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/bean/card/UserCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding>
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qingge/post/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="362">
+          <caret line="185" column="33" lean-forward="true" selection-start-line="185" selection-start-column="33" selection-end-line="185" selection-end-column="33" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Gradle : post : post-1.0-SNAPSHOT.war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Hibernate</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>post_test|post</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

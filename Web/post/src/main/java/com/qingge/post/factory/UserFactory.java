@@ -320,21 +320,21 @@ public class UserFactory {
      * @param name 查询的name，允许为空
      * @return 查询到的用户集合，如果name为空，则返回最近的用户
      */
-//    @SuppressWarnings("unchecked")
-//    public static List<User> search(String name) {
-//        if (Strings.isNullOrEmpty(name))
-//            name = ""; // 保证不能为null的情况，减少后面的一下判断和额外的错误
-//        final String searchName = "%" + name + "%"; // 模糊匹配
-//
-//        return Hib.query(session -> {
-//            // 查询的条件：name忽略大小写，并且使用like（模糊）查询；
-//            // 头像和描述必须完善才能查询到
-//            return (List<User>) session.createQuery("from User where lower(name) like :name and portrait is not null and description is not null")
-//                    .setParameter("name", searchName)
-//                    .setMaxResults(20) // 至多20条
-//                    .list();
-//
-//        });
-//
-//    }
+    @SuppressWarnings("unchecked")
+    public static List<User> search(String name) {
+        if (Strings.isNullOrEmpty(name))
+            name = ""; // 保证不能为null的情况，减少后面的一下判断和额外的错误
+        final String searchName = "%" + name + "%"; // 模糊匹配
+
+        return Hib.query(session -> {
+            // 查询的条件：name忽略大小写，并且使用like（模糊）查询；
+            // 头像和描述必须完善才能查询到
+            return (List<User>) session.createQuery("from User where lower(name) like :name and portrait is not null and description is not null")
+                    .setParameter("name", searchName)
+                    .setMaxResults(20) // 至多20条
+                    .list();
+
+        });
+
+    }
 }

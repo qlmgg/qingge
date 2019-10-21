@@ -9,8 +9,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,16 +24,21 @@ import com.qingge.yangsong.common.app.PresenterToolbarActivity;
 import com.qingge.yangsong.common.widget.EmptyView;
 import com.qingge.yangsong.common.widget.PortraitView;
 import com.qingge.yangsong.common.widget.recycler.RecyclerAdapter;
+import com.qingge.yangsong.factory.model.card.AlbumCard;
 import com.qingge.yangsong.factory.model.card.CommentCard;
 import com.qingge.yangsong.factory.model.db.Post;
 import com.qingge.yangsong.factory.presenter.post.PostContract;
 import com.qingge.yangsong.factory.presenter.post.PostPresenter;
 import com.qingge.yangsong.qingge.App;
 import com.qingge.yangsong.qingge.R;
+import com.qingge.yangsong.qingge.adapter.AlbumAdapter;
 import com.qingge.yangsong.qingge.fragments.post.CommentFragment;
 import com.qingge.yangsong.utils.DateTimeUtil;
 
 import net.qiujuer.genius.kit.handler.Run;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -43,6 +51,7 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
     private static final String POST_SENDER_NAME = "POST_SENDER_NAME";
     private static final String POST_PORTRAIT = "POST_PORTRAIT";
     public static final String POST_SENDER_ID = "POST_SENDER_ID";
+    public static final String POST_ALBUM_PATH = "POST_ALBUM_PATH";
     @BindView(R.id.frame_layout)
     FrameLayout layout;
     @BindView(R.id.portrait)
@@ -61,6 +70,9 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
     RecyclerView mRecycler;
     @BindView(R.id.empty)
     EmptyView mEmptyView;
+    @BindView(R.id.grid_view)
+    GridView mGridView;
+
     private Adapter mAdapter;
 
     private String name;//发送者名字
@@ -69,13 +81,21 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
     private String postId;//帖子的id
     private String postSenderId;//帖子的发送者id
 
+    private ArrayList<String> albumList;
+
     public static void show(Context context, Post post) {
+        ArrayList<String> list = new ArrayList<>();
+        for (AlbumCard image : post.getImages()) {
+            list.add(image.getAddress());
+        }
+
         Intent intent = new Intent(context, PostActivity.class);
         intent.putExtra(POST_ID, post.getId());
         intent.putExtra(POST_SENDER_ID, post.getSenderId());
         intent.putExtra(POST_CONTENT, post.getContent());
         intent.putExtra(POST_SENDER_NAME, post.getSenderName());
         intent.putExtra(POST_PORTRAIT, post.getSenderPortrait());
+        intent.putStringArrayListExtra(POST_ALBUM_PATH, list);
         context.startActivity(intent);
     }
 
@@ -87,7 +107,7 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
         portrait = bundle.getString(POST_PORTRAIT, "");
         content = bundle.getString(POST_CONTENT, "");
         postSenderId = bundle.getString(POST_SENDER_ID, "");
-
+        albumList = bundle.getStringArrayList(POST_ALBUM_PATH);
         return !TextUtils.isEmpty(name)
                 && !TextUtils.isEmpty(postId)
                 && !TextUtils.isEmpty(portrait)
@@ -111,7 +131,9 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
         setTitle("");
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         mRecycler.setAdapter(mAdapter = new Adapter());
-
+        AlbumAdapter albumAdapter = new AlbumAdapter(this, albumList);
+        mGridView.setAdapter(albumAdapter);
+        mGridView.setOnItemClickListener((parent, view, position, id) -> Application.showToast(""));
         mEmptyView.bind(layout);
         setPlaceHolderView(mEmptyView);
     }
@@ -201,7 +223,6 @@ public class PostActivity extends PresenterToolbarActivity<PostContract.Presente
         fragment.setArguments(bundle);
         //开始
         fragment.show(getSupportFragmentManager(), CommentFragment.class.getName());
-
     }
 }
 

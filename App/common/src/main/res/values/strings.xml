@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">common</string>
+    <string name="label_gallery_select_max_size">至多选择%s张</string>
 
 </resources>

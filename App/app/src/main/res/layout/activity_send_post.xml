@@ -1,52 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        app:contentInsetStart="0dp"
-        app:elevation="0dp"
-        android:background="@color/white"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarWithStatusBarSize">
-
-        <RelativeLayout
-            android:layout_marginTop="@dimen/statusBarSize"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/tv_back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="@dimen/len_16"
-                android:contentDescription="@string/name"
-                android:layout_centerVertical="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_delete" />
+            android:layout_height="@dimen/actionBarWithStatusBarSize"
+            android:background="@color/white"
+            android:paddingTop="@dimen/statusBarSize"
+            app:navigationIcon="@drawable/ic_back_grey">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_18"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:text="说点什么"/>
+                android:layout_gravity="center"
+                android:text="说点什么"
+                android:textAppearance="@style/TextAppearance.Title" />
 
-            <ImageView
-                android:padding="@dimen/len_4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/len_16"
-                android:contentDescription="@string/name"
-                android:src="@drawable/ic_send" />
+        </android.support.v7.widget.Toolbar>
 
-        </RelativeLayout>
+        <EditText
+            android:id="@+id/edit_post_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="说点什么"
+            android:minHeight="@dimen/len_36"
+            android:paddingStart="@dimen/len_16"
+            android:paddingTop="@dimen/len_6"
+            android:paddingEnd="@dimen/len_16"
+            android:paddingBottom="@dimen/len_6"
 
-    </android.support.v7.widget.Toolbar>
+            android:textColor="@color/grey_800"
+            android:textColorHint="@color/grey_500"
+            android:textSize="@dimen/font_16" />
+
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/len_10"
+            android:horizontalSpacing="@dimen/len_10"
+            android:numColumns="3"
+            android:paddingStart="@dimen/len_10"
+            android:paddingEnd="@dimen/len_10"
+            android:verticalSpacing="@dimen/len_10" />
+    </LinearLayout>
+
+   <ProgressBar
+       android:id="@+id/progress_bar"
+       android:visibility="gone"
+       android:layout_gravity="center"
+       tool:visibility="visible"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
 
 </FrameLayout>
